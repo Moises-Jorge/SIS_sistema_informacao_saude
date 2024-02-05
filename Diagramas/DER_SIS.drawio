@@ -1,29 +1,29 @@
-<mxfile host="Electron" modified="2024-02-05T09:37:35.194Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="igWlfsqkrxGANc0_x_uc" version="23.0.2" type="device">
+<mxfile host="Electron" modified="2024-02-05T12:51:23.557Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="0nlhyIquyp4F_qTC594_" version="23.0.2" type="device">
   <diagram name="Página-1" id="qp88Xz73EjjtEEX9ONFD">
-    <mxGraphModel dx="1154" dy="610" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2117" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="LoY-KwTF0y71DIWUAX0n-16" value="Usuário" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="314" y="60" width="200" height="260" as="geometry" />
+          <mxGeometry x="255" y="60" width="200" height="260" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-17" value="ID_usuario (PK);&lt;br&gt;Nome;&lt;br&gt;Data_Nascimento;&lt;br&gt;Sexo;&lt;br&gt;Morada;&lt;br&gt;Localidade;&lt;br&gt;Cod_Postal;&lt;br&gt;Telefone;&lt;br&gt;Email;&lt;br&gt;Login;&lt;br&gt;Password;&lt;br&gt;Tipo_usuario (admin/clinico/utente)&lt;br&gt;Nome_EntidadeFin;&lt;br&gt;NumUsuario_EntidadeFim;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="LoY-KwTF0y71DIWUAX0n-16" vertex="1">
           <mxGeometry y="50" width="200" height="210" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-18" value="Pessoal_Admin" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="639" y="430" width="140" height="110" as="geometry" />
+          <mxGeometry x="580" y="430" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-19" value="ID_pAdmin (PK);&lt;br&gt;Cargo;&lt;br&gt;ID_usuario (FK);" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="LoY-KwTF0y71DIWUAX0n-18" vertex="1">
           <mxGeometry y="50" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-20" value="Pessoal_Clinico" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="344" y="430" width="140" height="120" as="geometry" />
+          <mxGeometry x="285" y="430" width="140" height="120" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-21" value="ID_pClinico (PK);&lt;br&gt;num_ordem&lt;br&gt;ID_usuario (FK);&lt;br&gt;ID_Especialidade (FK);" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="LoY-KwTF0y71DIWUAX0n-20" vertex="1">
           <mxGeometry y="50" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-22" value="Utente" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="49" y="430" width="140" height="120" as="geometry" />
+          <mxGeometry x="-10" y="430" width="140" height="120" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-23" value="ID_utente (PK);&lt;br&gt;ID_usuario (FK);" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="LoY-KwTF0y71DIWUAX0n-22" vertex="1">
           <mxGeometry y="50" width="140" height="70" as="geometry" />
@@ -47,7 +47,7 @@
           <mxGeometry y="50" width="160" height="70" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-30" value="RCU" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="240" y="730" width="216" height="150" as="geometry" />
+          <mxGeometry x="760" y="420" width="216" height="150" as="geometry" />
         </mxCell>
         <mxCell id="LoY-KwTF0y71DIWUAX0n-31" value="ID (PK);&lt;br&gt;Grupo_Sang;&lt;br&gt;Estado_utente (suad, doente, morto)&lt;br&gt;&lt;br&gt;ID_user (FK);&lt;br&gt;ID_pClinico (FK);" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="LoY-KwTF0y71DIWUAX0n-30" vertex="1">
           <mxGeometry y="50" width="216" height="100" as="geometry" />
@@ -68,13 +68,13 @@
           <mxGeometry y="50" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="eM8rGhLmZg-cw6rQv6GR-1" value="Diagnóstico" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="514" y="730" width="160" height="180" as="geometry" />
+          <mxGeometry x="1034" y="420" width="160" height="180" as="geometry" />
         </mxCell>
         <mxCell id="eM8rGhLmZg-cw6rQv6GR-2" value="ID&lt;br&gt;Tipo_doença&lt;br&gt;Nome_doença&lt;br&gt;Data&lt;br&gt;&lt;br&gt;ID_RCU (FK)&lt;br&gt;ID_pClinico (FK)&lt;br&gt;ID_Alergia (FK) Null" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="eM8rGhLmZg-cw6rQv6GR-1">
           <mxGeometry y="50" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="eM8rGhLmZg-cw6rQv6GR-3" value="Alergia" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="730" y="730" width="161" height="90" as="geometry" />
+          <mxGeometry x="760" y="585" width="161" height="90" as="geometry" />
         </mxCell>
         <mxCell id="eM8rGhLmZg-cw6rQv6GR-4" value="ID&lt;br&gt;Nome_alergia" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="eM8rGhLmZg-cw6rQv6GR-3">
           <mxGeometry y="50" width="161" height="40" as="geometry" />
