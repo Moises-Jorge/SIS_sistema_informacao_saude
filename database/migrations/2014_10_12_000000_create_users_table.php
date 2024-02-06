@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('telefone')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('numero_utilizador');// Login
+            $table->string('numero_utilizador')->nullable();// Login
             $table->string('password');
             $table->integer('tipo_utilizador'); // "1" --> Admin;   "2" --> P_Clinico;   "3" --> Utente
             $table->string('nome_entidade_fin')->nullable(); //Fazer o devido tratamento depois
