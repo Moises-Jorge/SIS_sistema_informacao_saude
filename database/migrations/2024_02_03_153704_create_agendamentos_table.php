@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('data');
             $table->time('hora');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('pessoal_clinico_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
             $table->foreignId('exame_id')->constrained()->cascadeOnDelete();
             $table->foreignId('consulta_id')->constrained()->cascadeOnDelete();
             $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
