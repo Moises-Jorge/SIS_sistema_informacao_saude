@@ -32,20 +32,20 @@ Route::get('/', function () {
  * Conjunto de rotas referentes ao "User"
  */
 Route::prefix("user")->group(function(){
-    Route::get("/index",[UserController::class, 'index'])->name("index");
-    Route::get("/create",[UserController::class, 'create'])->name("create");
-    Route::post("/store",[UserController::class, 'store'])->name("store");
-    Route::get("/show/{id}",[UserController::class, 'show'])->name("show");
-    Route::get("/edit/{id}",[UserController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}",[UserController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}",[UserController::class, 'destroy'])->name("destroy");
+    Route::get("/index",[UserController::class, 'index'])->name("user.index");
+    Route::get("/create",[UserController::class, 'create'])->name("user.create");
+    Route::post("/store",[UserController::class, 'store'])->name("user.store");
+    Route::get("/show/{id}",[UserController::class, 'show'])->name("user.show");
+    Route::get("/edit/{id}",[UserController::class, 'edit'])->name("user.edit");
+    Route::post("/update/{id}",[UserController::class, 'update'])->name("user.update");
+    Route::get("/destroy/{id}",[UserController::class, 'destroy'])->name("user.destroy");
 });
 
 /**
  * Conjunto de rotas referentes ao "Registro Clinico do Utente"
  */
 Route::prefix("rcu")->group(function(){
-    Route::get("/index", [RegClinicoUtenteController::class, 'index'])->name("index");
+    Route::get("/index", [RegClinicoUtenteController::class, 'index'])->name("rcu.index");
     Route::get("/create", [RegClinicoUtenteController::class, 'create'])->name("create");
     Route::post("/store", [RegClinicoUtenteController::class, 'store'])->name("store");
     Route::get("/show/{id}", [RegClinicoUtenteController::class, 'show'])->name("show");
