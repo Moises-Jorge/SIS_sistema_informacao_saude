@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Agendamento extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'data',
+        'hora'
+    ];
 }

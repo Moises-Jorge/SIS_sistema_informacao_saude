@@ -12,7 +12,7 @@ class AgendamentoController extends Controller
      */
     public function index()
     {
-        //
+        $todos_agendamentos = Agendamento::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class AgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Agendamento::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Agendamento $agendamento)
+    public function show(string $id)
     {
-        //
+        $agendamento = Agendamento::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Agendamento $agendamento)
+    public function edit(string $id)
     {
-        //
+        $agendamento = Agendamento::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Agendamento $agendamento)
+    public function update(Request $request, string $id)
     {
-        //
+        $agendamento = Agendamento::find($id);
+        $agendamento->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Agendamento $agendamento)
+    public function destroy(string $id)
     {
-        //
+        $agendamento = Agendamento::find($id);
+        $agendamento->delete();
     }
 }
