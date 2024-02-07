@@ -12,7 +12,7 @@ class AlergiaController extends Controller
      */
     public function index()
     {
-        //
+        $todas_alergias = Alergia::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class AlergiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alergia::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Alergia $alergia)
+    public function show(string $id)
     {
-        //
+        $alergia = Alergia::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alergia $alergia)
+    public function edit(string $id)
     {
-        //
+        $alergia = Alergia::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alergia $alergia)
+    public function update(Request $request, string $id)
     {
-        //
+        $alergia = Alergia::find($id);
+        $alergia->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alergia $alergia)
+    public function destroy(string $id)
     {
-        //
+        $alergia = Alergia::find($id);
+        $alergia->delete();
     }
 }
