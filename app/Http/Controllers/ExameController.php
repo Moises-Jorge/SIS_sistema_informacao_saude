@@ -12,7 +12,7 @@ class ExameController extends Controller
      */
     public function index()
     {
-        //
+        $todos_exames = Exame::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class ExameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Exame::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Exame $exame)
+    public function show(string $id)
     {
-        //
+        $exame = Exame::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Exame $exame)
+    public function edit(string $id)
     {
-        //
+        $exame = Exame::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Exame $exame)
+    public function update(Request $request, string $id)
     {
-        //
+        $exame = Exame::find($id);
+        $exame->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Exame $exame)
+    public function destroy(string $id)
     {
-        //
+        $exame = Exame::find($id);
+        $exame->delete();
     }
 }
