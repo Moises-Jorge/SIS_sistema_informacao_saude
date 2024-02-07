@@ -12,7 +12,7 @@ class ConsultaController extends Controller
      */
     public function index()
     {
-        //
+        $todas_consultas = Consulta::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class ConsultaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Consulta::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Consulta $consulta)
+    public function show(string $id)
     {
-        //
+        $consulta = Consulta::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Consulta $consulta)
+    public function edit(string $id)
     {
-        //
+        $consulta = Consulta::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Consulta $consulta)
+    public function update(Request $request, string $id)
     {
-        //
+        $consulta = Consulta::find($id);
+        $consulta->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Consulta $consulta)
+    public function destroy(string $id)
     {
-        //
+        $consulta = Consulta::find($id);
+        $consulta->delete();
     }
 }
