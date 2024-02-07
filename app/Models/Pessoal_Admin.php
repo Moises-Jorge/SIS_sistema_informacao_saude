@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pessoal_Admin extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'cargo',
+        'user_id'
+    ];
 }
