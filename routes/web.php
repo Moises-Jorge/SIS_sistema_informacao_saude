@@ -46,77 +46,77 @@ Route::prefix("user")->group(function(){
  */
 Route::prefix("rcu")->group(function(){
     Route::get("/index", [RegClinicoUtenteController::class, 'index'])->name("rcu.index");
-    Route::get("/create", [RegClinicoUtenteController::class, 'create'])->name("create");
-    Route::post("/store", [RegClinicoUtenteController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [RegClinicoUtenteController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [RegClinicoUtenteController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [RegClinicoUtenteController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [RegClinicoUtenteController::class, 'destroy'])->name("destroy");
+    Route::get("/create", [RegClinicoUtenteController::class, 'create'])->name("rcu.create");
+    Route::post("/store", [RegClinicoUtenteController::class, 'store'])->name("rcu.store");
+    Route::get("/show/{id}", [RegClinicoUtenteController::class, 'show'])->name("rcu.show");
+    Route::get("/edit/{id}", [RegClinicoUtenteController::class, 'edit'])->name("rcu.edit");
+    Route::post("/update/{id}", [RegClinicoUtenteController::class, 'update'])->name("rcu.update");
+    Route::get("/destroy/{id}", [RegClinicoUtenteController::class, 'destroy'])->name("rcu.destroy");
 });
 
 /**
  * Conjunto de rotas referentes ao "Pessoal Clinico"
  */
 Route::prefix("clinico")->group(function(){
-    Route::get("/index", [PessoalClinicoController::class, 'index'])->name("index");
-    Route::get("/create", [PessoalClinicoController::class, 'create'])->name("create");
-    Route::post("/store", [PessoalClinicoController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [PessoalClinicoController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [PessoalClinicoController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [PessoalClinicoController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [PessoalClinicoController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [PessoalClinicoController::class, 'index'])->name("clinico.index");
+    Route::get("/create", [PessoalClinicoController::class, 'create'])->name("clinico.create");
+    Route::post("/store", [PessoalClinicoController::class, 'store'])->name("clinico.store");
+    Route::get("/show/{id}", [PessoalClinicoController::class, 'show'])->name("clinico.show");
+    Route::get("/edit/{id}", [PessoalClinicoController::class, 'edit'])->name("clinico.edit");
+    Route::post("/update/{id}", [PessoalClinicoController::class, 'update'])->name("clinico.update");
+    Route::get("/destroy/{id}", [PessoalClinicoController::class, 'destroy'])->name("clinico.destroy");
 });
 
 /**
  * Conjunto de rotas referentes ao "Pessoal Administrativo"
  */
 Route::prefix("admin")->group(function(){
-    Route::get("/index", [PessoalAdminController::class, 'index'])->name("index");
-    Route::get("/create", [PessoalAdminController::class, 'create'])->name("create");
-    Route::post("/store", [PessoalAdminController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [PessoalAdminController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [PessoalAdminController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [PessoalAdminController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [PessoalAdminController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [PessoalAdminController::class, 'index'])->name("admin.index");
+    Route::get("/create", [PessoalAdminController::class, 'create'])->name("admin.create");
+    Route::post("/store", [PessoalAdminController::class, 'store'])->name("admin.store");
+    Route::get("/show/{id}", [PessoalAdminController::class, 'show'])->name("admin.show");
+    Route::get("/edit/{id}", [PessoalAdminController::class, 'edit'])->name("admin.edit");
+    Route::post("/update/{id}", [PessoalAdminController::class, 'update'])->name("admin.update");
+    Route::get("/destroy/{id}", [PessoalAdminController::class, 'destroy'])->name("admin.destroy");
 });
 
 /**
  * Conjunto de rotas referentes aos "Exames"
  */
 Route::prefix("exame")->group(function(){
-    Route::get("/index", [ExameController::class, 'index'])->name("index");
-    Route::get("/create", [ExameController::class, 'create'])->name("create");
-    Route::post("/store", [ExameController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [ExameController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [ExameController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [ExameController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [ExameController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [ExameController::class, 'index'])->name("exame.index");
+    Route::get("/create", [ExameController::class, 'create'])->name("exame.create");
+    Route::post("/store", [ExameController::class, 'store'])->name("exame.store");
+    Route::get("/show/{id}", [ExameController::class, 'show'])->name("exame.show");
+    Route::get("/edit/{id}", [ExameController::class, 'edit'])->name("exame.edit");
+    Route::post("/update/{id}", [ExameController::class, 'update'])->name("exame.update");
+    Route::get("/destroy/{id}", [ExameController::class, 'destroy'])->name("exame.destroy");
 });
 
 /**
  * Conjunto de rotas referentes a "Especialidade"
  */
 Route::prefix("especialidade")->group(function(){
-    Route::get("/index", [EspecialidadeController::class, 'index'])->name("index");
-    Route::get("/create", [EspecialidadeController::class, 'create'])->name("create");
-    Route::post("/store", [EspecialidadeController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [EspecialidadeController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [EspecialidadeController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [EspecialidadeController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [EspecialidadeController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [EspecialidadeController::class, 'index'])->name("especialidade.index");
+    Route::get("/create", [EspecialidadeController::class, 'create'])->name("especialidade.create");
+    Route::post("/store", [EspecialidadeController::class, 'store'])->name("especialidade.store");
+    Route::get("/show/{id}", [EspecialidadeController::class, 'show'])->name("especialidade.show");
+    Route::get("/edit/{id}", [EspecialidadeController::class, 'edit'])->name("especialidade.edit");
+    Route::post("/update/{id}", [EspecialidadeController::class, 'update'])->name("especialidade.update");
+    Route::get("/destroy/{id}", [EspecialidadeController::class, 'destroy'])->name("especialidade.destroy");
 });
 
 /**
  * Conjunto de rotas referentes aos "Diagnosticos"
  */
 Route::prefix("diagnostico")->group(function(){
-    Route::get("/index", [DiagnosticoController::class, 'index'])->name("index");
-    Route::get("/create", [DiagnosticoController::class, 'create'])->name("create");
-    Route::post("/store", [DiagnosticoController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [DiagnosticoController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [DiagnosticoController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [DiagnosticoController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [DiagnosticoController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [DiagnosticoController::class, 'index'])->name("diagnostico.index");
+    Route::get("/create", [DiagnosticoController::class, 'create'])->name("diagnostico.create");
+    Route::post("/store", [DiagnosticoController::class, 'store'])->name("diagnostico.store");
+    Route::get("/show/{id}", [DiagnosticoController::class, 'show'])->name("diagnostico.show");
+    Route::get("/edit/{id}", [DiagnosticoController::class, 'edit'])->name("diagnostico.edit");
+    Route::post("/update/{id}", [DiagnosticoController::class, 'update'])->name("diagnostico.update");
+    Route::get("/destroy/{id}", [DiagnosticoController::class, 'destroy'])->name("diagnostico.destroy");
 });
 
 
@@ -124,37 +124,37 @@ Route::prefix("diagnostico")->group(function(){
  * Conjunto de rotas referentes a "Consultas"
  */
 Route::prefix("consulta")->group(function(){
-    Route::get("/index", [ConsultaController::class, 'index'])->name("index");
-    Route::get("/create", [ConsultaController::class, 'create'])->name("create");
-    Route::post("/store", [ConsultaController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [ConsultaController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [ConsultaController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [ConsultaController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [ConsultaController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [ConsultaController::class, 'index'])->name("consulta.index");
+    Route::get("/create", [ConsultaController::class, 'create'])->name("consulta.create");
+    Route::post("/store", [ConsultaController::class, 'store'])->name("consulta.store");
+    Route::get("/show/{id}", [ConsultaController::class, 'show'])->name("consulta.show");
+    Route::get("/edit/{id}", [ConsultaController::class, 'edit'])->name("consulta.edit");
+    Route::post("/update/{id}", [ConsultaController::class, 'update'])->name("consulta.update");
+    Route::get("/destroy/{id}", [ConsultaController::class, 'destroy'])->name("consulta.destroy");
 });
 
 /**
  * Conjunto de rotas referentes a "Alergias"
  */
 Route::prefix("alergia")->group(function(){
-    Route::get("/index", [AlergiaController::class, 'index'])->name("index");
-    Route::get("/create", [AlergiaController::class, 'create'])->name("create");
-    Route::post("/store", [AlergiaController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [AlergiaController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [AlergiaController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [AlergiaController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [AlergiaController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [AlergiaController::class, 'index'])->name("alergia.index");
+    Route::get("/create", [AlergiaController::class, 'create'])->name("alergia.create");
+    Route::post("/store", [AlergiaController::class, 'store'])->name("alergia.store");
+    Route::get("/show/{id}", [AlergiaController::class, 'show'])->name("alergia.show");
+    Route::get("/edit/{id}", [AlergiaController::class, 'edit'])->name("alergia.edit");
+    Route::post("/update/{id}", [AlergiaController::class, 'update'])->name("alergia.update");
+    Route::get("/destroy/{id}", [AlergiaController::class, 'destroy'])->name("alergia.destroy");
 });
 
 /**
  * Conjunto de rotas referentes ao "Agendamento"
  */
 Route::prefix("agendamento")->group(function(){
-    Route::get("/index", [AgendamentoController::class, 'index'])->name("index");
-    Route::get("/create", [AgendamentoController::class, 'create'])->name("create");
-    Route::post("/store", [AgendamentoController::class, 'store'])->name("store");
-    Route::get("/show/{id}", [AgendamentoController::class, 'show'])->name("show");
-    Route::get("/edit/{id}", [AgendamentoController::class, 'edit'])->name("edit");
-    Route::post("/update/{id}", [AgendamentoController::class, 'update'])->name("update");
-    Route::get("/destroy/{id}", [AgendamentoController::class, 'destroy'])->name("destroy");
+    Route::get("/index", [AgendamentoController::class, 'index'])->name("agendamento.index");
+    Route::get("/create", [AgendamentoController::class, 'create'])->name("agendamento.create");
+    Route::post("/store", [AgendamentoController::class, 'store'])->name("agendamento.store");
+    Route::get("/show/{id}", [AgendamentoController::class, 'show'])->name("agendamento.show");
+    Route::get("/edit/{id}", [AgendamentoController::class, 'edit'])->name("agendamento.edit");
+    Route::post("/update/{id}", [AgendamentoController::class, 'update'])->name("agendamento.update");
+    Route::get("/destroy/{id}", [AgendamentoController::class, 'destroy'])->name("agendamento.destroy");
 });
