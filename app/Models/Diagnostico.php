@@ -13,5 +13,8 @@ class Diagnostico extends Model
         'tipo_doenca',
         'nome', // VERIFICAR ISSO DEPOIS PARA DAR TRATAMENTO
         'data',
+        'reg__clinico__utente_id',
+        'pessoal__clinico_id',
+        'alergia_id'
     ];
 }

@@ -11,6 +11,11 @@ class Agendamento extends Model
 
     protected $fillable = [
         'data',
-        'hora'
+        'hora',
+        'user_id',
+        'pessoal__clinico_id',
+        'exame_id',
+        'consulta_id',
+        'especialidade_id'
     ];
 }

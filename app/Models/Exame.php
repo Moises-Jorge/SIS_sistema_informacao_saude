@@ -11,6 +11,7 @@ class Exame extends Model
 
     protected $fillable = [
         'nome',
-        'descricao'
+        'descricao',
+        'especialidade_id'
     ];
 }

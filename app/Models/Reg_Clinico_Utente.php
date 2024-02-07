@@ -11,6 +11,7 @@ class Reg_Clinico_Utente extends Model
 
     protected $fillable = [
         'grupo_sang',
-        'status'
+        'status',
+        'user_id'
     ];
 }
