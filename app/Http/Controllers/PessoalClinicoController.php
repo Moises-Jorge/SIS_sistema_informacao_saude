@@ -31,7 +31,9 @@ class PessoalClinicoController extends Controller
         $UserController = new UserController();
         $idUser = $UserController->store($request);
         Pessoal_Clinico::create([
-
+            'num_ordem'=>$request->input("num_ordem"),
+            'user_id'=>$idUser,
+            'especialidade_id'=>$request->input("especialidade_id")
         ]);
         
     }
