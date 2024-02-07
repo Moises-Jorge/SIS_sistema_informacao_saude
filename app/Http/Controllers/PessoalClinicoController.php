@@ -28,7 +28,12 @@ class PessoalClinicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $UserController = new UserController();
+        $idUser = $UserController->store($request);
+        Pessoal_Clinico::create([
+
+        ]);
+        
     }
 
     /**

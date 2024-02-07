@@ -31,6 +31,7 @@ class UserController extends Controller
     {
         Hash::make($request->input("password"));
         User::create($request->all());
+        return User::latest()->first()->id;
     }
 
     /**
