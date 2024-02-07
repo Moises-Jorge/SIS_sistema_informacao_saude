@@ -12,7 +12,7 @@ class DiagnosticoController extends Controller
      */
     public function index()
     {
-        //
+        $todos_diagnosticos = Diagnostico::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class DiagnosticoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Diagnostico::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Diagnostico $diagnostico)
+    public function show(string $id)
     {
-        //
+        $diagnostico = Diagnostico::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Diagnostico $diagnostico)
+    public function edit(string $id)
     {
-        //
+        $diagnostico = Diagnostico::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Diagnostico $diagnostico)
+    public function update(Request $request, string $id)
     {
-        //
+        $diagnostico = Diagnostico::find($id);
+        $diagnostico->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Diagnostico $diagnostico)
+    public function destroy(string $id)
     {
-        //
+        $diagnostico = Diagnostico::find($id);
+        $diagnostico->delete();
     }
 }
