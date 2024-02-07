@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $TodosUser= User::all();
+        $todos_usuarios = User::all();
     }
 
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $Usuario = User::find($id);
+        $usuario = User::find($id);
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $Usuario = User::find($id);
+        $usuario = User::find($id);
     }
 
     /**
@@ -55,8 +55,8 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         Hash::make($request->input("password"));
-        $Usuario = User::find($id);
-        $Usuario->update($request->all());
+        $usuario = User::find($id);
+        $usuario->update($request->all());
     }
 
     /**
@@ -64,7 +64,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $Usuario = User::find($id);
-        $Usuario->delete();
+        $usuario = User::find($id);
+        $usuario->delete();
     }
 }
