@@ -34,13 +34,14 @@
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
 
                 {{-- FORMULARIO de TESTE --}}
-                    <form action="{{route('user.store')}}" method="post">
+                    <form action="{{route('clinico.store')}}" method="post">
                         @csrf
                         <input type="text" name="nome">
                         <input type="text" name="sexo">
                         <input type="text" name="email">
                         <input type="text" name="password">
-                        <input type="text" value="3" name="tipo_utilizador">
+                        <input type="text" value="2" name="tipo_utilizador">
+                        <input type="text" name="num_ordem">
                         <input type="submit" value="Enviar">
                     </form>
                 {{-- FIM do FORMULARIO de TESTE --}}
