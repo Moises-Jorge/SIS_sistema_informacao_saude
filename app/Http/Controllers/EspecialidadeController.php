@@ -12,7 +12,7 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        //
+        $todas_especialidades = Especialidade::all();
     }
 
     /**
@@ -28,38 +28,40 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Especialidade::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Especialidade $especialidade)
+    public function show(string $id)
     {
-        //
+        $especialidade = Especialidade::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Especialidade $especialidade)
+    public function edit(string $id)
     {
-        //
+        $especialidade = Especialidade::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Especialidade $especialidade)
+    public function update(Request $request, string $id)
     {
-        //
+        $especialidade = Especialidade::find($id);
+        $especialidade->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Especialidade $especialidade)
+    public function destroy(string $id)
     {
-        //
+        $especialidade = Especialidade::find($id);
+        $especialidade->delete();
     }
 }
