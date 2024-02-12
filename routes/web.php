@@ -6,6 +6,7 @@ use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\DiagnosticoController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\ExameController;
+use App\Http\Controllers\login;
 use App\Http\Controllers\PessoalAdminController;
 use App\Http\Controllers\PessoalClinicoController;
 use App\Http\Controllers\RegClinicoUtenteController;
@@ -25,12 +26,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('site.index');
+});
+
+
+Route::prefix("login")->group(function(){
+    Route::get("/page",[login::class, 'login'])->name("login.page");
 });
 
 /**
  * Conjunto de rotas referentes ao "User"
  */
+
 Route::prefix("user")->group(function(){
     Route::get("/index",[UserController::class, 'index'])->name("user.index");
     Route::get("/create",[UserController::class, 'create'])->name("user.create");
