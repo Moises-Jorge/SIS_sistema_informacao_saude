@@ -77,7 +77,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">Entrar </a>
+							<a class="nav-link header-login" href="{{route('login.page')}}">Entrar </a>
 						</li>
 					</ul>
 				</nav>
