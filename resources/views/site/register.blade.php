@@ -69,7 +69,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">Entrar </a>
+							<a class="nav-link header-login" href="{{route('login.page')}}">Entrar </a>
 						</li>
 					</ul>
 				</nav>
@@ -92,8 +92,8 @@
 									<div class="col-md-12 col-lg-6 login-right">
 										
 										<!-- Register Form -->
-										<form action="https://dreamguys.co.in/demo/doccure/doctor-dashboard.html">
-											
+										<form action="{{route('user.store')}}" method="post">
+											@csrf
 											<div class="form-group form-focus">
 												<input type="text" class="form-control floating" name="nome">
 												<label class="focus-label">Nome</label>
@@ -123,9 +123,9 @@
 										
 											
 											<div class="text-right">
-												<a class="forgot-link" href="login.html">Already have an account?</a>
+												<a class="forgot-link" href="login.html">Ja possui uma conta?</a>
 											</div>
-											<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Signup</button>
+											<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Registrar</button>
 											
 										</form>
 										<!-- /Register Form -->

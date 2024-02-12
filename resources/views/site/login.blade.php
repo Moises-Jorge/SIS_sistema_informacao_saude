@@ -28,7 +28,7 @@
 	
 	</head>
 	<body class="account-page">
-
+		
 		<!-- Main Wrapper -->
 		<div class="main-wrapper">
 		
@@ -63,7 +63,7 @@
 							
 							
 							<li class="login-link">
-								<a href="login.html">Login / Signup</a>
+								<a href="{{route('user.create')}}">Registrar</a>
 							</li>
 						</ul>
 					</div>		 
@@ -78,7 +78,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">login / Signup </a>
+							<a class="nav-link header-login" href="{{route('user.create')}}">Registrar </a>
 						</li>
 					</ul>
 				</nav>
@@ -87,8 +87,12 @@
 			
 			<!-- Page Content -->
 			<div class="content">
+				@if($success)
+					<div class="alert alert-success" role="alert">
+						{{$success}}
+					</div>
+				@endif
 				<div class="container-fluid">
-					
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
 							

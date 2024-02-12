@@ -31,7 +31,12 @@ class UserController extends Controller
     {
         Hash::make($request->input("password"));
         User::create($request->all());
-        return User::latest()->first()->id;
+        if($request->input("tipo_utilizador")==3){
+            return view("site.login")->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
+        }else{
+            return User::latest()->first()->id;
+        }
+        
     }
 
     /**
