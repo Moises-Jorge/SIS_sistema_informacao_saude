@@ -87,7 +87,7 @@
 			
 			<!-- Page Content -->
 			<div class="content">
-				@if($success)
+				@if(isset($success))
 					<div class="alert alert-success" role="alert">
 						{{$success}}
 					</div>
@@ -106,7 +106,7 @@
 										<div class="login-header">
 											<h3>Login <span>SIS</span></h3>
 										</div>
-										<form action="https://dreamguys.co.in/demo/doccure/index.html">
+										<form action="{{route('menu.index')}}" method="get">
 											<div class="form-group form-focus">
 												<input type="email" class="form-control floating">
 												<label class="focus-label">Ususário</label>

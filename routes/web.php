@@ -7,6 +7,7 @@ use App\Http\Controllers\DiagnosticoController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\ExameController;
 use App\Http\Controllers\login;
+use App\Http\Controllers\Menu;
 use App\Http\Controllers\PessoalAdminController;
 use App\Http\Controllers\PessoalClinicoController;
 use App\Http\Controllers\RegClinicoUtenteController;
@@ -33,6 +34,13 @@ Route::get('/', function () {
 Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");
 });
+
+
+
+Route::prefix("menu")->group(function(){
+    Route::get("/index",[Menu::class, 'index'])->name("menu.index");
+});
+
 
 /**
  * Conjunto de rotas referentes ao "User"

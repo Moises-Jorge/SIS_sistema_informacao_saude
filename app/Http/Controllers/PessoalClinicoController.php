@@ -12,7 +12,8 @@ class PessoalClinicoController extends Controller
      */
     public function index()
     {
-        $todo_pessoal_clinico = Pessoal_Clinico::all();
+        $todo_pessoal_clinico = Pessoal_Clinico::join('users','users.id','=','pessoal__clinicos.user_id')->join('especialidades','especialidades.id','=','pessoal__clinicos.especialidade_id')->get();
+        return view('site.admin.doctor-list')->with("todoPessoalClinico",$todo_pessoal_clinico);
     }
 
     /**
@@ -20,7 +21,7 @@ class PessoalClinicoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
