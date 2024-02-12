@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="{{asset('admin/assets/css/font-awesome.min.css')}}">
 		
 		<!-- Datatables CSS -->
-		<link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
+		<link rel="stylesheet" href="{{asset('admin/assets/plugins/datatables/datatables.min.css')}}">
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
