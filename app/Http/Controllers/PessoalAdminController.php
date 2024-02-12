@@ -12,7 +12,7 @@ class PessoalAdminController extends Controller
      */
     public function index()
     {
-        //
+        $todo_pessoal_adm = Pessoal_Admin::all();
     }
 
     /**
@@ -28,38 +28,45 @@ class PessoalAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userController = new UserController();
+        $idUser = $userController->store($request);
+        Pessoal_Admin::create([
+            'cargo' =>$request->input("cargo"),
+            'user_id'=>$idUser,
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Pessoal_Admin $pessoal_Admin)
+    public function show(string $id)
     {
-        //
+        $pessoa_adm = Pessoal_Admin::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pessoal_Admin $pessoal_Admin)
+    public function edit(string $id)
     {
-        //
+        $pessoa_adm = Pessoal_Admin::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pessoal_Admin $pessoal_Admin)
+    public function update(Request $request, string $id)
     {
-        //
+        $pessoa_adm = Pessoal_Admin::find($id);
+        $pessoa_adm->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pessoal_Admin $pessoal_Admin)
+    public function destroy(string $id)
     {
-        //
+        $pessoa_adm = Pessoal_Admin::find($id);
+        $pessoa_adm->delete();
     }
 }

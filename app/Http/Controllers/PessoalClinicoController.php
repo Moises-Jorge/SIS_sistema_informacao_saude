@@ -12,7 +12,7 @@ class PessoalClinicoController extends Controller
      */
     public function index()
     {
-        //
+        $todo_pessoal_clinico = Pessoal_Clinico::all();
     }
 
     /**
@@ -41,32 +41,34 @@ class PessoalClinicoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pessoal_Clinico $pessoal_Clinico)
+    public function show(string $id)
     {
-        //
+        $pessoa_clinica = Pessoal_Clinico::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pessoal_Clinico $pessoal_Clinico)
+    public function edit(string $id)
     {
-        //
+        $pessoa_clinica = Pessoal_Clinico::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pessoal_Clinico $pessoal_Clinico)
+    public function update(Request $request, string $id)
     {
-        //
+        $pessoa_clinica = Pessoal_Clinico::find($id);
+        $pessoa_clinica->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pessoal_Clinico $pessoal_Clinico)
+    public function destroy(string $id)
     {
-        //
+        $pessoa_clinica = Pessoal_Clinico::find($id);
+        $pessoa_clinica->delete();
     }
 }
