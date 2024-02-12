@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Especialidade;
 use App\Models\Pessoal_Clinico;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,18 @@ class PessoalClinicoController extends Controller
      */
     public function index()
     {
-        $todo_pessoal_clinico = Pessoal_Clinico::join('users','users.id','=','pessoal__clinicos.user_id')->join('especialidades','especialidades.id','=','pessoal__clinicos.especialidade_id')->get();
-        return view('site.admin.doctor-list')->with("todoPessoalClinico",$todo_pessoal_clinico);
+        $todo_pessoal_clinico = Pessoal_Clinico::join('users','users.id','=','pessoal__clinicos.user_id')
+        ->join('especialidades','especialidades.id','=','pessoal__clinicos.especialidade_id')
+        ->select('users.id',
+        'users.nome as nomeUser',
+        'especialidades.nome as nomeEspecialidade',
+        'pessoal__clinicos.num_ordem',
+        'users.telefone')
+        ->get();
+        $especialidades = Especialidade::all();
+        //$todo_pessoal_clinico=json_decode(json_encode($todo_pessoal_clinico));
+      
+        return view('site.admin.doctor-list',compact('todo_pessoal_clinico','especialidades'));
     }
 
     /**
@@ -36,6 +47,16 @@ class PessoalClinicoController extends Controller
             'user_id'=>$idUser,
             'especialidade_id'=>$request->input("especialidade_id")
         ]);
+        $todo_pessoal_clinico = Pessoal_Clinico::join('users','users.id','=','pessoal__clinicos.user_id')
+        ->join('especialidades','especialidades.id','=','pessoal__clinicos.especialidade_id')
+        ->select('users.id',
+        'users.nome as nomeUser',
+        'especialidades.nome as nomeEspecialidade',
+        'pessoal__clinicos.num_ordem',
+        'users.telefone')
+        ->get();
+        $especialidades = Especialidade::all();
+        return view('site.admin.doctor-list',compact('todo_pessoal_clinico','especialidades'))->with('success', 'Cadastro realizado com sucesso!');
         
     }
 
