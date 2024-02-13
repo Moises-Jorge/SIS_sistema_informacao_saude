@@ -13,6 +13,7 @@ class EspecialidadeController extends Controller
     public function index()
     {
         $todas_especialidades = Especialidade::all();
+        return view('site.admin.specialities', compact('todas_especialidades'));
     }
 
     /**
@@ -29,6 +30,9 @@ class EspecialidadeController extends Controller
     public function store(Request $request)
     {
         Especialidade::create($request->all());
+
+        $todas_especialidades = Especialidade::all();
+        return view('site.admin.specialities', compact('todas_especialidades'))->with('success', 'Cadastro realizado com sucesso!');
     }
 
     /**

@@ -6,28 +6,28 @@
         <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
     </li>
     <li> 
-        <a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Alergia</span></a>
+        <a href="{{ route('alergia.index') }}"><i class="fe fe-layout"></i> <span>Alergia</span></a>
     </li>
     <li> 
-        <a href="specialities.html"><i class="fe fe-users"></i> <span>Diagnostico</span></a>
+        <a href="{{ route('diagnostico.index') }}"><i class="fe fe-users"></i> <span>Diagnostico</span></a>
     </li>
     <li> 
-        <a href="specialities.html"><i class="fe fe-users"></i> <span>Especialidades</span></a>
+        <a href="{{ route('especialidade.index') }}"><i class="fe fe-users"></i> <span>Especialidades</span></a>
     </li>
     <li> 
-        <a href="{{route('clinico.index')}}"><i class="fe fe-user-plus"></i> <span>Pessoal Clinico</span></a>
+        <a href="{{ route('clinico.index') }}"><i class="fe fe-user-plus"></i> <span>Pessoal Clinico</span></a>
     </li>
     <li> 
-        <a href="patient-list.html"><i class="fe fe-user"></i> <span>Pacientes</span></a>
+        <a href="{{ route('user.index') }}"><i class="fe fe-user"></i> <span>Pacientes</span></a>
     </li>
     <li> 
-        <a href="reviews.html"><i class="fe fe-star-o"></i> <span>Consultas</span></a>
+        <a href="{{ route('consulta.index') }}"><i class="fe fe-star-o"></i> <span>Consultas</span></a>
     </li>
     <li> 
-        <a href="transactions-list.html"><i class="fe fe-activity"></i> <span>Exames</span></a>
+        <a href="{{ route('exame.index') }}"><i class="fe fe-activity"></i> <span>Exames</span></a>
     </li>
     <li> 
-        <a href="settings.html"><i class="fe fe-vector"></i> <span>Agendamento</span></a>
+        <a href="{{ route('agendamento.index') }}"><i class="fe fe-vector"></i> <span>Agendamento</span></a>
     </li>
     <li class="submenu">
         <a href="#"><i class="fe fe-document"></i> <span> RCU</span> <span class="menu-arrow"></span></a>

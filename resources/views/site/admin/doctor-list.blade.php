@@ -208,7 +208,7 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
-										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#cadastroPessoalClinico">Castrar Pessoal clinico</button>
+										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#cadastroPessoalClinico">Cadastrar Pessoal clinico</button>
 
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
@@ -242,6 +242,8 @@
 		
         </div>
 		<!-- /Main Wrapper -->
+
+		<!-- Add Modal -->
 		<div class="modal fade" id="cadastroPessoalClinico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 			  <div class="modal-content">
@@ -319,7 +321,9 @@
 				
 			  </div>
 			</div>
-		  </div>
+		</div>
+		<!-- /ADD Modal -->
+
 		<!-- jQuery -->
         <script src="{{asset('admin/assets/js/jquery-3.2.1.min.js')}}"></script>
 		
