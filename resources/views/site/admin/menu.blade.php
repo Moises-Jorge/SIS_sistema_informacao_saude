@@ -3,7 +3,7 @@
         <span>Main</span>
     </li>
     <li class="active"> 
-        <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+        <a href="{{ route('menu.index') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
     </li>
     <li> 
         <a href="{{ route('alergia.index') }}"><i class="fe fe-layout"></i> <span>Alergia</span></a>

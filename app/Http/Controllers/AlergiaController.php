@@ -13,6 +13,7 @@ class AlergiaController extends Controller
     public function index()
     {
         $todas_alergias = Alergia::all();
+        return view('site.admin.allergy-list', compact('todas_alergias'));
     }
 
     /**
@@ -29,6 +30,9 @@ class AlergiaController extends Controller
     public function store(Request $request)
     {
         Alergia::create($request->all());
+
+        $todas_alergias = Alergia::all();
+        return view('site.admin.allergy-list', compact('todas_alergias'))->with('success', 'Cadastro realizado com sucesso!');
     }
 
     /**
