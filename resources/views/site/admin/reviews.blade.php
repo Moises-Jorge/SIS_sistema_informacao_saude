@@ -229,6 +229,7 @@
 													<tr>
 														<td>{{ $consulta->nome }}</td>
 														<td>{{ $consulta->descricao }}</td>
+														<td>{{ $consulta->nomeEspecialidade }}</td>
 													</tr>
 												@endforeach
 											</tbody>
@@ -269,6 +270,17 @@
 						<label class="col-form-label col-md-2">Descrição</label>
 						<div class="col-md-10">
 							<input type="text" class="form-control" name="descricao">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Especialidade</label>
+						<div class="col-md-10">
+							<select class="form-control" name="especialidade_id">
+								@foreach ($especialidades as $especialidade)
+									<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 
