@@ -13,6 +13,8 @@ class ExameController extends Controller
     public function index()
     {
         $todos_exames = Exame::all();
+
+        return view('site.admin.exames-list', compact('todos_exames'));
     }
 
     /**
