@@ -13,6 +13,7 @@ class ConsultaController extends Controller
     public function index()
     {
         $todas_consultas = Consulta::all();
+        return view('site.admin.reviews', compact('todas_consultas'));
     }
 
     /**
