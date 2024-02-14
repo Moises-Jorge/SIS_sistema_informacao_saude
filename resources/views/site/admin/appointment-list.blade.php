@@ -188,10 +188,15 @@
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-12">
-								<h3 class="page-title">Appointments</h3>
+								@if(isset($success))
+									<div class="alert alert-success" role="alert">
+										{{$success}}
+									</div>
+								@endif
+								<h3 class="page-title">Agendamento</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Appointments</li>
+									<li class="breadcrumb-item active">Agendamento</li>
 								</ul>
 							</div>
 						</div>
@@ -204,275 +209,29 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
+
+										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#criarAgendamento">Criar Agendamento</button>
+
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Doctor Name</th>
-													<th>Speciality</th>
-													<th>Patient Name</th>
-													<th>Apointment Time</th>
+													<th>Nome do Pessoal Clinico</th>
+													<th>Especialidade</th>
+													<th>Nome do Paciente</th>
+													<th>Horario</th>
 													<th>Status</th>
-													<th class="text-right">Amount</th>
+													{{-- <th class="text-right">Amount</th> Pagamentos/Valor --}}
 												</tr>
 											</thead>
 											<tbody>
+												@foreach ($todos_agendamentos as $agendamento)
 												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Ruby Perrin</a>
-														</h2>
-													</td>
-													<td>Dental</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Charlene Reed </a>
-														</h2>
-													</td>
-													<td>9 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.15 AM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_1" class="check" checked>
-															<label for="status_1" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$200.00
-													</td>
+													{{-- <td>{{$pessoa_clinica->nomeUser}}</td>
+													<td>{{$pessoa_clinica->nomeEspecialidade}}</td>
+													<td>{{$pessoa_clinica->num_order}}</td>
+													<td>{{$pessoa_clinica->telefone}}</td> --}}
 												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Darren Elder</a>
-														</h2>
-													</td>
-													<td>Dental</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Travis Trimble </a>
-														</h2>
-													</td>
-													
-													<td>5 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.35 AM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_2" class="check" checked>
-															<label for="status_2" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$300.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Deborah Angel</a>
-														</h2>
-													</td>
-													<td>Cardiology</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Carl Kelly</a>
-														</h2>
-													</td>
-													<td>11 Nov 2019 <span class="text-primary d-block">12.00 PM - 12.15 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_3" class="check" checked>
-															<label for="status_3" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$150.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Sofia Brient</a>
-														</h2>
-													</td>
-													<td>Urology</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html"> Michelle Fairfax</a>
-														</h2>
-													</td>
-													<td>7 Nov 2019 <span class="text-primary d-block">1.00 PM - 1.20 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_4" class="check" checked>
-															<label for="status_4" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$150.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Marvin Campbell</a>
-														</h2>
-													</td>
-													<td>Orthopaedics</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Gina Moore</a>
-														</h2>
-													</td>
-													
-													<td>15 Nov 2019 <span class="text-primary d-block">1.00 PM - 1.15 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$200.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Katharine Berthold</a>
-														</h2>
-													</td>
-													<td>Orthopaedics</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Elsie Gilley</a>
-														</h2>
-													</td>
-													
-													<td>16 Nov 2019 <span class="text-primary d-block">1.00 PM - 1.15 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$250.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Linda Tobin</a>
-														</h2>
-													</td>
-													<td>Neurology</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Joan Gardner</a>
-														</h2>
-													</td>
-													
-													<td>18 Nov 2019 <span class="text-primary d-block">1.10 PM - 1.25 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$260.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Paul Richard</a>
-														</h2>
-													</td>
-													<td>Dermatology</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html"> Daniel Griffing</a>
-														</h2>
-													</td>
-													
-													<td>18 Nov 2019 <span class="text-primary d-block">11.10 AM - 11.25 AM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$260.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. John Gibbs</a>
-														</h2>
-													</td>
-													<td>Dental</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Walter Roberson</a>
-														</h2>
-													</td>
-													
-													<td>21 Nov 2019 <span class="text-primary d-block">12.10 PM - 12.25 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$300.00
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb.jpg" alt="User Image"></a>
-															<a href="profile.html">Dr. Olga Barlow</a>
-														</h2>
-													</td>
-													<td>Dental</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-															<a href="profile.html">Robert Rhodes</a>
-														</h2>
-													</td>
-													
-													<td>23 Nov 2019 <span class="text-primary d-block">12.10 PM - 12.25 PM</span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_5" class="check" checked>
-															<label for="status_5" class="checktoggle">checkbox</label>
-														</div>
-													</td>
-													<td class="text-right">
-														$300.00
-													</td>
-												</tr>
+												@endforeach
 											</tbody>
 										</table>
 									</div>
@@ -485,10 +244,88 @@
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->
-		
         </div>
 		<!-- /Main Wrapper -->
 		
+		<div class="modal fade" id="criarAgendamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Meu Formulário</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  <!-- Seu formulário aqui -->
+				  <form action="{{route('clinico.store')}}" method="POST">
+					@csrf
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Nome</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" name="nome">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">email</label>
+						<div class="col-md-10">
+							<input type="email" class="form-control" name="email">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">senha</label>
+						<div class="col-md-10">
+							<input type="password" class="form-control" name="password">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Genero</label>
+						<div class="col-md-10">
+							<select class="form-control" name="sexo">
+								<option>Masculino</option>
+								<option>Femenino</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Numero de ordem</label>
+						<div class="col-md-10">
+							<input type="number" class="form-control" name="num_ordem">
+						</div>
+					</div>
+					
+					{{-- <div class="form-group row">
+						<label class="col-form-label col-md-2">Especialidade</label>
+						<div class="col-md-10">
+							<select class="form-control" name="especialidade_id">
+								@foreach ($especialidades as $especialidade)
+									<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div> --}}
+
+					<div class="form-group row" style="display: none">
+						<label class="col-form-label col-md-2"></label>
+						<div class="col-md-10">
+							<input type="text"  value="2" class="form-control" name="tipo_utilizador">
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+					  </div>
+				</form>
+				</div>
+				
+			  </div>
+			</div>
+		  </div>
+
 		<!-- jQuery -->
         <script src="{{asset('admin/assets/js/jquery-3.2.1.min.js')}}"></script>
 		

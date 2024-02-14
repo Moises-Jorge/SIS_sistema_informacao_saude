@@ -13,6 +13,8 @@ class AgendamentoController extends Controller
     public function index()
     {
         $todos_agendamentos = Agendamento::all();
+
+        return view('site.admin.appointment-list', compact('todos_agendamentos'));
     }
 
     /**
