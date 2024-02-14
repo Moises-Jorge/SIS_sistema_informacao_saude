@@ -14,6 +14,8 @@ class UserController extends Controller
     public function index()
     {
         $todos_usuarios = User::all();
+
+        return view('site.admin.patient-list', compact('todos_usuarios'));
     }
 
     /**
