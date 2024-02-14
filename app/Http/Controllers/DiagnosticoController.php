@@ -13,6 +13,7 @@ class DiagnosticoController extends Controller
     public function index()
     {
         $todos_diagnosticos = Diagnostico::all();
+        return view('site.admin.diagnostic-list', compact('todos_diagnosticos'));
     }
 
     /**
