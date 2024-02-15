@@ -19,7 +19,8 @@ class PessoalClinicoController extends Controller
         'users.nome as nomeUser',
         'especialidades.nome as nomeEspecialidade',
         'pessoal__clinicos.num_ordem',
-        'users.telefone')
+        'users.telefone',
+        'users.tipo_utilizador as tipo')
         ->get();
         $especialidades = Especialidade::all();
         //$todo_pessoal_clinico=json_decode(json_encode($todo_pessoal_clinico));

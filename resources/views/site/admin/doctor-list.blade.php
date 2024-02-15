@@ -221,12 +221,14 @@
 											</thead>
 											<tbody>
 												@foreach ($todo_pessoal_clinico as $pessoa_clinica)
-												<tr>
-													<td>{{$pessoa_clinica->nomeUser}}</td>
-													<td>{{$pessoa_clinica->nomeEspecialidade}}</td>
-													<td>{{$pessoa_clinica->num_order}}</td>
-													<td>{{$pessoa_clinica->telefone}}</td>
-												</tr>
+													@if($pessoa_clinica->tipo==2)
+														<tr>
+															<td>{{$pessoa_clinica->nomeUser}}</td>
+															<td>{{$pessoa_clinica->nomeEspecialidade}}</td>
+															<td>{{$pessoa_clinica->num_ordem}}</td>
+															<td>{{$pessoa_clinica->telefone}}</td>
+														</tr>
+													@endif
 												@endforeach
 											</tbody>
 										</table>
