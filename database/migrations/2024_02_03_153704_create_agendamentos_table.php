@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
             $table->foreignId('exame_id')->constrained()->cascadeOnDelete();
             $table->foreignId('consulta_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
