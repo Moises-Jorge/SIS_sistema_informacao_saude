@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('tipo_doenca'); // Alergica ou Nao Alergica
             $table->string('nome')->nullable(); // Nome da doenca se ela for Nao Alergica
             $table->date('data'); // Data em que a doenca foi diagnosticada
+            $table->string('descricao');
             $table->foreignId('reg__clinico__utente_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
             $table->foreignId('alergia_id')->constrained()->cascadeOnDelete()->nullable();
