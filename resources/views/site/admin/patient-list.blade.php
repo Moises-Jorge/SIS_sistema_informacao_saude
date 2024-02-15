@@ -225,13 +225,15 @@
 											</thead>
 											<tbody>
 												@foreach ($todos_usuarios as $usuario)
-													<tr>
-														<td>{{ $usuario->id }}</td>
-														<td>{{ $usuario->nome }}</td>
-														<td>{{ $usuario->idade }}</td>
-														<td>{{ $usuario->morada }}</td>
-														<td>{{ $usuario->telefone }}</td>
-													</tr>
+													@if($usuario->tipo_utilizador==3)
+														<tr>
+															<td>{{ $usuario->id }}</td>
+															<td>{{ $usuario->nome }}</td>
+															<td>{{ $usuario->idade }}</td>
+															<td>{{ $usuario->morada }}</td>
+															<td>{{ $usuario->telefone }}</td>
+														</tr>
+													@endif
 												@endforeach
 											</tbody>
 										</table>

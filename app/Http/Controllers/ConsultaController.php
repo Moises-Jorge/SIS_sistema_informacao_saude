@@ -14,7 +14,7 @@ class ConsultaController extends Controller
     public function index()
     {
         $todas_consultas = Consulta::join('especialidades','especialidades.id','=','consultas.especialidade_id')
-        ->select('especialidades.nome as nomeEspecialidade')->get();//all();
+        ->select('consultas.*','especialidades.nome as nomeEspecialidade')->get();//all();
 
         $especialidades = Especialidade::all();
         return view('site.admin.reviews', compact('todas_consultas', 'especialidades'));
@@ -36,7 +36,7 @@ class ConsultaController extends Controller
         Consulta::create($request->all());
 
         $todas_consultas = Consulta::join('especialidades','especialidades.id','=','consultas.especialidade_id')
-        ->select('especialidades.nome as nomeEspecialidade')->get();//all();
+        ->select('consultas.*','especialidades.nome as nomeEspecialidade')->get();//all();
         $especialidades = Especialidade::all();
 
         return view('site.admin.reviews', compact('todas_consultas', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');

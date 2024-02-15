@@ -217,10 +217,9 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Nome do Paciente</th>
-													<th>Nome do Pessoal Clinico</th>
+													<th>Nome</th>
 													<th>Descrição</th>
-													<th>Data</th>
+													<th>Especialidade</th>
 													<th class="text-right">Actions</th>
 												</tr>
 											</thead>
@@ -230,6 +229,7 @@
 														<td>{{ $consulta->nome }}</td>
 														<td>{{ $consulta->descricao }}</td>
 														<td>{{ $consulta->nomeEspecialidade }}</td>
+														<td></td>
 													</tr>
 												@endforeach
 											</tbody>

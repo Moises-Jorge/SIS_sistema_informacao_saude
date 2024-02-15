@@ -217,10 +217,9 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Nome do Paciente</th>
-													<th>Nome do Pessoal Clinico</th>
+													<th>Nome</th>
 													<th>Descrição</th>
-													<th>Data</th>
+													<th>especialidade</th>
 													<th class="text-right">Actions</th>
 												</tr>
 											</thead>
@@ -229,6 +228,7 @@
 													<tr>
 														<td>{{ $exame->nome }}</td>
 														<td>{{ $exame->descricao }}</td>
+														<td>{{ $exame->nomeEspecialidade }}</td>
 													</tr>
 												@endforeach
 											</tbody>
@@ -262,6 +262,17 @@
 						<label class="col-form-label col-md-2">Nome</label>
 						<div class="col-md-10">
 							<input type="text" class="form-control" name="nome">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Especialidade</label>
+						<div class="col-md-10">
+							<select class="form-control" name="especialidade_id">
+								@foreach ($especialidades as $especialidade)
+									<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 

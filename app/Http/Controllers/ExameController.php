@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Especialidade;
 use App\Models\Exame;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,11 @@ class ExameController extends Controller
      */
     public function index()
     {
-        $todos_exames = Exame::all();
+        $todos_exames = Exame::join('especialidades','especialidades.id','=','exames.especialidade_id')
+        ->select('exames.*','especialidades.nome as nomeEspecialidade')->get();//all();
 
-        return view('site.admin.exames-list', compact('todos_exames'));
+        $especialidades = Especialidade::all();
+        return view('site.admin.exames-list', compact('todos_exames','especialidades'));
     }
 
     /**
@@ -31,6 +34,12 @@ class ExameController extends Controller
     public function store(Request $request)
     {
         Exame::create($request->all());
+        $todos_exames = Exame::join('especialidades','especialidades.id','=','exames.especialidade_id')
+        ->select('exames.*','especialidades.nome as nomeEspecialidade')->get();//all();
+        $especialidades = Especialidade::all();
+
+        return view('site.admin.exames-list', compact('todos_exames', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');
+
     }
 
     /**
