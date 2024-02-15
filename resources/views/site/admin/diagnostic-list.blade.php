@@ -256,19 +256,69 @@
 				  <!-- Seu formulário aqui -->
 				<form action="{{ route('diagnostico.store') }}" method="POST">
 					@csrf
-					{{-- <div class="form-group row">
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Tipo de Doença</label>
+						<div class="col-md-10">
+							<select name="tipo_doenca" id="" class="form-control"  onchange="apareca(this.value)"  >
+								<option  value="" selected disabled>Escolha uma opçao</option>
+								<option >Alergico</option>
+								<option >Não Alergico</option>
+							</select>
+						</div>
+					 </div> 
+
+					 <div class="form-group row" id="nomeDoenca" style="display: none;">
 						<label class="col-form-label col-md-2">Nome</label>
 						<div class="col-md-10">
 							<input type="text" class="form-control" name="nome">
 						</div>
-					</div> --}}
+					 </div>
 
-					{{-- <div class="form-group row">
-						<label class="col-form-label col-md-2">Descrição</label>
+					 <div class="form-group row" id="nomeAlergia" style="display: none;">
+						<label class="col-form-label col-md-2">Nome da Alergia</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" name="descricao">
+							<select name="alergia_id" id="" class="form-control">
+									@foreach($todas_alergias as $alergia)
+										<option value="{{$alergia->id}}">{{$alergia->none}}</option>
+									@endforeach
+							</select>
 						</div>
-					</div> --}}
+					 </div>
+					 
+					
+					 <div class="form-group row">
+						<label class="col-form-label col-md-3">Grupo sanguineo</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" name="grupo_sang" require>
+						</div>
+					 </div> 
+
+					 <div class="form-group row">
+						<label class="col-form-label col-md-3">Estado</label>
+						<div class="col-md-10">
+							<select name="status" id="" class="form-control">
+									<option value="Doente">Doente</option>
+									<option value="Saudavel">Saudavel</option>
+									<option value="Morto">Morto</option>
+							</select>
+						</div>
+					 </div>
+
+
+					 <div class="form-group row">
+						<label class="col-form-label col-md-3">Nome</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" name="nome">
+						</div>
+					 </div> 
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-3">Descrição</label>
+						<div class="col-md-10">
+							<textarea name="descricao" id="" cols="30" rows="10" class="form-control"></textarea>
+						</div>
+					</div> 
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -280,6 +330,19 @@
 			  </div>
 			</div>
 		</div>
+
+		<script>
+			function apareca(informacao){
+				if(informacao=="Alergico"){
+					document.getElementById("nomeAlergia").style.display="block"
+					document.getElementById("nomeDoenca").style.display="none"
+				}else{
+					document.getElementById("nomeAlergia").style.display="none"
+					document.getElementById("nomeDoenca").style.display="block"
+				}
+			}
+		</script>
+
 		<!-- /ADD Modal -->
 		
 		<!-- Edit Details Modal -->

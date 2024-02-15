@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alergia;
 use App\Models\Diagnostico;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class DiagnosticoController extends Controller
     public function index()
     {
         $todos_diagnosticos = Diagnostico::all();
-        return view('site.admin.diagnostic-list', compact('todos_diagnosticos'));
+        $todas_alergias=Alergia::all();
+        return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias'));
     }
 
     /**
