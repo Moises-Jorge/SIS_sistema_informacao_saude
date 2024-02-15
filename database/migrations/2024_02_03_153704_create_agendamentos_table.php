@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('data');
             $table->time('hora');
+            $table->integer('estado'); // Se ja foi atendido/não
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
             $table->foreignId('exame_id')->constrained()->cascadeOnDelete();
