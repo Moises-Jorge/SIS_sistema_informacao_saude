@@ -211,25 +211,26 @@
 									<div class="table-responsive">
 										<div class="table-responsive">
 
-											<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#cadastroPaciente">Cadastrar Paciente</button>
-
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Patient ID</th>
-													<th>Patient Name</th>
-													<th>Age</th>
-													<th>Address</th>
-													<th>Phone</th>
-													<th>Last Visit</th>
-													<th class="text-right">Paid</th>
+													<th>ID do Paciente</th>
+													<th>Nome do Paciente</th>
+													<th>Idade do Paciente</th>
+													<th>Endereço</th>
+													<th>Telefone</th>
+													{{-- <th>Last Visit</th>
+													<th class="text-right">Paid</th> --}}
 												</tr>
 											</thead>
 											<tbody>
 												@foreach ($todos_usuarios as $usuario)
 													<tr>
+														<td>{{ $usuario->id }}</td>
 														<td>{{ $usuario->nome }}</td>
-														<td>{{ $usuario->descricao }}</td>
+														<td>{{ $usuario->idade }}</td>
+														<td>{{ $usuario->morada }}</td>
+														<td>{{ $usuario->telefone }}</td>
 													</tr>
 												@endforeach
 											</tbody>
@@ -244,49 +245,8 @@
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->
-		
         </div>
 		<!-- /Main Wrapper -->
-
-		<!-- Add Modal -->
-		<div class="modal fade" id="cadastroPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title" id="exampleModalLabel">Meu Formulário</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>
-				</div>
-				<div class="modal-body">
-				  <!-- Seu formulário aqui -->
-				<form action="{{ route('user.store') }}" method="POST">
-					@csrf
-					{{-- <div class="form-group row">
-						<label class="col-form-label col-md-2">Nome</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" name="nome">
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-form-label col-md-2">Descrição</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" name="descricao">
-						</div>
-					</div> --}}
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
-					</div>
-				</form>
-				</div>
-				
-			  </div>
-			</div>
-		</div>
-		<!-- /ADD Modal -->
 		
 		<!-- jQuery -->
         <script src="{{asset('admin/assets/js/jquery-3.2.1.min.js')}}"></script>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->integer('idade')->nullable();
             $table->date('data_nascimento')->nullable();
             $table->char('sexo');
             $table->string('localidade')->nullable();//Pronvincia ou Municipio
