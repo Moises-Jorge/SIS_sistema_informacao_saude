@@ -207,28 +207,37 @@
 					</div>
 				</div>
 				<!-- /Page Header -->
-
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="card">
 							<div class="card-body">
 								<div class="table-responsive">
 
-									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#cadastroDiagnostico">Cadastrar Diagnóstico</button>
-
+									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalInformacao">Cadastrar Diagnóstico</button>
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
 											<tr>
 												<th>Id Utente</th>
 												<th>Nome Utente</th>
-												<th>Telefone</th>
+												<th>Tipo de Doença</th>
+												<th>Nome Doença/th>
+												<th>Grupo Sanguinio</th>
+												<th>Estado</th>
+												<th>Data</th>
+												<th>Descricao</th>
 												<th class="text-right">#</th>
 											</tr>
 										</thead>
 										<tbody>
 											@foreach ($todos_diagnosticos as $diagnostico)
 											<tr>
+												<td>{{ $diagnostico->idUser }}</td>
+												<td>{{ $diagnostico->nomeUser }}</td>
+												<td>{{ $diagnostico->tipo_doenca }}</td>
 												<td>{{ $diagnostico->nome }}</td>
+												<td>{{ $diagnostico->grupo_sang }}</td>
+												<td>{{ $diagnostico->status }}</td>
+												<td>{{ $diagnostico->data }}</td>
 												<td>{{ $diagnostico->descricao }}</td>
 											</tr>
 											@endforeach
@@ -246,6 +255,53 @@
 	<!-- /Main Wrapper -->
 
 	<!-- Add Modal -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalInformacao" tabindex="-1" role="dialog" aria-labelledby="modalInformacaoLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalInformacaoLabel">Agendamentos dos Utentes</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table class="datatable table table-hover table-center mb-0">
+						<thead>
+							<tr>
+								<th>Id Utente</th>
+								<th>Nome Utente</th>
+								<th>Telefone</th>
+								<th>Data Agendada</th>
+								<th>Hora Agendada</th>
+								<th class="text-right">Açao</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach ($todos_diagnosticos as $diagnostico)
+							<tr>
+								<td>{{ $diagnostico->id }}</td>
+								<td>{{ $diagnostico->nome }}</td>
+								<td>{{ $diagnostico->telefone }}</td>
+								<td>{{ $diagnostico->data_agendada }}</td>
+								<td>{{ $diagnostico->hora_agendada }}</td>
+								<td class="text-right">
+									<button class="btn btn-primary" data-toggle="modal" data-target="#modalInformacao">cadastroDiagnostico</button>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<!-- Adicione aqui qualquer outro botão ou link que você deseje na parte inferior da modal -->
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="modal fade" id="cadastroDiagnostico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -290,7 +346,7 @@
 							</div>
 						</div>
 
-					
+
 
 
 						<div class="form-group row">

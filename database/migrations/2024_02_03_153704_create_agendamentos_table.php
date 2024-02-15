@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('estado'); // Se ja foi atendido/não
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('exame_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('consulta_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('exame_id')->constrained()->cascadeOnDelete()->nullable();
+            $table->foreignId('consulta_id')->constrained()->cascadeOnDelete()->nullable();
             // $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
