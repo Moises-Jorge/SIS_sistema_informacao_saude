@@ -18,10 +18,15 @@ return new class extends Migration
             $table->integer('estado'); // Se ja foi atendido/não
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('exame_id')->constrained()->cascadeOnDelete()->nullable();
-            $table->foreignId('consulta_id')->constrained()->cascadeOnDelete()->nullable();
+            $table->unsignedbigInteger('exame_id')->nullable();    // Colocando Esse campo como NULL
+            $table->unsignedbigInteger('consulta_id')->nullable(); // Colocando Esse campo como NULL
             // $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
+
+            // Configurando as chaves estrangeiras
+            $table->foreign('exame_id')->references('id')->on('exames')->onDelete('cascade');
+            $table->foreign('consulta_id')->references('id')->on('consultas')->onDelete('cascade');
+            // /Configurando as chaves estrangeiras
         });
     }
 
