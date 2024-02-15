@@ -15,6 +15,7 @@ class DiagnosticoController extends Controller
     {
         $todos_diagnosticos = Diagnostico::all();
         $todas_alergias=Alergia::all();
+        
         return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias'));
     }
 
@@ -31,6 +32,8 @@ class DiagnosticoController extends Controller
      */
     public function store(Request $request)
     {
+        $Registo_clinico = new RegClinicoUtenteController();
+
         Diagnostico::create($request->all());
     }
 

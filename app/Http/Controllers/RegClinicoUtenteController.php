@@ -29,6 +29,7 @@ class RegClinicoUtenteController extends Controller
     public function store(Request $request)
     {
         Reg_Clinico_Utente::create($request->all());
+        return Reg_Clinico_Utente::latest()->first()->id;
     }
 
     /**
