@@ -62,7 +62,6 @@ class DiagnosticoController extends Controller
     public function store(Request $request)
     {
         $Registo_clinico = new RegClinicoUtenteController();
-
         Diagnostico::create($request->all());
     }
 

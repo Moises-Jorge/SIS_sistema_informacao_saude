@@ -279,13 +279,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($todos_diagnosticos as $diagnostico)
+							@foreach ($todos_agendamentos as $agendamento)
 							<tr>
-								<td>{{ $diagnostico->id }}</td>
-								<td>{{ $diagnostico->nome }}</td>
-								<td>{{ $diagnostico->telefone }}</td>
-								<td>{{ $diagnostico->data_agendada }}</td>
-								<td>{{ $diagnostico->hora_agendada }}</td>
+								<td>{{ $agendamento->id }}</td>
+								<td>{{ $agendamento->nome }}</td>
+								<td>{{ $agendamento->telefone }}</td>
+								<td>{{ $agendamento->data_agendada }}</td>
+								<td>{{ $agendamento->hora_agendada }}</td>
 								<td class="text-right">
 									<button class="btn btn-primary" data-toggle="modal" data-target="#modalInformacao">cadastroDiagnostico</button>
 								</td>
