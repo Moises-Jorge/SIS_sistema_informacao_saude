@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use App\Models\Alergia;
 use App\Models\Diagnostico;
+use App\Models\Reg_Clinico_Utente;
 use Illuminate\Http\Request;
 
 class DiagnosticoController extends Controller
@@ -44,8 +45,10 @@ class DiagnosticoController extends Controller
         ->orderBy('agendamentos.hora', 'asc') // Em seguida, ordena pela hora em ordem crescente
         ->get();
         
+        $controller=$this;
         
-        return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias','todos_agendamentos'));
+        
+        return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias','todos_agendamentos','controller'));
     }
 
     /**
@@ -97,5 +100,16 @@ class DiagnosticoController extends Controller
     {
         $diagnostico = Diagnostico::find($id);
         $diagnostico->delete();
+    }
+
+    public function temRCU($id){
+        $dados= Reg_Clinico_Utente::where("user_id",$id)->first();
+        if($dados){
+            $struct =$id.",".$dados->id;
+            return $struct;
+        }else{
+            return 0;
+        }
+
     }
 }

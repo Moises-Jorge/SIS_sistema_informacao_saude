@@ -281,13 +281,13 @@
 						<tbody>
 							@foreach ($todos_agendamentos as $agendamento)
 							<tr>
-								<td>{{ $agendamento->id }}</td>
-								<td>{{ $agendamento->nome }}</td>
+								<td>{{ $agendamento->id }}</td> {{-- MODIFICAR ESSA CONTAGEM --}}
+								<td>{{ $agendamento->nomeUser }}</td>
 								<td>{{ $agendamento->telefone }}</td>
-								<td>{{ $agendamento->data_agendada }}</td>
-								<td>{{ $agendamento->hora_agendada }}</td>
+								<td>{{ $agendamento->data }}</td>
+								<td>{{ $agendamento->hora }}</td>
 								<td class="text-right">
-									<button class="btn btn-primary" data-toggle="modal" data-target="#modalInformacao">cadastroDiagnostico</button>
+									<button class="btn btn-primary" name="{{$controller->temRCU($agendamento->idUser)}}" id="{{$agendamento->idUser}}"  onclick="chamaModal(this)">cadastroDiagnostico</button>
 								</td>
 							</tr>
 							@endforeach
@@ -296,11 +296,13 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-					<!-- Adicione aqui qualquer outro botão ou link que você deseje na parte inferior da modal -->
+					<!-- Adicione aqui qualquer outro botão ou link que você deseje na parte inferior da modal   data-toggle="modal" data-target="#cadastroDiagnostico"-->
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 
 	<div class="modal fade" id="cadastroDiagnostico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -348,13 +350,21 @@
 
 
 
-
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Grupo sanguineo</label>
 							<div class="col-md-10">
 								<input type="text" class="form-control" name="grupo_sang" require>
 							</div>
 						</div>
+
+
+						<div class="form-group row" style="display: none">
+							<label class="col-form-label col-md-2"></label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="reg__clinico__utente_id" id="registroClinico">
+							</div>
+						</div>
+
 
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Estado</label>
@@ -369,16 +379,54 @@
 
 
 						<div class="form-group row">
-							<label class="col-form-label col-md-2">Nome</label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="nome">
-							</div>
-						</div>
-
-						<div class="form-group row">
 							<label class="col-form-label col-md-2">Descrição</label>
 							<div class="col-md-10">
 								<textarea name="descricao" id="" class="form-control"></textarea>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="cadastroRCU" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cadasdramento de RCU</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Seu formulário aqui -->
+					<form action="{{ route('rcu.store') }}" method="POST">
+						@csrf
+
+						<div class="form-group row">
+							<label class="col-form-label col-md-2">Grupo sanguineo</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="grupo_sang" require>
+							</div>
+						</div>
+						<div class="form-group row" style="display: none">
+							<label class="col-form-label col-md-2">Grupo sanguineo</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="user_id"  id="user_idRc">
+							</div>
+						</div>
+						<div class="form-group row" style="display: none">
+							<label class="col-form-label col-md-2">Grupo sanguineo</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="status"  value="1">
 							</div>
 						</div>
 
@@ -402,6 +450,20 @@
 				document.getElementById("nomeAlergia").style.display = "none"
 				document.getElementById("nomeDoenca").style.display = "block"
 			}
+		}
+		function chamaModal(btn){
+			valor=btn.name
+			if(valor==0){
+				idUser=btn.id
+				//alert(idUser)
+				document.getElementById("user_idRc").value=idUser
+				$("#cadastroRCU").modal("show");
+			}else{
+				informacao=valor.split(',')
+				document.getElementById("registroClinico").value=informacao[1];
+				$("#cadastroDiagnostico").modal("show");
+			}
+
 		}
 	</script>
 
