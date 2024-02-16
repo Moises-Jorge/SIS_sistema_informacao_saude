@@ -220,6 +220,7 @@
 												<th>Nome do Pessoal Clinico</th>
 												<th>Especialidade</th>
 												<th>Nome do Paciente</th>
+												<th>Tipo de Serviço</th>
 												<th>Data</th>
 												<th>Horario</th>
 												<th>Status</th>
@@ -231,6 +232,7 @@
 												<td>{{$agendamento->nomePessoalClinico}}</td>
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>MJ</td>
+												<td>Consulta/Exame</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
 												@if($agendamento->estado==0)
