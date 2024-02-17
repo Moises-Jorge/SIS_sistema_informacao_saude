@@ -64,8 +64,16 @@ class DiagnosticoController extends Controller
      */
     public function store(Request $request)
     {
+        $agendamentoId = $request->input("agendamentoId");
         $Registo_clinico = new RegClinicoUtenteController();
+        $data= date('y-m-d');
         Diagnostico::create($request->all());
+        $UltimoDiagnostico= Diagnostico::latest()->first();
+        $UltimoDiagnostico->data=$data;
+        $UltimoDiagnostico->update();
+        $agendamento= Agendamento::find($agendamentoId);
+        $agendamento->estado=1;
+        $agendamento->update();
     }
 
     /**
