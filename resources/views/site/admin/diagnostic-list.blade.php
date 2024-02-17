@@ -220,7 +220,7 @@
 												<th>Id Utente</th>
 												<th>Nome Utente</th>
 												<th>Tipo de Doença</th>
-												<th>Nome Doença/th>
+												<th>Nome Doença</th>
 												<th>Grupo Sanguinio</th>
 												<th>Estado</th>
 												<th>Data</th>
@@ -370,9 +370,9 @@
 							<label class="col-form-label col-md-2">Estado</label>
 							<div class="col-md-10">
 								<select name="status" id="" class="form-control">
-									<option value="Doente">Doente</option>
-									<option value="Saudavel">Saudavel</option>
-									<option value="Morto">Morto</option>
+									<option value="Doente">Activo</option> {{-- Quando está doente --}}
+									<option value="Saudavel">Inativo</option> {{-- Quando já não está doente --}}
+									{{-- <option value="Morto">Morto</option> --}}
 								</select>
 							</div>
 						</div>
