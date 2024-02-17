@@ -12,9 +12,11 @@ class Diagnostico extends Model
     protected $fillable = [
         'tipo_doenca',
         'nome', // VERIFICAR ISSO DEPOIS PARA DAR TRATAMENTO
+        'estado',
         'data',
         'reg__clinico__utente_id',
         'pessoal__clinico_id',
-        'alergia_id'
+        'alergia_id',
+        'descricao'
     ];
 }

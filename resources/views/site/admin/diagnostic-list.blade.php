@@ -287,7 +287,7 @@
 								<td>{{ $agendamento->data }}</td>
 								<td>{{ $agendamento->hora }}</td>
 								<td class="text-right">
-									<button class="btn btn-primary" name="{{$controller->temRCU($agendamento->idUser)}}" id="{{$agendamento->idUser}}"  onclick="chamaModal(this)">cadastroDiagnostico</button>
+									<button class="btn btn-primary" name="{{$controller->temRCU($agendamento->idUser)}}" id="{{$agendamento->idUser}}" type="{{$agendamento->id}}"  onclick="chamaModal(this)">cadastroDiagnostico</button>
 								</td>
 							</tr>
 							@endforeach
@@ -336,11 +336,19 @@
 							</div>
 						</div>
 
+						<div class="form-group row" id="nomeDoenca" style="display: none;">
+							<label class="col-form-label col-md-2">id agendamneto</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="agendamentoId" id="agendamentoId">
+							</div>
+						</div>
 
+						
 						<div class="form-group row" id="nomeAlergia" style="display: none;">
 							<label class="col-form-label col-md-2">Nome da Alergia</label>
 							<div class="col-md-10">
 								<select class="form-control" name="alergia_id">
+									<option value="">Selecione a alergia</option>
 									@foreach ($todas_alergias as $alergia)
 									<option value="{{$alergia->id}}">{{$alergia->nome}}</option>
 									@endforeach
@@ -353,7 +361,7 @@
 						{{-- <div class="form-group row">
 							<label class="col-form-label col-md-2">Grupo sanguineo</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" name="grupo_sang" require>
+								<input type="text" class="form-control" name="grupo_sang" >
 							</div>
 						</div> --}}
 
@@ -365,11 +373,18 @@
 							</div>
 						</div>
 
+						<div class="form-group row" style="display: none">
+							<label class="col-form-label col-md-2"></label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="pessoal__clinico_id" value="1">
+							</div>
+						</div>
+
 
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Estado</label>
 							<div class="col-md-10">
-								<select name="status" id="" class="form-control">
+								<select name="estado" id="" class="form-control">
 									<option value="Doente">Activo</option> {{-- Quando está doente --}}
 									<option value="Saudavel">Inativo</option> {{-- Quando já não está doente --}}
 									{{-- <option value="Morto">Morto</option> --}}
@@ -378,12 +393,15 @@
 						</div>
 
 
+
+
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Descrição</label>
 							<div class="col-md-10">
 								<textarea name="descricao" id="" class="form-control"></textarea>
 							</div>
 						</div>
+
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -460,6 +478,7 @@
 				$("#cadastroRCU").modal("show");
 			}else{
 				informacao=valor.split(',')
+				document.getElementById("agendamentoId").value=btn.getAttribute('type')
 				document.getElementById("registroClinico").value=informacao[1];
 				$("#cadastroDiagnostico").modal("show");
 			}
