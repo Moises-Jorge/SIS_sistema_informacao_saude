@@ -350,12 +350,12 @@
 
 
 
-						<div class="form-group row">
+						{{-- <div class="form-group row">
 							<label class="col-form-label col-md-2">Grupo sanguineo</label>
 							<div class="col-md-10">
 								<input type="text" class="form-control" name="grupo_sang" require>
 							</div>
-						</div>
+						</div> --}}
 
 
 						<div class="form-group row" style="display: none">
