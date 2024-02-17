@@ -16,6 +16,7 @@ class RegClinicoUtenteController extends Controller
     public function index()
     {
         $todos_rcu = Reg_Clinico_Utente::all();
+        return view('site.admin.rcu', compact('todos_rcu'));
     }
 
     /**
