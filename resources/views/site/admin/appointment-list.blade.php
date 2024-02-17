@@ -221,6 +221,7 @@
 												<th>Especialidade</th>
 												<th>Nome do Paciente</th>
 												<th>Tipo de Serviço</th>
+												<th>Nome da Consulta/Exame</th>
 												<th>Data</th>
 												<th>Horario</th>
 												<th>Status</th>
@@ -233,6 +234,7 @@
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>MJ</td>
 												<td>Consulta/Exame</td>
+												<td>NomeConsulta/NomeExame</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
 												@if($agendamento->estado==0)
