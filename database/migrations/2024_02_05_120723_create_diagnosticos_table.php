@@ -20,8 +20,12 @@ return new class extends Migration
             $table->string('descricao');
             $table->foreignId('reg__clinico__utente_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pessoal__clinico_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('alergia_id')->constrained()->cascadeOnDelete()->nullable();
+            $table->unsignedbigInteger('alergia_id')->nullable(); //Colocando esse campo como NULL
             $table->timestamps();
+
+            // Configurando as chaves estrangeiras
+            $table->foreign('alergia_id')->references('id')->on('alergias')->onDelete('cascade');
+            // /Configurando as chaves estrangeiras
         });
     }
 
