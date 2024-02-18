@@ -225,7 +225,7 @@
 												@foreach ($todos_rcu as $rcu)
                                                     <tr>
                                                         <td>{{ $rcu->id }}</td>
-                                                        <td>{{ $rcu->nomeUer }}</td>
+                                                        <td>{{ $rcu->nomeUser }}</td>
                                                         <td>{{ $rcu->grupo_sang }}</td>
                                                     </tr>
 												@endforeach

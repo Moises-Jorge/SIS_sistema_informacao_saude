@@ -15,7 +15,8 @@ class RegClinicoUtenteController extends Controller
      */
     public function index()
     {
-        $todos_rcu = Reg_Clinico_Utente::all();
+        $todos_rcu = Reg_Clinico_Utente::join('users','users.id','=','reg__clinico__utentes.user_id')
+                                       ->select('reg__clinico__utentes.*','users.nome as nomeUser')->get();
         return view('site.admin.rcu', compact('todos_rcu'));
     }
 
