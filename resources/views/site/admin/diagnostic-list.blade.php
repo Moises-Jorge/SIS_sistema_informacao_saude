@@ -234,7 +234,14 @@
 												<td>{{ $diagnostico->idUser }}</td>
 												<td>{{ $diagnostico->nomeUser }}</td>
 												<td>{{ $diagnostico->tipo_doenca }}</td>
-												<td>{{ $diagnostico->nome }}</td>
+												<td>
+													
+													@if($diagnostico->nome==null)
+														{{ $diagnostico->nomeAlergia }}
+													@else
+														{{ $diagnostico->nome }}
+													@endif
+												</td>
 												<td>{{ $diagnostico->grupo_sang }}</td>
 												<td>{{ $diagnostico->status }}</td>
 												<td>{{ $diagnostico->data }}</td>

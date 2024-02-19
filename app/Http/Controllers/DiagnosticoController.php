@@ -26,9 +26,12 @@ class DiagnosticoController extends Controller
                 "diagnosticos.data",
                 "diagnosticos.descricao",
                 "reg__clinico__utentes.grupo_sang",
-                "reg__clinico__utentes.status",)
+                "reg__clinico__utentes.status",
+                'alergias.nome as nomeAlergia')
         ->where("pessoal__clinicos.id","=",1)
         ->get();
+
+        
 
 
         $todas_alergias=Alergia::all();
