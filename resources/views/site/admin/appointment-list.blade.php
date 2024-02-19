@@ -234,7 +234,7 @@
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>MJ</td>
 												<td>
-													@if(agendamento->exame_id!=null)
+													@if($agendamento->exame_id!=null)
 														Exame
 													@else
 														Consulta
