@@ -39,7 +39,7 @@ Route::prefix("login")->group(function(){
 
 
 
-Route::prefix("menu")->group(function(){
+Route::middleware('auth:sanctum')->prefix("menu")->group(function(){
     Route::get("/index",[Menu::class, 'index'])->name("menu.index");
 });
 
