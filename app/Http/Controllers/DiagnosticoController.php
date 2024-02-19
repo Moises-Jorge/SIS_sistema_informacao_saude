@@ -78,6 +78,8 @@ class DiagnosticoController extends Controller
         $agendamento= Agendamento::find($agendamentoId);
         $agendamento->estado=1;
         $agendamento->update();
+
+        return redirect("diagnostico/index");
     }
 
     /**
