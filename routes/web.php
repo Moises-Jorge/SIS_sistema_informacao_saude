@@ -33,6 +33,8 @@ Route::get('/', function () {
 
 Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");
+    Route::post("/logar",[login::class, 'logar'])->name("login.logar");
+    Route::get("/logout",[login::class, 'logout'])->name("login.logout");
 });
 
 
