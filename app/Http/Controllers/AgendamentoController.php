@@ -19,8 +19,8 @@ class AgendamentoController extends Controller
         $todos_agendamentos = Agendamento::join("pessoal__clinicos", "pessoal__clinicos.id", "=", "agendamentos.pessoal__clinico_id")
             ->join("users", "pessoal__clinicos.user_id", "=", "users.id")
             ->join("especialidades", "especialidades.id", "=", "pessoal__clinicos.especialidade_id")
-            ->leftjoin("exames", "exames.id","=","especialidades.exame_id")
-            ->leftjoin("consultas", "consultas.id","=","especialidades.consulta_id")
+            ->leftjoin("exames", "exames.id","=","agendamentos.exame_id")
+            ->leftjoin("consultas", "consultas.id","=","agendamentos.consulta_id")
             ->select(
                 'users.nome as nomePessoalClinico',
                 'especialidades.nome as nome_especialidade',
