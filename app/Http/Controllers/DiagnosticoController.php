@@ -18,7 +18,7 @@ class DiagnosticoController extends Controller
         $todos_diagnosticos = Diagnostico::join("reg__clinico__utentes",'reg__clinico__utentes.id',"=","diagnosticos.reg__clinico__utente_id")
         ->join("users","users.id","=","reg__clinico__utentes.user_id")
         ->join("pessoal__clinicos","pessoal__clinicos.id","=","diagnosticos.pessoal__clinico_id")
-        ->join("alergias","alergias.id","=","diagnosticos.alergia_id")
+        ->leftjoin("alergias","alergias.id","=","diagnosticos.alergia_id")
         ->select("users.id as idUser",
                 "users.nome as nomeUser",
                 "diagnosticos.tipo_doenca",
