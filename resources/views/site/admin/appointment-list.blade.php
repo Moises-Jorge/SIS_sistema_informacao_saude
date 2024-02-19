@@ -233,7 +233,13 @@
 												<td>{{$agendamento->nomePessoalClinico}}</td>
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>MJ</td>
-												<td>Consulta/Exame</td>
+												<td>
+													@if(agendamento->exame_id!=null)
+														Exame
+													@else
+														Consulta
+													@endif
+												</td>
 												<td>NomeConsulta/NomeExame</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
