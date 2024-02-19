@@ -114,7 +114,8 @@ class AgendamentoController extends Controller
 
 
 
-        return view('site.admin.appointment-list', compact('todos_agendamentos', 'todas_consultas', 'todos_exames'))->with('success', 'Cadastro realizado com sucesso!');
+        //return view('site.admin.appointment-list', compact('todos_agendamentos', 'todas_consultas', 'todos_exames'))->with('success', 'Cadastro realizado com sucesso!');
+        return redirect()->route('agendamento.index', compact('todos_agendamentos', 'todas_consultas', 'todos_exames'));
     }
 
     /**

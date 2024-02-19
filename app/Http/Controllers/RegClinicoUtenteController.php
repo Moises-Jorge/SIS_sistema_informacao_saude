@@ -35,7 +35,8 @@ class RegClinicoUtenteController extends Controller
     {
         Reg_Clinico_Utente::create($request->all());
         
-        return redirect("diagnostico/index");
+        //return redirect("diagnostico/index");
+        return redirect()->route('diagnostico.index');
 
        // return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias','todos_agendamentos','controller'));
 

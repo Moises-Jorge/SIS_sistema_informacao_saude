@@ -79,7 +79,8 @@ class DiagnosticoController extends Controller
         $agendamento->estado=1;
         $agendamento->update();
 
-        return redirect("diagnostico/index");
+        //return redirect("diagnostico/index");
+        return redirect()->route('diagnostico.index');
     }
 
     /**

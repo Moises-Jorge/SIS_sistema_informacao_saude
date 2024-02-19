@@ -39,7 +39,8 @@ class ConsultaController extends Controller
         ->select('consultas.*','especialidades.nome as nomeEspecialidade')->get();//all();
         $especialidades = Especialidade::all();
 
-        return view('site.admin.reviews', compact('todas_consultas', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');
+        //return view('site.admin.reviews', compact('todas_consultas', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');
+        return redirect()->route('consulta.index', compact('todas_consultas', 'especialidades'));
     }
 
     /**
