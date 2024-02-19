@@ -33,12 +33,26 @@ class UserController extends Controller
     {
         Hash::make($request->input("password"));
         User::create($request->all());
+        $UltimoUser = User::latest()->first();
+        $idUser=$UltimoUser->id;
+        $numero_utilizador=$this->getNumeroUtilizador($idUser);
+        $UltimoUser->numero_utilizador=$numero_utilizador;
+        $UltimoUser->update();
         if($request->input("tipo_utilizador")==3){
+
             return view("site.login")->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
         }else{
             return User::latest()->first()->id;
         }
         
+    }
+
+    public function getNumeroUtilizador($id){
+        $numero=$id;
+        for($cont=1;$cont<=6;$cont++){
+            $numero.=rand(0,9);
+        }
+        return $numero;
     }
 
     /**
