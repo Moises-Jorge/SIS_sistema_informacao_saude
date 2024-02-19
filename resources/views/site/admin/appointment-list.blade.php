@@ -242,9 +242,9 @@
 												</td>
 												<td>
 													@if($agendamento->exame_id!=null)
-														$agendamento->nome_exame
+														{{$agendamento->nome_exame}}
 													@else
-														$agendamento->nome_consulta
+														{{$agendamento->nome_consulta}}
 													@endif
 												</td>
 												<td>{{$agendamento->data}}</td>
