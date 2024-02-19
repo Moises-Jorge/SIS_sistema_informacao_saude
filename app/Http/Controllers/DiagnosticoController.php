@@ -25,6 +25,7 @@ class DiagnosticoController extends Controller
                 "diagnosticos.nome",
                 "diagnosticos.data",
                 "diagnosticos.descricao",
+                'diagnosticos.estado',
                 "reg__clinico__utentes.grupo_sang",
                 "reg__clinico__utentes.status",
                 'alergias.nome as nomeAlergia')
