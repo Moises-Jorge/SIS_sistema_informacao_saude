@@ -240,7 +240,13 @@
 														Consulta
 													@endif
 												</td>
-												<td>NomeConsulta/NomeExame</td>
+												<td>
+													@if($agendamento->exame_id!=null)
+														$agendamento->nome_exame
+													@else
+														$agendamento->nome_consulta
+													@endif
+												</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
 												@if($agendamento->estado==0)
