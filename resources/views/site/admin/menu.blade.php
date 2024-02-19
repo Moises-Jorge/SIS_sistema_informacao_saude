@@ -29,12 +29,11 @@
     <li> 
         <a href="{{ route('agendamento.index') }}"><i class="fe fe-vector"></i> <span>Agendamento</span></a>
     </li>
-    <li class="submenu">
-        <a href="#"><i class="fe fe-document"></i> <span> RCU</span> <span class="menu-arrow"></span></a>
-        <ul style="display: none;">
-            <li><a href="invoice-report.html">Invoice Reports</a></li>
-        </ul>
+    <li> 
+        <a href="{{ route('rcu.index') }}"><i class="fe fe-user"></i> <span>RCU</span></a>
     </li>
+    {{-- END --}}
+
     <li class="menu-title"> 
         <span>Pages</span>
     </li>

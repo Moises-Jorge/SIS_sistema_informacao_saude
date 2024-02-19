@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reg__clinico__utentes', function (Blueprint $table) {
             $table->id();
             $table->string('grupo_sang');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             //$table->foreignId('pessoal_clinico_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
