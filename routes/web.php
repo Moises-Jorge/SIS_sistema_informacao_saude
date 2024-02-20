@@ -46,9 +46,10 @@ Route::middleware('auth:sanctum')->prefix("menu")->group(function(){
 
 /**
  * Conjunto de rotas referentes ao "User"
+ * middleware('auth:sanctum')->
  */
 
-Route::middleware('auth:sanctum')->prefix("user")->group(function(){
+Route::prefix("user")->group(function(){
     Route::get("/index",[UserController::class, 'index'])->name("user.index");
     Route::get("/create",[UserController::class, 'create'])->name("user.create");
     Route::post("/store",[UserController::class, 'store'])->name("user.store");
