@@ -242,16 +242,24 @@
 														<a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Edit</a>
 													</h5>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Name</p>
-														<p class="col-sm-10">John Doe</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Nome</p>
+														<p class="col-sm-10">{{Auth::user()->nome}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Date of Birth</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Data Nascimento</p>
 														<p class="col-sm-10">24 Jul 1983</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Email ID</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Email</p>
 														<p class="col-sm-10">johndoe@example.com</p>
+													</div>
+													<div class="row">
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
+														<p class="col-sm-10">305-310-5857</p>
+													</div>
+													<div class="row">
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
+														<p class="col-sm-10">305-310-5857</p>
 													</div>
 													<div class="row">
 														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>

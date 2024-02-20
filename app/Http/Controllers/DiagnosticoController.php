@@ -7,6 +7,7 @@ use App\Models\Alergia;
 use App\Models\Diagnostico;
 use App\Models\Reg_Clinico_Utente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DiagnosticoController extends Controller
 {
@@ -15,6 +16,9 @@ class DiagnosticoController extends Controller
      */
     public function index()
     {
+        $pessoal_clinico_object = new PessoalClinicoController();
+        $id_pessoa_clinico= $pessoal_clinico_object->return_my_id(Auth::user()->id);
+
         $todos_diagnosticos = Diagnostico::join("reg__clinico__utentes",'reg__clinico__utentes.id',"=","diagnosticos.reg__clinico__utente_id")
         ->join("users","users.id","=","reg__clinico__utentes.user_id")
         ->join("pessoal__clinicos","pessoal__clinicos.id","=","diagnosticos.pessoal__clinico_id")
@@ -29,7 +33,7 @@ class DiagnosticoController extends Controller
                 "reg__clinico__utentes.grupo_sang",
                 "reg__clinico__utentes.status",
                 'alergias.nome as nomeAlergia')
-        ->where("pessoal__clinicos.id","=",1)
+        ->where("pessoal__clinicos.id","=",$id_pessoa_clinico)
         ->get();
 
         
@@ -44,7 +48,7 @@ class DiagnosticoController extends Controller
             'users.telefone',
             'agendamentos.*'
         )
-        ->where("pessoal__clinico_id", "=", 1)
+        ->where("pessoal__clinico_id", "=", $id_pessoa_clinico)
         ->orderBy('agendamentos.data', 'asc') // Ordena pela data em ordem crescente
         ->orderBy('agendamentos.hora', 'asc') // Em seguida, ordena pela hora em ordem crescente
         ->get();

@@ -30,6 +30,10 @@ Route::get('/', function () {
     return view('site.index');
 });
 
+Route::get('/perfil', function () {
+    return view('site/admin/profile');
+});
+
 
 Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");

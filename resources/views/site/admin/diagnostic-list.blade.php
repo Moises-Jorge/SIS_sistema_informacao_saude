@@ -212,8 +212,9 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="table-responsive">
-
-									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalInformacao">Cadastrar Diagnóstico</button>
+									@if(Auth::user()->tipo_utilizador==2)
+										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalInformacao">Cadastrar Diagnóstico</button>
+									@endif
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
 											<tr>
@@ -519,6 +520,11 @@
 
 	<!-- Custom JS -->
 	<script src="{{asset('admin/assets/js/script.js')}}"></script>
+
+	<script>
+		document.getElementById("diagnostico").classList.add("active");
+		
+	</script>
 
 </body>
 

@@ -7,6 +7,7 @@ use App\Models\Consulta;
 use App\Models\Especialidade;
 use App\Models\Exame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AgendamentoController extends Controller
@@ -28,7 +29,7 @@ class AgendamentoController extends Controller
                 'exames.nome as nome_exame',
                 'consultas.nome as nome_consulta'
             )
-            ->where("agendamentos.user_id", "=", 1)
+            ->where("agendamentos.user_id", "=", Auth::user()->id)
             ->orderBy('agendamentos.data', 'asc')
             ->orderBy('agendamentos.hora', 'asc')
             ->get();
@@ -70,7 +71,7 @@ class AgendamentoController extends Controller
             ->leftJoin('agendamentos as a', 'a.pessoal__clinico_id', '=', 'pc.id')
             ->select('pc.id', 'pc.especialidade_id', DB::raw('COUNT(a.id) AS total_agendamentos'))
             ->groupBy('pc.id', 'pc.especialidade_id')
-            ->having('pc.especialidade_id', '=', 1)
+            ->having('pc.especialidade_id', '=', $especialidade_id)
             ->orderBy('total_agendamentos', 'ASC')
             ->first();
 
@@ -81,7 +82,7 @@ class AgendamentoController extends Controller
                 'data' => date('Y-m-d'), // Insere a data atual no formato 'Ano-Mês-Dia'
                 'hora' => date('H:i:s'), // Insere a hora atual no formato 'Hora:Minuto:Segundo'
                 'estado' => 0,
-                'user_id' => 1,
+                'user_id' => Auth::user()->id,
                 'pessoal__clinico_id' => $resultado->id,
                 'exame_id' => $request->input("exame_id")
             ]);
@@ -90,7 +91,7 @@ class AgendamentoController extends Controller
                 'data' => date('Y-m-d'), // Insere a data atual no formato 'Ano-Mês-Dia'
                 'hora' => date('H:i:s'), // Insere a hora atual no formato 'Hora:Minuto:Segundo'
                 'estado' => 0,
-                'user_id' => 1,
+                'user_id' => Auth::user()->id,
                 'pessoal__clinico_id' => $resultado->id,
                 'consulta_id' => $request->input("consulta_id")
             ]);
@@ -104,7 +105,7 @@ class AgendamentoController extends Controller
                 'especialidades.nome as nome_especialidade',
                 'agendamentos.*'
             )
-            ->where("agendamentos.user_id", "=", 1)
+            ->where("agendamentos.user_id", "=", Auth::user()->id)
             ->orderBy('agendamentos.data', 'asc')
             ->orderBy('agendamentos.hora', 'asc')
             ->get();

@@ -219,7 +219,6 @@
 											<tr>
 												<th>Nome do Pessoal Clinico</th>
 												<th>Especialidade</th>
-												<th>Nome do Paciente</th>
 												<th>Tipo de Serviço</th>
 												<th>Nome da Consulta/Exame</th>
 												<th>Data</th>
@@ -232,7 +231,6 @@
 											<tr>
 												<td>{{$agendamento->nomePessoalClinico}}</td>
 												<td>{{$agendamento->nome_especialidade}}</td>
-												<td>MJ</td>
 												<td>
 													@if($agendamento->exame_id!=null)
 														Exame
@@ -395,7 +393,10 @@
 
 	<!-- Custom JS -->
 	<script src="{{asset('admin/assets/js/script.js')}}"></script>
-
+	<script>
+		document.getElementById("Agendamento").classList.add("active");
+	</script>
+	
 </body>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->

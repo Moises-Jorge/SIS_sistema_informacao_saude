@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Especialidade;
 use App\Models\Pessoal_Clinico;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PessoalClinicoController extends Controller
@@ -22,8 +23,15 @@ class PessoalClinicoController extends Controller
         'users.telefone',
         'users.tipo_utilizador as tipo')
         ->get();
+        
         $especialidades = Especialidade::all();
         return view('site.admin.doctor-list',compact('todo_pessoal_clinico','especialidades'));
+    }
+
+    function return_my_id($id){
+        $query = User::join("pessoal__clinicos","users.id","=","pessoal__clinicos.user_id")
+                            ->select("pessoal__clinicos.id")->where("users.id",$id)->first();
+        return $query->id;
     }
 
     /**
