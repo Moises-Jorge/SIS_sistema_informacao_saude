@@ -168,10 +168,10 @@
 					<div class="page-header">
 						<div class="row">
 							<div class="col">
-								<h3 class="page-title">Profile</h3>
+								<h3 class="page-title">Perfil</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Profile</li>
+									<li class="breadcrumb-item active">Perfil</li>
 								</ul>
 							</div>
 						</div>
@@ -188,10 +188,10 @@
 										</a>
 									</div>
 									<div class="col ml-md-n2 profile-user-info">
-										<h4 class="user-name mb-0">Ryan Taylor</h4>
-										<h6 class="text-muted">ryantaylor@admin.com</h6>
-										<div class="user-Location"><i class="fa fa-map-marker"></i> Florida, United States</div>
-										<div class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+										<h4 class="user-name mb-0">{{Auth::user()->nome}}</h4>
+										<h6 class="text-muted">{{Auth::user()->email}}</h6>
+										<div class="user-Location"><i class="fa fa-map-marker"></i> {{Auth::user()->localidade}}, {{Auth::user()->morada}}</div>
+										{{-- <div class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div> --}}
 									</div>
 									<div class="col-auto profile-btn">
 										
@@ -222,7 +222,7 @@
 											<div class="card">
 												<div class="card-body">
 													<h5 class="card-title d-flex justify-content-between">
-														<span>Personal Details</span> 
+														<span>Detalhes Pessoal</span> 
 														<a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Edit</a>
 													</h5>
 													<div class="row">
@@ -230,31 +230,33 @@
 														<p class="col-sm-10">{{Auth::user()->nome}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Data Nascimento</p>
-														<p class="col-sm-10">24 Jul 1983</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Data de Nascimento</p>
+														<p class="col-sm-10">{{Auth::user()->data_nascimento}}</p>
 													</div>
 													<div class="row">
 														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Email</p>
-														<p class="col-sm-10">johndoe@example.com</p>
+														<p class="col-sm-10">{{Auth::user()->email}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
-														<p class="col-sm-10">305-310-5857</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Idade</p>
+														<p class="col-sm-10">{{Auth::user()->idade}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
-														<p class="col-sm-10">305-310-5857</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Sexo</p>
+														<p class="col-sm-10">{{Auth::user()->sexo}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
-														<p class="col-sm-10">305-310-5857</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0">Morada</p>
+														<p class="col-sm-10 mb-0">{{Auth::user()->localidade}},<br>
+														{{Auth::user()->morada}}</p>
 													</div>
 													<div class="row">
-														<p class="col-sm-2 text-muted text-sm-right mb-0">Address</p>
-														<p class="col-sm-10 mb-0">4663  Agriculture Lane,<br>
-														Miami,<br>
-														Florida - 33165,<br>
-														United States.</p>
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Telefone</p>
+														<p class="col-sm-10">{{Auth::user()->telefone}}</p>
+													</div>
+													<div class="row">
+														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Entidade Financeira</p>
+														<p class="col-sm-10">{{Auth::user()->nome_entidade_fin}}</p>
 													</div>
 												</div>
 											</div>
@@ -264,7 +266,7 @@
 												<div class="modal-dialog modal-dialog-centered" role="document" >
 													<div class="modal-content">
 														<div class="modal-header">
-															<h5 class="modal-title">Personal Details</h5>
+															<h5 class="modal-title">Detalhes Pessoal</h5>
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">&times;</span>
 															</button>
@@ -274,19 +276,19 @@
 																<div class="row form-row">
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>First Name</label>
+																			<label>Nome</label>
 																			<input type="text" class="form-control" value="John">
 																		</div>
 																	</div>
-																	<div class="col-12 col-sm-6">
+																	{{-- <div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Last Name</label>
 																			<input type="text"  class="form-control" value="Doe">
 																		</div>
-																	</div>
+																	</div> --}}
 																	<div class="col-12">
 																		<div class="form-group">
-																			<label>Date of Birth</label>
+																			<label>Data de Nascimento</label>
 																			<div class="cal-icon">
 																				<input type="text" class="form-control" value="24-07-1983">
 																			</div>
@@ -294,26 +296,26 @@
 																	</div>
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>Email ID</label>
+																			<label>Email</label>
 																			<input type="email" class="form-control" value="johndoe@example.com">
 																		</div>
 																	</div>
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>Mobile</label>
+																			<label>Telefone</label>
 																			<input type="text" value="+1 202-555-0125" class="form-control">
 																		</div>
 																	</div>
 																	<div class="col-12">
-																		<h5 class="form-title"><span>Address</span></h5>
+																		<h5 class="form-title"><span>Morada</span></h5>
 																	</div>
 																	<div class="col-12">
 																		<div class="form-group">
-																		<label>Address</label>
+																		<label>Morada</label>
 																			<input type="text" class="form-control" value="4663 Agriculture Lane">
 																		</div>
 																	</div>
-																	<div class="col-12 col-sm-6">
+																	{{-- <div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>City</label>
 																			<input type="text" class="form-control" value="Miami">
@@ -335,10 +337,10 @@
 																		<div class="form-group">
 																			<label>Country</label>
 																			<input type="text" class="form-control" value="United States">
-																		</div>
+																		</div> --}}
 																	</div>
 																</div>
-																<button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+																<button type="submit" class="btn btn-primary btn-block">Salvar Alterações</button>
 															</form>
 														</div>
 													</div>
