@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-		<title>Doccure</title>
+		<title>SIS-UAN</title>
 		
 		<!-- Favicons -->
 		<link type="image/x-icon" href="assets/img/favicon.png" rel="icon">
@@ -72,8 +72,8 @@
 								<i class="far fa-hospital"></i>							
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">nome_clinica </p>
-								<p class="contact-info-header"> +1 315 369 5943</p>
+								<p class="contact-header">SIS-UAN </p>
+								<p class="contact-info-header">+244 952 573 924</p>
 							</div>
 						</li>
 						<li class="nav-item">
@@ -89,9 +89,8 @@
 				<div class="container-fluid">
 					<div class="banner-wrapper">
 						<div class="banner-header text-center">
-							<h1>Search Doctor, Make an Appointment</h1>
-							<p>Discover the best doctors, clinic & hospital the city nearest to you.</p>
-							
+							<h1>Bem-vindo ao SIS-UAN</h1>
+							<p>A sua saúde é nossa prioridade</p>
 						</div>
                          
 					</div>
@@ -117,7 +116,7 @@
 										<img src="assets/img/specialities/specialities-01.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>
-									<p>Urology</p>
+									<p>Urologia</p>
 								</div>	
 								<!-- /Slider Item -->
 								
@@ -127,7 +126,7 @@
 										<img src="assets/img/specialities/specialities-02.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>
-									<p>Neurology</p>	
+									<p>Neurologia</p>	
 								</div>							
 								<!-- /Slider Item -->
 								
@@ -137,7 +136,7 @@
 										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
-									<p>Orthopedic</p>	
+									<p>Ortopedia</p>	
 								</div>							
 								<!-- /Slider Item -->
 								
@@ -147,7 +146,7 @@
 										<img src="assets/img/specialities/specialities-04.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
-									<p>Cardiologist</p>	
+									<p>Cardiologia</p>	
 								</div>							
 								<!-- /Slider Item -->
 								
@@ -157,7 +156,7 @@
 										<img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
-									<p>Dentist</p>
+									<p>Estomatologia</p>
 								</div>							
 								<!-- /Slider Item -->
 								
