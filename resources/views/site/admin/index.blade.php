@@ -41,11 +41,11 @@
 
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="index.html" class="logo">
-					<img src="assets/img/logo.png" alt="Logo">
+				<a href="{{ route('menu.index') }}" class="logo">
+					<img src="{{asset('admin/assets/img/logo.png')}}" alt="Logo">
 				</a>
-				<a href="index.html" class="logo logo-small">
-					<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				<a href="{{ route('menu.index') }}" class="logo logo-small">
+					<img src="{{asset('admin/assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
 				</a>
 			</div>
 			<!-- /Logo -->
@@ -54,12 +54,12 @@
 				<i class="fe fe-text-align-left"></i>
 			</a>
 
-			<div class="top-nav-search">
+			{{-- <div class="top-nav-search">
 				<form>
 					<input type="text" class="form-control" placeholder="Search here">
 					<button class="btn" type="submit"><i class="fa fa-search"></i></button>
 				</form>
-			</div>
+			</div> --}}
 
 			<!-- Mobile Menu Toggle -->
 			<a class="mobile_btn" id="mobile_btn">

@@ -10,19 +10,19 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('admin/assets/img/favicon.png')}}">
-
+		
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
-
+	
 	<!-- Fontawesome CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/font-awesome.min.css')}}">
-
+	
 	<!-- Feathericon CSS -->
-	<link rel="stylesheet" href="{{asset('admin/assets/css/font-awesome.min.css')}}">
-
+	<link rel="stylesheet" href="{{asset('admin/assets/css/feathericon.min.css')}}">
+	
 	<!-- Datatables CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/datatables/datatables.min.css')}}">
-
+	
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
 
@@ -42,10 +42,10 @@
 
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="index.html" class="logo">
+				<a href="{{ route('menu.index') }}" class="logo">
 					<img src="{{asset('admin/assets/img/logo.png')}}" alt="Logo">
 				</a>
-				<a href="index.html" class="logo logo-small">
+				<a href="{{ route('menu.index') }}" class="logo logo-small">
 					<img src="{{asset('admin/assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
 				</a>
 			</div>
@@ -55,12 +55,12 @@
 				<i class="fe fe-text-align-left"></i>
 			</a>
 
-			<div class="top-nav-search">
+			{{-- <div class="top-nav-search">
 				<form>
 					<input type="text" class="form-control" placeholder="Search here">
 					<button class="btn" type="submit"><i class="fa fa-search"></i></button>
 				</form>
-			</div>
+			</div> --}}
 
 			<!-- Mobile Menu Toggle -->
 			<a class="mobile_btn" id="mobile_btn">
