@@ -180,7 +180,7 @@
 								<h3 class="page-title">Lista de Pessoal Clinicos</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item"><a href="javascript:(0);">Users</a></li>
+									{{-- <li class="breadcrumb-item"><a href="javascript:(0);">Users</a></li> --}}
 									<li class="breadcrumb-item active">Médicos</li>
 								</ul>
 							</div>
@@ -326,6 +326,10 @@
 		
 		<!-- Custom JS -->
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
+
+		<script>
+			document.getElementById("pessoal_clinico").classList.add("active");
+		</script>
 		
     </body>
 

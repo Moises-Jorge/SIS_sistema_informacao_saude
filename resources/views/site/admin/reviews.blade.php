@@ -304,6 +304,10 @@
 		
 		<!-- Custom JS -->
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
+
+		<script>
+			document.getElementById("consulta").classList.add("active");
+		</script>
 		
     </body>
 

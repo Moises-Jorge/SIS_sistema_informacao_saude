@@ -250,6 +250,10 @@
 		
 		<!-- Custom JS -->
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
+
+		<script>
+			document.getElementById("paciente").classList.add("active");
+		</script>
 		
     </body>
 

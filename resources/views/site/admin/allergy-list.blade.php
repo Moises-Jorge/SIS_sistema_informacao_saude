@@ -290,6 +290,10 @@
 		
 		<!-- Custom JS -->
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
+
+		<script>
+			document.getElementById("alergia").classList.add("active");
+		</script>
 		
     </body>
 

@@ -244,6 +244,10 @@
 		
 		<!-- Custom JS -->
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
+
+		<script>
+			document.getElementById("rcu").classList.add("active");
+		</script>
 		
     </body>
 
