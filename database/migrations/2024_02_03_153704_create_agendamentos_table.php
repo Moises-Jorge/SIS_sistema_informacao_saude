@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
-            $table->date('data');
-            $table->time('hora');
+            $table->date('data'); // Da marcacao do exame/consulta
+            $table->time('hora'); // Da marcacao do exame/consulta
+            $table->date('data_atendimento');
+            $table->time('hora_atendimento');
             $table->integer('estado'); // Se ja foi atendido/não
             $table->text('descricao')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->double('preco');
             $table->foreignId('especialidade_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
