@@ -10,19 +10,19 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('admin/assets/img/favicon.png')}}">
-		
+
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
-	
+
 	<!-- Fontawesome CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/font-awesome.min.css')}}">
-	
+
 	<!-- Feathericon CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/feathericon.min.css')}}">
-	
+
 	<!-- Datatables CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/datatables/datatables.min.css')}}">
-	
+
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
 
@@ -196,13 +196,13 @@
 							<div class="card-body">
 								<div class="table-responsive">
 									@if(Auth::user()->tipo_utilizador==3)
-										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalEscolha">Criar Agendamento</button>
+									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalEscolha">Criar Agendamento</button>
 									@endif
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
 											<tr>
 												@if(Auth::user()->tipo_utilizador==1)
-													<th>Nome Paciente</th>
+												<th>Nome Paciente</th>
 												@endif
 												<th>Nome do Pessoal Clinico</th>
 												<th>Especialidade</th>
@@ -218,22 +218,22 @@
 											@foreach ($todos_agendamentos as $agendamento)
 											<tr>
 												@if(Auth::user()->tipo_utilizador==1)
-													<td>{{$class->get_name_pacient($agendamento->user_id)}}</td>
+												<td>{{$class->get_name_pacient($agendamento->user_id)}}</td>
 												@endif
 												<td>{{$agendamento->nomePessoalClinico}}</td>
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>
 													@if($agendamento->exame_id!=null)
-														Exame
+													Exame
 													@else
-														Consulta
+													Consulta
 													@endif
 												</td>
 												<td>
 													@if($agendamento->exame_id!=null)
-														{{$agendamento->nome_exame}}
+													{{$agendamento->nome_exame}}
 													@else
-														{{$agendamento->nome_consulta}}
+													{{$agendamento->nome_consulta}}
 													@endif
 												</td>
 												<td>{{$agendamento->data}}</td>
@@ -301,13 +301,29 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Consulta</label>
 							<div class="col-md-10">
-								<select class="form-control" name="consulta_id">
+								<select onchange="mostrarPreco(this)" class="form-control" name="consulta_id">
+									<option value="">Selecione a Consulta</option>
 									@foreach ($todas_consultas as $consulta)
-									<option value="{{$consulta->id}}">{{$consulta->nome}}</option>
+									<option id="{{$consulta->preco}}" value="{{$consulta->id}}">{{$consulta->nome}}</option>
 									@endforeach
 								</select>
 							</div>
+
 						</div>
+
+						<div class="form-group row">
+							<label class="col-form-label col-md-2">Preço</label>
+							<div class="col-md-10">
+								<span id="preco_consulta" style="font: 15pt arial;font-weight: bold;"></span>
+							</div>
+						</div>
+						<script>
+							function mostrarPreco(select) {
+								console.log(select.options)
+								option = select.options[select.options.selectedIndex];
+								document.getElementById("preco_consulta").innerHTML = option.id + " kz";
+							}
+						</script>
 
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2"></label>
@@ -315,6 +331,7 @@
 								<input type="text" value="2" class="form-control" name="tipo_utilizador">
 							</div>
 						</div>
+
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -344,13 +361,28 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Exame</label>
 							<div class="col-md-10">
-								<select class="form-control" name="exame_id" require>
+								<select onchange="mostrarPrecos(this)" class="form-control" name="exame_id" require>
+									<option value="">Selecione a Consulta</option>
 									@foreach ($todos_exames as $exame)
-									<option value="{{$exame->id}}">{{$exame->nome}}</option>
+									<option id="{{$consulta->preco}}" value="{{$exame->id}}">{{$exame->nome}}</option>
 									@endforeach
 								</select>
 							</div>
 						</div>
+
+						<div class="form-group row">
+							<label class="col-form-label col-md-2">Preço</label>
+							<div class="col-md-10">
+								<span id="preco_consultas" style="font: 15pt arial;font-weight: bold;"></span>
+							</div>
+						</div>
+						<script>
+							function mostrarPrecos(select) {
+								console.log(select.options)
+								option = select.options[select.options.selectedIndex];
+								document.getElementById("preco_consultas").innerHTML = option.id + " kz";
+							}
+						</script>
 
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2"></label>
@@ -389,7 +421,7 @@
 	<script>
 		document.getElementById("Agendamento").classList.add("active");
 	</script>
-	
+
 </body>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->
