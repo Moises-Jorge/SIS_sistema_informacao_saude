@@ -204,7 +204,7 @@
 													<th>Nome</th>
 													<th>Descrição</th>
 													<th>Especialidade</th>
-													<th class="text-right">Actions</th>
+													<th>Preço</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -213,7 +213,7 @@
 														<td>{{ $consulta->nome }}</td>
 														<td>{{ $consulta->descricao }}</td>
 														<td>{{ $consulta->nomeEspecialidade }}</td>
-														<td></td>
+														<td>{{ $consulta->preco }} KZ</td>
 													</tr>
 												@endforeach
 											</tbody>
@@ -265,6 +265,13 @@
 									<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
 								@endforeach
 							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-form-label col-md-2">Preço</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" name="preco">
 						</div>
 					</div>
 
