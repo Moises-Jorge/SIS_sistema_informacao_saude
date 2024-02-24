@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('data'); // Da marcacao do exame/consulta
             $table->time('hora'); // Da marcacao do exame/consulta
-            $table->date('data_atendimento');
-            $table->time('hora_atendimento');
+            $table->date('data_atendimento')->nullable();
+            $table->time('hora_atendimento')->nullable();
             $table->integer('estado'); // Se ja foi atendido/não
             $table->text('descricao')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

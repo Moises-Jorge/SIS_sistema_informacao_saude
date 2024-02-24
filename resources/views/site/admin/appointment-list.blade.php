@@ -208,8 +208,11 @@
 												<th>Especialidade</th>
 												<th>Tipo de Serviço</th>
 												<th>Nome da Consulta/Exame</th>
+												<th>Preço</th>
 												<th>Data</th>
 												<th>Horario</th>
+												<th>Data de Atendimento</th>
+												<th>Horário de Atendimento</th>
 												<th>Status</th>
 												<th>Descricao</th>
 											</tr>
@@ -236,8 +239,11 @@
 													{{$agendamento->nome_consulta}}
 													@endif
 												</td>
+												<td>colocar aqui o preço</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
+												<td>Colocar Data de Atendimento</td>
+												<td>Colocar Hora de Atendimento</td>
 												@if($agendamento->estado==0)
 												<td>Não atendido</td>
 												@else
