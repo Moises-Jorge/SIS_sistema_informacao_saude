@@ -22,6 +22,7 @@ class AgendamentoController extends Controller
             ->join("especialidades", "especialidades.id", "=", "pessoal__clinicos.especialidade_id")
             ->leftjoin("exames", "exames.id","=","agendamentos.exame_id")
             ->leftjoin("consultas", "consultas.id","=","agendamentos.consulta_id")
+            
             ->select(
                 'users.nome as nomePessoalClinico',
                 'especialidades.nome as nome_especialidade',
@@ -60,13 +61,13 @@ class AgendamentoController extends Controller
     public function store(Request $request)
     {
         if ($request->has("exame_id")) {
-            $especialidade_id = Exame::find($request->input("exame_id"))->especialidade_id;
+            $especialidade_id = Exame::find((int)$request->input("exame_id"))->especialidade_id;
         } else if ($request->has("consulta_id")) {
-            $especialidade_id = Consulta::find($request->input("consulta_id"))->especialidade_id;
+            $id_consulta=(int)$request->input("consulta_id");
+            $especialidade_id = Consulta::find($id_consulta)->especialidade_id;
         }
 
-
-
+       
         $resultado = DB::table('pessoal__clinicos as pc')
             ->leftJoin('agendamentos as a', 'a.pessoal__clinico_id', '=', 'pc.id')
             ->select('pc.id', 'pc.especialidade_id', DB::raw('COUNT(a.id) AS total_agendamentos'))
@@ -74,7 +75,7 @@ class AgendamentoController extends Controller
             ->having('pc.especialidade_id', '=', $especialidade_id)
             ->orderBy('total_agendamentos', 'ASC')
             ->first();
-
+      
        
 
         if ($request->has("exame_id")) {

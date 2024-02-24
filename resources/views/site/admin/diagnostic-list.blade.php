@@ -368,7 +368,7 @@
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2"></label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" name="pessoal__clinico_id" value="1">
+								<input type="text" class="form-control" name="pessoal__clinico_id" value="{{$id_pessoa_clinico}}">
 							</div>
 						</div>
 

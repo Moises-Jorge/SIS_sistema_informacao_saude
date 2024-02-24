@@ -6,6 +6,7 @@ use App\Models\Agendamento;
 use App\Models\Alergia;
 use App\Models\Diagnostico;
 use App\Models\Reg_Clinico_Utente;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,10 +17,64 @@ class DiagnosticoController extends Controller
      */
     public function index()
     {
-        $pessoal_clinico_object = new PessoalClinicoController();
-        $id_pessoa_clinico= $pessoal_clinico_object->return_my_id(Auth::user()->id);
+        $id_pessoa_clinico=0;
+        if(Auth::user()->tipo_utilizador==2){
+            $pessoal_clinico_object = new PessoalClinicoController();
+            $id_pessoa_clinico= $pessoal_clinico_object->return_my_id(Auth::user()->id);
+        }
+       
 
-        $todos_diagnosticos = Diagnostico::join("reg__clinico__utentes",'reg__clinico__utentes.id',"=","diagnosticos.reg__clinico__utente_id")
+        $todos_diagnosticos = $this->returnDiagnostic($id_pessoa_clinico);
+        
+
+
+        $todas_alergias = Alergia::all();
+
+        $todos_agendamentos = Agendamento::join("users", "agendamentos.user_id", "=", "users.id")
+        ->join("pessoal__clinicos", "pessoal__clinicos.id", "=", "agendamentos.pessoal__clinico_id")
+        ->select("users.id as idUser",
+            'users.nome as nomeUser',
+            'users.telefone',
+            'agendamentos.*'
+        )
+        ->where("pessoal__clinico_id", "=", $id_pessoa_clinico)
+        ->orderBy('agendamentos.data', 'asc') // Ordena pela data em ordem crescente
+        ->orderBy('agendamentos.hora', 'asc') // Em seguida, ordena pela hora em ordem crescente
+        ->get();
+        
+        $controller=$this;
+
+        
+        return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias','todos_agendamentos','controller','id_pessoa_clinico'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    private function returnDiagnostic($id_pessoa_clinico){
+        if($id_pessoa_clinico==0){
+          return  Diagnostico::join("reg__clinico__utentes",'reg__clinico__utentes.id',"=","diagnosticos.reg__clinico__utente_id")
+        ->join("users","users.id","=","reg__clinico__utentes.user_id")
+        ->join("pessoal__clinicos","pessoal__clinicos.id","=","diagnosticos.pessoal__clinico_id")
+        ->leftjoin("alergias","alergias.id","=","diagnosticos.alergia_id")
+        ->select("users.id as idUser",
+                "users.nome as nomeUser",
+                "diagnosticos.tipo_doenca",
+                "diagnosticos.nome",
+                "diagnosticos.data",
+                "diagnosticos.descricao",
+                'diagnosticos.estado',
+                "reg__clinico__utentes.grupo_sang",
+                "reg__clinico__utentes.status",
+                'alergias.nome as nomeAlergia')
+                ->get();
+        }else{
+            return Diagnostico::join("reg__clinico__utentes",'reg__clinico__utentes.id',"=","diagnosticos.reg__clinico__utente_id")
         ->join("users","users.id","=","reg__clinico__utentes.user_id")
         ->join("pessoal__clinicos","pessoal__clinicos.id","=","diagnosticos.pessoal__clinico_id")
         ->leftjoin("alergias","alergias.id","=","diagnosticos.alergia_id")
@@ -35,36 +90,7 @@ class DiagnosticoController extends Controller
                 'alergias.nome as nomeAlergia')
         ->where("pessoal__clinicos.id","=",$id_pessoa_clinico)
         ->get();
-
-        
-
-
-        $todas_alergias=Alergia::all();
-
-        $todos_agendamentos = Agendamento::join("users", "agendamentos.user_id", "=", "users.id")
-        ->join("pessoal__clinicos", "pessoal__clinicos.id", "=", "agendamentos.pessoal__clinico_id")
-        ->select("users.id as idUser",
-            'users.nome as nomeUser',
-            'users.telefone',
-            'agendamentos.*'
-        )
-        ->where("pessoal__clinico_id", "=", $id_pessoa_clinico)
-        ->orderBy('agendamentos.data', 'asc') // Ordena pela data em ordem crescente
-        ->orderBy('agendamentos.hora', 'asc') // Em seguida, ordena pela hora em ordem crescente
-        ->get();
-        
-        $controller=$this;
-        
-        
-        return view('site.admin.diagnostic-list', compact('todos_diagnosticos','todas_alergias','todos_agendamentos','controller'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        }
     }
 
     /**
@@ -87,6 +113,8 @@ class DiagnosticoController extends Controller
         //return redirect("diagnostico/index");
         return redirect()->route('diagnostico.index');
     }
+
+ 
 
     /**
      * Display the specified resource.

@@ -208,6 +208,7 @@
 												<th>Data</th>
 												<th>Horario</th>
 												<th>Status</th>
+												<th>Descricao</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -236,6 +237,8 @@
 												@else
 												<td>Atendido</td>
 												@endif
+												
+												<td>{{$agendamento->descricao}}</td>
 											</tr>
 											@endforeach
 										</tbody>
