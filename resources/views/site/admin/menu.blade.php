@@ -14,6 +14,12 @@
     <li id="diagnostico">
         <a href="{{ route('diagnostico.index') }}"><i class="fe fe-users"></i> <span>Diagnostico</span></a>
     </li>
+    @if(Auth::user()->tipo_utilizador==1)
+        <li id="Agendamento">
+                <a href="{{ route('agendamento.index') }}"><i class="fe fe-vector"></i> <span>Agendamento</span></a>
+        </li>
+    @endif
+
     @if(Auth::user()->tipo_utilizador!=2)
         <li id="especialidade">
             <a href="{{ route('especialidade.index') }}"><i class="fe fe-users"></i> <span>Especialidades</span></a>

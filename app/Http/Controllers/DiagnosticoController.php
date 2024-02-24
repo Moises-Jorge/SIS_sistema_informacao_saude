@@ -107,6 +107,7 @@ class DiagnosticoController extends Controller
         $UltimoDiagnostico->data=$data;
         $UltimoDiagnostico->update();
         $agendamento= Agendamento::find($agendamentoId);
+        $agendamento->descricao=$request->input("descricao");
         $agendamento->estado=1;
         $agendamento->update();
 

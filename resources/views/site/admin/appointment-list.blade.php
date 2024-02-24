@@ -195,12 +195,15 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="table-responsive">
-
-									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalEscolha">Criar Agendamento</button>
-
+									@if(Auth::user()->tipo_utilizador==3)
+										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalEscolha">Criar Agendamento</button>
+									@endif
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
 											<tr>
+												@if(Auth::user()->tipo_utilizador==1)
+													<th>Nome Paciente</th>
+												@endif
 												<th>Nome do Pessoal Clinico</th>
 												<th>Especialidade</th>
 												<th>Tipo de Serviço</th>
@@ -214,6 +217,9 @@
 										<tbody>
 											@foreach ($todos_agendamentos as $agendamento)
 											<tr>
+												@if(Auth::user()->tipo_utilizador==1)
+													<td>{{$class->get_name_pacient($agendamento->user_id)}}</td>
+												@endif
 												<td>{{$agendamento->nomePessoalClinico}}</td>
 												<td>{{$agendamento->nome_especialidade}}</td>
 												<td>
@@ -237,7 +243,7 @@
 												@else
 												<td>Atendido</td>
 												@endif
-												
+
 												<td>{{$agendamento->descricao}}</td>
 											</tr>
 											@endforeach
