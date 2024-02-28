@@ -331,20 +331,20 @@
 											
 											<ul>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+													<a href="facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+												</li>
+												{{-- <li>
+													<a href="twitter.com" target="_blank"><i class="fab fa-twitter"></i> </a>
+												</li> --}}
+												<li>
+													<a href="linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 												</li>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+													<a href="instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-												</li>
-												<li>
+												{{-- <li>
 													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-												</li>
+												</li> --}}
 											</ul>
 										
 											
@@ -374,15 +374,15 @@
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+											<p> Luanda, Belas,<br> Camama-1 </p>
 										</div>
 										<p>
 											<i class="fas fa-phone-alt"></i>
-											+1 315 369 5943
+											+244 952 573 924
 										</p>
 										<p class="mb-0">
 											<i class="fas fa-envelope"></i>
-											doccure@example.com
+											sisuan@example.com
 										</p>
 									</div>
 								</div>
