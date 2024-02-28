@@ -34,54 +34,7 @@
 		<div class="main-wrapper">
 		
 			<!-- Header -->
-			<header class="header">
-				<nav class="navbar navbar-expand-lg header-nav">
-					<div class="navbar-header">
-						<a id="mobile_btn" href="javascript:void(0);">
-							<span class="bar-icon">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</a>
-						<a href="index-2.html" class="navbar-brand logo">
-							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
-						</a>
-					</div>
-					<div class="main-menu-wrapper">
-						<div class="menu-header">
-							<a href="index-2.html" class="menu-logo">
-								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
-							</a>
-							<a id="menu_close" class="menu-close" href="javascript:void(0);">
-								<i class="fas fa-times"></i>
-							</a>
-						</div>
-
-						<ul class="main-nav">
-							<li class="active">
-								<a href="index-2.html">Home</a>
-							</li>
-					
-							
-						</ul>		 
-					</div>		 
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item contact-item">
-							<div class="header-contact-img">
-								<i class="far fa-hospital"></i>							
-							</div>
-							<div class="header-contact-detail">
-								<p class="contact-header">SIS-UAN </p>
-								<p class="contact-info-header">+244 952 573 924</p>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="{{route('login.page')}}">Entrar</a>
-						</li>
-					</ul>
-				</nav>
-			</header>
+				@include('site.main_header')
 			<!-- /Header -->
 			
 			<!-- Home Banner -->
@@ -246,7 +199,7 @@
 			<!-- /Popular Section -->
 		   
 		   <!-- Availabe Features -->
-		   <section class="section section-features">
+		   {{-- <section class="section section-features">
 				<div class="container-fluid">
 				   <div class="row">
 						<div class="col-md-5 features-img">
@@ -303,55 +256,15 @@
 						</div>
 				   </div>
 				</div>
-			</section>		
+			</section>		 --}}
 			<!-- Availabe Features -->
 			
 			<!-- Footer -->
 			<footer class="footer">
 				
 				<!-- Footer Top -->
-				<div class="footer-top">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
-									</div>
-									<div class="footer-about-content">
-										<p>Seu bem-estar, nosso dever. </p>
-										<div class="footer-widget footer-contact">
-										
-											
-										</div>
-										<div class="social-icon">
-
-											
-											<ul>
-												<li>
-													<a href="facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-												</li>
-												{{-- <li>
-													<a href="twitter.com" target="_blank"><i class="fab fa-twitter"></i> </a>
-												</li> --}}
-												<li>
-													<a href="linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-												</li>
-												<li>
-													<a href="instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-												</li>
-												{{-- <li>
-													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-												</li> --}}
-											</ul>
-										
-											
-										</div>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
+				@include('site.main_footer')
+				<!-- /Footer Widget -->
 								
 							</div>
 							
