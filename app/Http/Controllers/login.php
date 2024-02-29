@@ -44,10 +44,4 @@ class login extends Controller
     public function n_agendamento(){
         return Agendamento::count();
     }
-
-    public function home(){
-        return view("site.index");
-    }
-
-
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\AlergiaController;
 use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DiagnosticoController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\ExameController;
@@ -26,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix("index")->group(function(){
+    Route::get("/home",[Controller::class, 'home'])->name("index.home");
+});
+
 Route::get('/', function () {
     return view('site.index');
 });
@@ -41,7 +46,6 @@ Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");
     Route::post("/logar",[login::class, 'logar'])->name("login.logar");
     Route::get("/logout",[login::class, 'logout'])->name("login.logout");
-    Route::get("/home",[login::class, 'home'])->name("login.home");
 });
 
 

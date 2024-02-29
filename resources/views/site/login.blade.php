@@ -59,7 +59,7 @@
 					</div>
 					<ul class="main-nav">
 						<li>
-							<a href="{{route('login.home')}}">Home</a>
+							<a href="{{route('index.home')}}">Home</a>
 						</li>
 
 
