@@ -9,17 +9,17 @@
 		<title>SIS-UAN</title>
 		
 		<!-- Favicons -->
-		<link type="image/x-icon" href="assets/img/favicon.png" rel="icon">
+		<link type="image/x-icon" href="{{asset('assets/img/favicon.png" rel="icon')}}">
 		
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 		
 		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
 		
 		<!-- Main CSS -->
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -66,7 +66,7 @@
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
 									<div class="speicality-img">
-										<img src="assets/img/specialities/specialities-01.png" class="img-fluid" alt="Speciality">
+										<img src="{{asset('assets/img/specialities/specialities-01.png')}}" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>
 									<p>Urologia</p>
@@ -76,7 +76,7 @@
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
 									<div class="speicality-img">
-										<img src="assets/img/specialities/specialities-02.png" class="img-fluid" alt="Speciality">
+										<img src="{{asset('assets/img/specialities/specialities-02.png')}}" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>
 									<p>Neurologia</p>	
@@ -86,7 +86,7 @@
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
 									<div class="speicality-img">
-										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+										<img src="{{asset('assets/img/specialities/specialities-03.png')}}" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
 									<p>Ortopedia</p>	
@@ -96,7 +96,7 @@
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
 									<div class="speicality-img">
-										<img src="assets/img/specialities/specialities-04.png" class="img-fluid" alt="Speciality">
+										<img src="{{asset('assets/img/specialities/specialities-04.png')}}" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
 									<p>Cardiologia</p>	
@@ -106,7 +106,7 @@
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
 									<div class="speicality-img">
-										<img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">
+										<img src="{{asset('assets/img/specialities/specialities-05.png')}}" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>	
 									<p>Estomatologia</p>
@@ -144,7 +144,7 @@
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor.jpg">
+											<img class="img-fluid" alt="User Image" src="{{asset('assets/img/doctors/doctor.jpg')}}">
 										</a>
 										
 									</div>
@@ -169,13 +169,13 @@
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor.jpg">
+											<img class="img-fluid" alt="User Image" src="{{asset('assets/img/doctors/doctor.jpg')}}">
 										</a>
 										
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
-											<a href="doctor-profile.html">nome_medicor</a> 
+											<a href="doctor-profile.html">nome_medico</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
 										<p class="speciality">especialidade_medico</p>
@@ -267,17 +267,17 @@
 	   <!-- /Main Wrapper -->
 	  
 		<!-- jQuery -->
-		<script src="assets/js/jquery.min.js"></script>
+		<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 		
 		<!-- Bootstrap Core JS -->
-		<script src="assets/js/popper.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="{{asset('assets/js/popper.min.js')}}"></script>
+		<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 		
 		<!-- Slick JS -->
-		<script src="assets/js/slick.js"></script>
+		<script src="{{asset('assets/js/slick.js')}}"></script>
 		
 		<!-- Custom JS -->
-		<script src="assets/js/script.js"></script>
+		<script src="{{asset('assets/js/script.js')}}"></script>
 		
 	</body>
 

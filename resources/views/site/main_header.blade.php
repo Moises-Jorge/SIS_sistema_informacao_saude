@@ -26,7 +26,7 @@
 
             <ul class="main-nav">
                 <li class="active">
-                    <a href="index-2.html">Home</a>
+                    <a href="{{route('login.home')}}">Home</a>
                 </li>
         
                 

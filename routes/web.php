@@ -26,15 +26,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::prefix("home")->group(function(){
-    Route::get("/principal",[login::class, 'login'])->name("home.principal");
-});
-
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('site.index');
 });
+
+
 
 Route::get('/perfil', function () {
     return view('site/admin/profile');
@@ -45,6 +41,7 @@ Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");
     Route::post("/logar",[login::class, 'logar'])->name("login.logar");
     Route::get("/logout",[login::class, 'logout'])->name("login.logout");
+    Route::get("/home",[login::class, 'home'])->name("login.home");
 });
 
 

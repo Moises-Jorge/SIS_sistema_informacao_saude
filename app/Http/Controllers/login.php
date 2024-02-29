@@ -45,5 +45,9 @@ class login extends Controller
         return Agendamento::count();
     }
 
+    public function home(){
+        return view("site.index");
+    }
+
 
 }
