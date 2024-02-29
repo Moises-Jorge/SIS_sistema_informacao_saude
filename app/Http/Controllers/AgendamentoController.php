@@ -114,7 +114,10 @@ class AgendamentoController extends Controller
                 'estado' => 0,
                 'user_id' => Auth::user()->id,
                 'pessoal__clinico_id' => $resultado->id,
-                'exame_id' => $request->input("exame_id")
+                'exame_id' => $request->input("exame_id"),
+                'data_atendimento' => $request->input("data_atendimento"),//COLOCAR AQUI O VALOR DA DATA DE ATENDIMENTO
+                'hora_atendimento' => $request->input("hora_atendimento") //COLOCAR AQUI O VALOR DA HORA DE ATENDIMENTO
+
             ]);
         } else {
             Agendamento::create([

@@ -16,6 +16,8 @@ class Agendamento extends Model
         'estado',
         'pessoal__clinico_id',
         'exame_id',
-        'consulta_id'
+        'consulta_id',
+        'data_atendimento',
+        'hora_atendimento'
     ];
 }
