@@ -8,14 +8,14 @@
                     <span></span>
                 </span>
             </a>
-            <a href="index-2.html" class="navbar-brand logo">
+            <a href="{{route('index.home')}}" class="navbar-brand logo">
                 {{-- <img src="assets/img/logo.png" class="img-fluid" alt="Logo"> --}}
                 <img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
             <div class="menu-header">
-                <a href="index-2.html" class="menu-logo">
+                <a href="{{route('index.home')}}" class="menu-logo">
                     {{-- <img src="assets/img/logo.png" class="img-fluid" alt="Logo"> --}}
                     <img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
                 </a>
@@ -25,9 +25,9 @@
             </div>
 
             <ul class="main-nav">
-                <li class="active">
+                {{-- <li class="active">
                     <a href="{{route('index.home')}}">Home</a>
-                </li>
+                </li> --}}
         
                 
             </ul>		 

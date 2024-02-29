@@ -23,16 +23,16 @@
                                 
                                 <ul>
                                     <li>
-                                        <a href="facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                                        <a href="https://web.facebook.com/moises.jorge.161" target="_blank"><i class="fab fa-facebook-f"></i> </a>
                                     </li>
                                     {{-- <li>
                                         <a href="twitter.com" target="_blank"><i class="fab fa-twitter"></i> </a>
                                     </li> --}}
                                     <li>
-                                        <a href="linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="https://www.linkedin.com/in/mois%C3%A9s-jorge-8862791b4/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                     </li>
                                     <li>
-                                        <a href="instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.instagram.com/king_de_moka/" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     {{-- <li>
                                         <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
