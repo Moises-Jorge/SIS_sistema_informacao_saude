@@ -26,7 +26,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+
+Route::prefix("home")->group(function(){
+    Route::get("/principal",[login::class, 'login'])->name("home.principal");
+});
+
+Route::get('/index', function () {
     return view('site.index');
 });
 
