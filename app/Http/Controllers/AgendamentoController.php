@@ -19,17 +19,17 @@ class AgendamentoController extends Controller
     public function index()
     {
 
-        $todos_agendamentos =$this->get_appointment();
+        $todos_agendamentos = $this->get_appointment();
 
 
         $todas_consultas = Consulta::join('especialidades', 'especialidades.id', '=', 'consultas.especialidade_id')
-        ->select('consultas.*', 'especialidades.nome as nomeEspecialidade')->get(); //all();
+            ->select('consultas.*', 'especialidades.nome as nomeEspecialidade')->get(); //all();
 
         $todos_exames = Exame::join('especialidades', 'especialidades.id', '=', 'exames.especialidade_id')
             ->select('exames.*', 'especialidades.nome as nomeEspecialidade')->get(); //all();
 
-        $class=$this;
-        return view('site.admin.appointment-list', compact('todos_agendamentos', 'todas_consultas', 'todos_exames',"class"));
+        $class = $this;
+        return view('site.admin.appointment-list', compact('todos_agendamentos', 'todas_consultas', 'todos_exames', "class"));
     }
 
     /**
@@ -54,29 +54,32 @@ class AgendamentoController extends Controller
                     'especialidades.nome as nome_especialidade',
                     'agendamentos.*',
                     'exames.nome as nome_exame',
+                    'exames.preco as preco_exame',
+                    'consultas.preco as preco_consulta',
                     'consultas.nome as nome_consulta'
                 )
                 ->where("agendamentos.user_id", "=", Auth::user()->id)
                 ->orderBy('agendamentos.data', 'asc')
                 ->orderBy('agendamentos.hora', 'asc')
                 ->get();
-        }else{
-             return Agendamento ::join("pessoal__clinicos", "pessoal__clinicos.id", "=", "agendamentos.pessoal__clinico_id")
-            ->join("users", "pessoal__clinicos.user_id", "=", "users.id")
-            ->join("especialidades", "especialidades.id", "=", "pessoal__clinicos.especialidade_id")
-            ->leftjoin("exames", "exames.id","=","agendamentos.exame_id")
-            ->leftjoin("consultas", "consultas.id","=","agendamentos.consulta_id")
-            ->select(
-                'users.nome as nomePessoalClinico',
-                'especialidades.nome as nome_especialidade',
-                'agendamentos.*',
-                'exames.nome as nome_exame',
-                'consultas.nome as nome_consulta'
-            )
-            ->orderBy('agendamentos.data', 'asc')
-            ->orderBy('agendamentos.hora', 'asc')
-            ->get();
-            
+        } else {
+            return Agendamento::join("pessoal__clinicos", "pessoal__clinicos.id", "=", "agendamentos.pessoal__clinico_id")
+                ->join("users", "pessoal__clinicos.user_id", "=", "users.id")
+                ->join("especialidades", "especialidades.id", "=", "pessoal__clinicos.especialidade_id")
+                ->leftjoin("exames", "exames.id", "=", "agendamentos.exame_id")
+                ->leftjoin("consultas", "consultas.id", "=", "agendamentos.consulta_id")
+                ->select(
+                    'users.nome as nomePessoalClinico',
+                    'especialidades.nome as nome_especialidade',
+                    'agendamentos.*',
+                    'exames.nome as nome_exame',
+                    'exames.preco as preco_exame',
+                    'consultas.preco as preco_consulta',
+                    'consultas.nome as nome_consulta'
+                )
+                ->orderBy('agendamentos.data', 'asc')
+                ->orderBy('agendamentos.hora', 'asc')
+                ->get();
         }
     }
 
@@ -84,7 +87,8 @@ class AgendamentoController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function get_name_pacient($id_user){
+    public function get_name_pacient($id_user)
+    {
         return User::find($id_user)->nome;
     }
     public function store(Request $request)
@@ -105,6 +109,7 @@ class AgendamentoController extends Controller
             ->orderBy('total_agendamentos', 'ASC')
             ->first();
 
+        $data_atendimento = date('Y-m-d', strtotime('+7 days'));
 
 
         if ($request->has("exame_id")) {
@@ -115,8 +120,8 @@ class AgendamentoController extends Controller
                 'user_id' => Auth::user()->id,
                 'pessoal__clinico_id' => $resultado->id,
                 'exame_id' => $request->input("exame_id"),
-                'data_atendimento' => $request->input("data_atendimento"),//COLOCAR AQUI O VALOR DA DATA DE ATENDIMENTO
-                'hora_atendimento' => $request->input("hora_atendimento") //COLOCAR AQUI O VALOR DA HORA DE ATENDIMENTO
+                'data_atendimento' => $data_atendimento, //COLOCAR AQUI O VALOR DA DATA DE ATENDIMENTO
+                'hora_atendimento' => date('H:i:s') //COLOCAR AQUI O VALOR DA HORA DE ATENDIMENTO
 
             ]);
         } else {
@@ -126,7 +131,9 @@ class AgendamentoController extends Controller
                 'estado' => 0,
                 'user_id' => Auth::user()->id,
                 'pessoal__clinico_id' => $resultado->id,
-                'consulta_id' => $request->input("consulta_id")
+                'consulta_id' => $request->input("consulta_id"),
+                'data_atendimento' => $data_atendimento,
+                'hora_atendimento' =>  date('H:i:s')
             ]);
         }
 

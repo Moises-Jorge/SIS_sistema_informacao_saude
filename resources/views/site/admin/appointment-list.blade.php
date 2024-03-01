@@ -215,6 +215,7 @@
 												<th>Horário de Atendimento</th>
 												<th>Status</th>
 												<th>Descricao</th>
+												<th>Ações</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -239,11 +240,17 @@
 													{{$agendamento->nome_consulta}}
 													@endif
 												</td>
-												<td>colocar aqui o preço</td>
+												<td>
+													@if($agendamento->exame_id!=null)
+													{{$agendamento->preco_exame}}
+													@else
+													{{$agendamento->preco_consulta}}
+													@endif
+												</td>
 												<td>{{$agendamento->data}}</td>
 												<td>{{$agendamento->hora}}</td>
-												<td>Colocar Data de Atendimento</td>
-												<td>Colocar Hora de Atendimento</td>
+												<td>{{$agendamento->data_atendimento}}</td>
+												<td>{{$agendamento->hora_atendimento}}</td>
 												@if($agendamento->estado==0)
 												<td>Não atendido</td>
 												@else
@@ -251,6 +258,17 @@
 												@endif
 
 												<td>{{$agendamento->descricao}}</td>
+												<td>
+													<div class="dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{$loop->iteration}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															Ações
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
+															<a class="dropdown-item" href="#">Editar</a>
+															<a class="dropdown-item" href="#">Deletar</a>
+														</div>
+													</div>
+												</td>
 											</tr>
 											@endforeach
 										</tbody>
