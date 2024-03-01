@@ -352,7 +352,7 @@
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2"></label>
 							<div class="col-md-10">
-								<input type="text" value="2" class="form-control" name="tipo_utilizador">
+								<input type="text" value="2" class="form-control" name="tipo_utilizador" >
 							</div>
 						</div>
 
