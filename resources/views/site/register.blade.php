@@ -55,17 +55,18 @@
 										<form action="{{route('user.store')}}" method="post">
 											@csrf
 											<div class="form-group form-focus">
-												<input type="text" class="form-control floating" name="nome">
+												<input type="text" class="form-control floating" name="nome" required>
 												<label class="focus-label">Nome</label>
 											</div>
 
 											<div class="form-group form-focus">
-												<input type="email" class="form-control floating" name="email">
+												<input type="email" class="form-control floating" name="email" required>
 												<label class="focus-label">Email</label>
 											</div>
 
 											<div class="form-group form-focus">
-												<select class="form-control floating" name="sexo">
+												<select class="form-control floating" name="sexo" required>
+													<option value=""></option>
 													<option>Masculino</option>
 													<option>Femenino</option>
 												</select>
@@ -73,7 +74,7 @@
 											</div>
 
 											<div class="form-group form-focus">
-												<input type="password" class="form-control floating" name="password">
+												<input type="password" class="form-control floating" name="password" required>
 												<label class="focus-label">Senha</label>
 											</div>
 												
