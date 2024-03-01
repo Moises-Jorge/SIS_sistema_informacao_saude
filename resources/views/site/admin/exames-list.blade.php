@@ -205,6 +205,7 @@
 													<th>Descrição</th>
 													<th>especialidade</th>
 													<th>Preço</th>
+													<th>Ações</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -214,6 +215,17 @@
 														<td>{{ $exame->descricao }}</td>
 														<td>{{ $exame->nomeEspecialidade }}</td>
 														<td>{{ $exame->preco }} KZ</td>
+														<td>
+															<div class="dropdown">
+																<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{$loop->iteration}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																	Ações
+																</button>
+																<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
+																	<a class="dropdown-item" href="#">Editar</a>
+																	<a class="dropdown-item" href="#">Deletar</a>
+																</div>
+															</div>
+														</td>
 													</tr>
 												@endforeach
 											</tbody>

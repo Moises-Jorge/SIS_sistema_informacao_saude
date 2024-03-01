@@ -201,6 +201,7 @@
 													<th>Especialidade</th>
 													<th>Numero de Ordem</th>
 													<th>Telefone</th>
+													<th>Ações</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -211,6 +212,17 @@
 															<td>{{$pessoa_clinica->nomeEspecialidade}}</td>
 															<td>{{$pessoa_clinica->num_ordem}}</td>
 															<td>{{$pessoa_clinica->telefone}}</td>
+															<td>
+																<div class="dropdown">
+																	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{$loop->iteration}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																		Ações
+																	</button>
+																	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
+																		<a class="dropdown-item" href="#">Editar</a>
+																		<a class="dropdown-item" href="#">Deletar</a>
+																	</div>
+																</div>
+															</td>
 														</tr>
 													@endif
 												@endforeach

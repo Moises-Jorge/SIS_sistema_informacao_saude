@@ -203,7 +203,7 @@
 												<tr>
 													<th>Nome</th>
 													<th>Descrição</th>
-													<th class="text-right">Actions</th>
+													<th>Ações</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -211,6 +211,17 @@
 													<tr>
 														<td>{{ $especialidade->nome }}</td>
 														<td>{{ $especialidade->descricao }}</td>
+														<td>
+															<div class="dropdown">
+																<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{$loop->iteration}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																	Ações
+																</button>
+																<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
+																	<a class="dropdown-item" href="#">Editar</a>
+																	<a class="dropdown-item" href="#">Deletar</a>
+																</div>
+															</div>
+														</td>
 													</tr>
 												@endforeach
 											</tbody>
