@@ -258,27 +258,27 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Nome</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" name="nome">
+							<input type="text" class="form-control" name="nome" required>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">email</label>
 						<div class="col-md-10">
-							<input type="email" class="form-control" name="email">
+							<input type="email" class="form-control" name="email" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">senha</label>
 						<div class="col-md-10">
-							<input type="password" class="form-control" name="password">
+							<input type="password" class="form-control" name="password" required>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Genero</label>
 						<div class="col-md-10">
-							<select class="form-control" name="sexo">
+							<select class="form-control" name="sexo" required>
 								<option>Masculino</option>
 								<option>Femenino</option>
 							</select>
@@ -288,14 +288,14 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Numero de ordem</label>
 						<div class="col-md-10">
-							<input type="number" class="form-control" name="num_ordem">
+							<input type="number" class="form-control" name="num_ordem" required>
 						</div>
 					</div>
 					
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Especialidade</label>
 						<div class="col-md-10">
-							<select class="form-control" name="especialidade_id">
+							<select class="form-control" name="especialidade_id" required>
 								@foreach ($especialidades as $especialidade)
 									<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
 								@endforeach
@@ -312,7 +312,7 @@
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+						<button type="submit" class="btn btn-primary">Salvar</button>
 					  </div>
 				</form>
 				</div>

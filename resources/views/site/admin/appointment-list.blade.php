@@ -325,7 +325,7 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Consulta</label>
 							<div class="col-md-10">
-								<select onchange="mostrarPreco(this)" class="form-control" name="consulta_id">
+								<select onchange="mostrarPreco(this)" class="form-control" name="consulta_id" required>
 									<option value="">Selecione a Consulta</option>
 									@foreach ($todas_consultas as $consulta)
 									<option id="{{$consulta->preco}}" value="{{$consulta->id}}">{{$consulta->nome}}</option>
@@ -385,7 +385,7 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Exame</label>
 							<div class="col-md-10">
-								<select onchange="mostrarPrecos(this)" class="form-control" name="exame_id" require>
+								<select onchange="mostrarPrecos(this)" class="form-control" name="exame_id" required>
 									<option value="">Selecione a Consulta</option>
 									@foreach ($todos_exames as $exame)
 									<option id="{{$consulta->preco}}" value="{{$exame->id}}">{{$exame->nome}}</option>
@@ -417,7 +417,7 @@
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-							<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
 						</div>
 					</form>
 				</div>

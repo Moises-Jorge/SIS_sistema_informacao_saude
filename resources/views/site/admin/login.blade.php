@@ -42,10 +42,10 @@
 								<!-- Form -->
 								<form action="https://dreamguys.co.in/demo/doccure/admin/index.html">
 									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Email">
+										<input class="form-control" type="text" placeholder="Email" required>
 									</div>
 									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Password">
+										<input class="form-control" type="text" placeholder="Password" required>
 									</div>
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" type="submit">Login</button>

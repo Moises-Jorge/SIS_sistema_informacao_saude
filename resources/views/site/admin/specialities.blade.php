@@ -254,20 +254,20 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Nome</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" name="nome">
+							<input type="text" class="form-control" name="nome" required>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label class="col-form-label col-md-2">Descrição</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" name="descricao">
+							<input type="text" class="form-control" name="descricao" required>
 						</div>
 					</div>
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+						<button type="submit" class="btn btn-primary">Salvar</button>
 					</div>
 				</form>
 				</div>

@@ -277,7 +277,7 @@
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Nome</label>
-																			<input type="text" class="form-control" value="John">
+																			<input type="text" class="form-control" value="John" required>
 																		</div>
 																	</div>
 																	{{-- <div class="col-12 col-sm-6">
@@ -290,29 +290,30 @@
 																		<div class="form-group">
 																			<label>Data de Nascimento</label>
 																			<div class="cal-icon">
-																				<input type="text" class="form-control" value="24-07-1983">
+																				<input type="text" class="form-control" value="24-07-1983" required>
 																			</div>
 																		</div>
 																	</div>
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Email</label>
-																			<input type="email" class="form-control" value="johndoe@example.com">
+																			<input type="email" class="form-control" value="johndoe@example.com" required>
 																		</div>
 																	</div>
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Telefone</label>
-																			<input type="text" value="+1 202-555-0125" class="form-control">
+																			<input type="text" value="+1 202-555-0125" class="form-control" required>
 																		</div>
 																	</div>
+																	
 																	<div class="col-12">
 																		<h5 class="form-title"><span>Morada</span></h5>
 																	</div>
 																	<div class="col-12">
 																		<div class="form-group">
 																		<label>Morada</label>
-																			<input type="text" class="form-control" value="4663 Agriculture Lane">
+																			<input type="text" class="form-control" value="4663 Agriculture Lane" required>
 																		</div>
 																	</div>
 																	{{-- <div class="col-12 col-sm-6">
@@ -362,23 +363,23 @@
 								
 									<div class="card">
 										<div class="card-body">
-											<h5 class="card-title">Change Password</h5>
+											<h5 class="card-title">Alterar Palavra-passe</h5>
 											<div class="row">
 												<div class="col-md-10 col-lg-6">
 													<form>
 														<div class="form-group">
-															<label>Old Password</label>
-															<input type="password" class="form-control">
+															<label>Palavra-passe Antiga</label>
+															<input type="password" class="form-control" required>
 														</div>
 														<div class="form-group">
-															<label>New Password</label>
-															<input type="password" class="form-control">
+															<label>Nova Palavra-passe</label>
+															<input type="password" class="form-control" required>
 														</div>
 														<div class="form-group">
-															<label>Confirm Password</label>
-															<input type="password" class="form-control">
+															<label>Confirme a Palavra-passe</label>
+															<input type="password" class="form-control" required>
 														</div>
-														<button class="btn btn-primary" type="submit">Save Changes</button>
+														<button class="btn btn-primary" type="submit">Salvar Alterações</button>
 													</form>
 												</div>
 											</div>
