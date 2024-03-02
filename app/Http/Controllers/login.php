@@ -44,4 +44,8 @@ class login extends Controller
     public function n_agendamento(){
         return Agendamento::count();
     }
+
+    public function recover_password() {
+        return view('site.forgot-password');
+    }
 }

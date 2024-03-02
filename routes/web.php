@@ -46,6 +46,7 @@ Route::prefix("login")->group(function(){
     Route::get("/page",[login::class, 'login'])->name("login.page");
     Route::post("/logar",[login::class, 'logar'])->name("login.logar");
     Route::get("/logout",[login::class, 'logout'])->name("login.logout");
+    Route::get("/recover_password", [login::class, 'recover_password'])->name("login.recover_password");
 });
 
 

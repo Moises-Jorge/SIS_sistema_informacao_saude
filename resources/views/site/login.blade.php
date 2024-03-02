@@ -126,7 +126,7 @@
 											<label class="focus-label">Password</label>
 										</div>
 										<div class="text-right">
-											<a class="forgot-link" href="forgot-password.html">Esqueceu a senha ?</a>
+											<a class="forgot-link" href="{{ route('login.recover_password') }}">Esqueceu a senha ?</a>
 										</div>
 										<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Login</button>
 
