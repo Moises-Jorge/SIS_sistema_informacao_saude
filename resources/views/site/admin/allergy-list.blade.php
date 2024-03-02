@@ -239,11 +239,10 @@
                                                             </button>
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuButton{{ $loop->iteration }}">
-                                                                <a class="dropdown-item"   data-toggle="modal"
-                                                                data-target="#editarAlergia{{$alergia->id}}">Editar</a>
+                                                                <a class="dropdown-item">Editar</a>
                                                                 <a class="dropdown-item" class="dropdown-item"
                                                                     data-toggle="modal"
-                                                                    data-target="#confirmModal{{ $alergia->id }}">Deletar</a>
+                                                                    data-target="#confirmModal{{ $alergia->id }}" href="#">Deletar</a>
                                                             </div>
                                                         </div>
                                                     </td>

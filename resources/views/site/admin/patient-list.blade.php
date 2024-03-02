@@ -224,12 +224,41 @@
 																	</button>
 																	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
 																		<a class="dropdown-item" href="#">Editar</a>
-																		<a class="dropdown-item" href="#">Deletar</a>
+																		<a class="dropdown-item" class="dropdown-item"
+                                                                    	data-toggle="modal"
+                                                                    	data-target="#confirmModal{{ $usuario->id }}" href="#">Deletar</a>
 																	</div>
 																</div>
 															</td>
 														</tr>
 													@endif
+													<div class="modal fade" id="confirmModal{{ $usuario->id }}"
+														tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
+														aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="confirmModalLabel">
+																		Confirmação de
+																		Exclusão</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	Você tem certeza que deseja realizar esta ação?
+																</div>
+																<div class="modal-footer">
+																	<a type="button" class="btn btn-secondary"
+																		data-dismiss="modal">Não</a>
+																	<a type="button" class="btn btn-danger"
+																		id="confirmBtn"
+																		href="{{ route('user.destroy',$usuario->id)}}">Sim</a>
+																</div>
+															</div>
+														</div>
+													</div>
 												@endforeach
 											</tbody>
 										</table>

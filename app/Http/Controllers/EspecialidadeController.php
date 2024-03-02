@@ -68,5 +68,6 @@ class EspecialidadeController extends Controller
     {
         $especialidade = Especialidade::find($id);
         $especialidade->delete();
+        return $this->index();
     }
 }

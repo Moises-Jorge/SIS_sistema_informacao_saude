@@ -94,6 +94,7 @@ class UserController extends Controller
         $User= User::where("numero_utilizador",$numero_utilizador)->first();
         if($User && Hash::check($password,$User->password)){
             return $User;
+            //return $this->index();
         }else{
             return null;
         }

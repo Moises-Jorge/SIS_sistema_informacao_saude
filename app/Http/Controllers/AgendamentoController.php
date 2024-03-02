@@ -195,5 +195,6 @@ class AgendamentoController extends Controller
     {
         $agendamento = Agendamento::find($id);
         $agendamento->delete();
+        return $this->index();
     }
 }

@@ -71,6 +71,7 @@ class AlergiaController extends Controller
         $alergia->delete();
         $todas_alergias = Alergia::all();
         return redirect()->route('alergia.index')->with('success', 'Item eliminado com sucesso!');
+        // return $this->index();
 
     }
 }
