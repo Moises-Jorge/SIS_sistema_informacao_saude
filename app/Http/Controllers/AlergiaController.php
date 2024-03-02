@@ -68,5 +68,7 @@ class AlergiaController extends Controller
     {
         $alergia = Alergia::find($id);
         $alergia->delete();
+        $todas_alergias = Alergia::all();
+        return view('site.admin.allergy-list', compact('todas_alergias'))->with('success', 'Item eliminado com sucesso!');
     }
 }
