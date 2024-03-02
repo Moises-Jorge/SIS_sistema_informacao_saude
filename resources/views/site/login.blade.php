@@ -128,7 +128,7 @@
 										<div class="text-right">
 											<a class="forgot-link" href="{{ route('login.recover_password') }}">Esqueceu a senha ?</a>
 										</div>
-										<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Login</button>
+										<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Entrar</button>
 
 
 										<div class="text-left dont-have">Não tem uma conta? <a href="{{route('user.create')}}">Registar</a></div>
