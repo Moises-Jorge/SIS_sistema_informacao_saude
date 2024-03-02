@@ -75,5 +75,6 @@ class ConsultaController extends Controller
     {
         $consulta = Consulta::find($id);
         $consulta->delete();
+        return $this->index();
     }
 }
