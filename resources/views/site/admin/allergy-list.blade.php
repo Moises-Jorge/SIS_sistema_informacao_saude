@@ -276,7 +276,7 @@
                                                                     data-dismiss="modal">Não</a>
                                                                 <a type="button" class="btn btn-danger"
                                                                     id="confirmBtn"
-                                                                    href="{{ alergia . destroy }}/{{ $alergia->id }}">Sim</a>
+																	href="{{ route('alergias.destroy',$alergia->id) }}">Sim</a>
                                                             </div>
                                                         </div>
                                                     </div>
