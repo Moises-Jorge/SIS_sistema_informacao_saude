@@ -217,7 +217,9 @@
 																	Ações
 																</button>
 																<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
-																	<a class="dropdown-item" href="#">Editar</a>
+																	<a class="dropdown-item"   
+                                                                    	data-toggle="modal"
+                                                                    	data-target="#editarEspecialidade{{$especialidade->id}}" href="#">Editar</a>
 																	<a class="dropdown-item" class="dropdown-item"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmModal{{ $especialidade->id }}" href="#">Deletar</a>
@@ -249,6 +251,49 @@
 																		id="confirmBtn"
 																		href="{{ route('especialidade.destroy',$especialidade->id)}}">Sim</a>
 																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="modal fade" id="editarEspecialidade{{$especialidade->id}}" tabindex="-1"
+														role="dialog" aria-labelledby="exampleModalLabel"
+														aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Editar
+																		Dados</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<!-- Seu formulário aqui -->
+																	<form action="{{route('especialidade.update', $especialidade->id) }}"
+																		method="POST">
+																		@csrf
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Nome</label>
+																			<div class="col-md-10">
+																				<input type="text" class="form-control" name="nome" value="{{$especialidade->nome}}" required>
+																			</div>
+																		</div>
+
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Descrição</label>
+																			<div class="col-md-10">
+																				<input type="text" class="form-control" name="descricao" value="{{$especialidade->descricao}}" required>
+																			</div>
+																		</div>														
+	
+																		<div class="modal-footer">
+																			<button type="button" class="btn btn-secondary"	data-dismiss="modal">Fechar</button>
+																			<button type="submit" class="btn btn-primary">Salvar</button>
+																		</div>
+																	</form>
+																</div>
+	
 															</div>
 														</div>
 													</div>

@@ -59,6 +59,7 @@ class EspecialidadeController extends Controller
     {
         $especialidade = Especialidade::find($id);
         $especialidade->update($request->all());
+        return $this->index();
     }
 
     /**
