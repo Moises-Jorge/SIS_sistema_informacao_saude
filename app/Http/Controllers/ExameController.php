@@ -75,5 +75,6 @@ class ExameController extends Controller
     {
         $exame = Exame::find($id);
         $exame->delete();
+        return $this->index();
     }
 }
