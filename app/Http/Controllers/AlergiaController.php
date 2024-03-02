@@ -59,6 +59,7 @@ class AlergiaController extends Controller
     {
         $alergia = Alergia::find($id);
         $alergia->update($request->all());
+        return $this->index();
     }
 
     /**

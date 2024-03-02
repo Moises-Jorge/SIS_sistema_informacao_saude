@@ -215,8 +215,6 @@
 
                                     <button class="btn btn-primary mb-4" style="float: right" data-toggle="modal"
                                         data-target="#cadastroAlergia">Cadastrar Alergias</button>
-                    
-
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                             <tr>
@@ -241,12 +239,12 @@
                                                             </button>
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuButton{{ $loop->iteration }}">
-                                                                <a class="dropdown-item">Editar</a>
+                                                                <a class="dropdown-item"   data-toggle="modal"
+                                                                data-target="#editarAlergia{{$alergia->id}}">Editar</a>
                                                                 <a class="dropdown-item" class="dropdown-item"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmModal{{ $alergia->id }}">Deletar</a>
                                                             </div>
-
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -272,8 +270,51 @@
                                                                     data-dismiss="modal">Não</a>
                                                                 <a type="button" class="btn btn-danger"
                                                                     id="confirmBtn"
-																	href="{{ route('alergia.destroy',$alergia->id)}}">Sim</a>
+                                                                    href="{{ route('alergia.destroy', $alergia->id) }}">Sim</a>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="editarAlergia{{$alergia->id}}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Editar
+                                                                    Dados</h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- Seu formulário aqui -->
+                                                                <form action="{{route('alergia.update', $alergia->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    <div class="form-group row">
+                                                                        <label
+                                                                            class="col-form-label col-md-2">Nome</label>
+                                                                        <div class="col-md-10">
+                                                                            <input type="text" class="form-control"
+                                                                                name="nome" value="{{$alergia->nome}}" required>
+                                                                        </div>
+                                                                    </div>
+
+                                                    
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Salvar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,6 +338,8 @@
    
    
   <!-- Add Modal -->
+
+
     <div class="modal fade" id="cadastroAlergia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
