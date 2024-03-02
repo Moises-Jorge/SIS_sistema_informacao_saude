@@ -215,11 +215,7 @@
 
                                     <button class="btn btn-primary mb-4" style="float: right" data-toggle="modal"
                                         data-target="#cadastroAlergia">Cadastrar Alergias</button>
-                                    @if (isset($success))
-                                        <div class="alert alert-success">
-                                            {{ $success }}
-                                        </div>
-                                    @endif
+                    
 
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
@@ -245,7 +241,7 @@
                                                             </button>
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuButton{{ $loop->iteration }}">
-                                                                <a>Editar</a>
+                                                                <a class="dropdown-item">Editar</a>
                                                                 <a class="dropdown-item" class="dropdown-item"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmModal{{ $alergia->id }}">Deletar</a>
@@ -276,7 +272,7 @@
                                                                     data-dismiss="modal">Não</a>
                                                                 <a type="button" class="btn btn-danger"
                                                                     id="confirmBtn"
-																	href="{{ route('alergias.destroy',$alergia->id) }}">Sim</a>
+																	href="{{ route('alergia.destroy',$alergia->id)}}">Sim</a>
                                                             </div>
                                                         </div>
                                                     </div>
