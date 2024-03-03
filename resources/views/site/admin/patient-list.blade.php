@@ -108,9 +108,9 @@
 																		Ações
 																	</button>
 																	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
-																		<a class="dropdown-item"   
+																		{{-- <a class="dropdown-item"   
                                                                     		data-toggle="modal"
-                                                                    		data-target="#editarDados{{$usuario->id}}" href="#">Editar</a>
+                                                                    		data-target="#editarDados{{$usuario->id}}" href="#">Editar</a> --}}
 																		<a class="dropdown-item" class="dropdown-item"
                                                                     	data-toggle="modal"
                                                                     	data-target="#confirmModal{{ $usuario->id }}" href="#">Deletar</a>
@@ -147,7 +147,7 @@
 														</div>
 													</div>
 
-													<div class="modal fade" id="editarDados{{$usuario->id}}" tabindex="-1"
+													{{-- <div class="modal fade" id="editarDados{{$usuario->id}}" tabindex="-1"
 														role="dialog" aria-labelledby="exampleModalLabel"
 														aria-hidden="true">
 														<div class="modal-dialog" role="document">
@@ -204,7 +204,7 @@
 	
 															</div>
 														</div>
-													</div>
+													</div> --}}
 												@endforeach
 											</tbody>
 										</table>
