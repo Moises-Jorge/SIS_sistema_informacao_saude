@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pessoal_Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PessoalAdminController extends Controller
@@ -31,11 +32,17 @@ class PessoalAdminController extends Controller
         $userController = new UserController();
         $idUser = $userController->store($request);
         Pessoal_Admin::create([
-            'cargo' =>$request->input("cargo"),
-            'user_id'=>$idUser,
+            'cargo' => $request->input("cargo"),
+            'user_id' => $idUser,
         ]);
     }
-
+    
+    function return_my_id($id)
+    {
+        $query = User::join("pessoal__admins", "users.id", "=", "pessoal__admins.user_id")
+            ->select("pessoal__admins.id")->where("users.id", $id)->first();
+        return $query->id;
+    }
     /**
      * Display the specified resource.
      */
