@@ -66,6 +66,7 @@ class ExameController extends Controller
     {
         $exame = Exame::find($id);
         $exame->update($request->all());
+        return $this->index();
     }
 
     /**
