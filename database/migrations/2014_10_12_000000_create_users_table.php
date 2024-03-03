@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            //$table->integer('idade')->nullable();
             $table->date('data_nascimento')->nullable();
             $table->char('sexo');
             $table->string('localidade')->nullable();//Pronvincia ou Municipio
@@ -27,6 +26,7 @@ return new class extends Migration
             $table->integer('tipo_utilizador'); // "1" --> Admin;   "2" --> P_Clinico;   "3" --> Utente
             $table->string('nome_entidade_fin')->nullable(); //Fazer o devido tratamento depois
             $table->integer('num_user_entidade_fin')->nullable(); // Fazer o devido tratamento depois.
+            //$table->integer('estado'); // Para saber se o utilizador ainda existe no sistema ou se ja foi eliminado
             $table->rememberToken();
             $table->timestamps();
         });
