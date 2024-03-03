@@ -100,8 +100,11 @@ class PessoalClinicoController extends Controller
      */
     public function destroy(string $id)
     {
-        $pessoa_clinica = Pessoal_Clinico::find($id);
+        $my_id = $this->return_my_id(($id));
+        $pessoa_clinica = Pessoal_Clinico::find($my_id);
         $pessoa_clinica->delete();
+        $user= User::find($id);
+        $user->delete();
         return $this->index();
     }
 }
