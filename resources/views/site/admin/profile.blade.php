@@ -33,123 +33,9 @@
         <div class="main-wrapper">
 		
 			<!-- Header -->
-            <div class="header">
-			
-				<!-- Logo -->
-                <div class="header-left">
-                    <a href="index.html" class="logo">
-						<img src="assets/img/logo.png" alt="Logo">
-					</a>
-					<a href="index.html" class="logo logo-small">
-						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
-					</a>
-                </div>
-				<!-- /Logo -->
-				
-				<a href="javascript:void(0);" id="toggle_btn">
-					<i class="fe fe-text-align-left"></i>
-				</a>
-				
-				<div class="top-nav-search">
-					<form>
-						<input type="text" class="form-control" placeholder="Search here">
-						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
-					</form>
-				</div>
-				
-				<!-- Mobile Menu Toggle -->
-				<a class="mobile_btn" id="mobile_btn">
-					<i class="fa fa-bars"></i>
-				</a>
-				<!-- /Mobile Menu Toggle -->
-				
-				<!-- Header Right Menu -->
-				<ul class="nav user-menu">
-
-					<!-- Notifications -->
-					<li class="nav-item dropdown noti-dropdown">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<i class="fe fe-bell"></i> <span class="badge badge-pill">3</span>
-						</a>
-						<div class="dropdown-menu notifications">
-							<div class="topnav-dropdown-header">
-								<span class="notification-title">Notifications</span>
-								<a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-							</div>
-							<div class="noti-content">
-								<ul class="notification-list">
-									<li class="notification-message">
-										<a href="#">
-											<div class="media">
-												<span class="avatar avatar-sm">
-													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/doctors/doctor-thumb.jpg">
-												</span>
-												<div class="media-body">
-													<p class="noti-details"><span class="noti-title">Dr. Ruby Perrin</span> Schedule <span class="noti-title">her appointment</span></p>
-													<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
-												</div>
-											</div>
-										</a>
-									</li>
-									<li class="notification-message">
-										<a href="#">
-											<div class="media">
-												<span class="avatar avatar-sm">
-													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient.jpg">
-												</span>
-												<div class="media-body">
-													<p class="noti-details"><span class="noti-title">Charlene Reed</span> has booked her appointment to <span class="noti-title">Dr. Ruby Perrin</span></p>
-													<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
-												</div>
-											</div>
-										</a>
-									</li>
-									<li class="notification-message">
-										<a href="#">
-											<div class="media">
-												<span class="avatar avatar-sm">
-													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient.jpg">
-												</span>
-												<div class="media-body">
-												<p class="noti-details"><span class="noti-title">Travis Trimble</span> sent a amount of $210 for his <span class="noti-title">appointment</span></p>
-												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
-												</div>
-											</div>
-										</a>
-									</li>
-									<li class="notification-message">
-										<a href="#">
-											<div class="media">
-												<span class="avatar avatar-sm">
-													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient.jpg">
-												</span>
-												<div class="media-body">
-													<p class="noti-details"><span class="noti-title">Carl Kelly</span> send a message <span class="noti-title"> to his doctor</span></p>
-													<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
-												</div>
-											</div>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div class="topnav-dropdown-footer">
-								<a href="#">View all Notifications</a>
-							</div>
-						</div>
-					</li>
-					<!-- /Notifications -->
-					
-					<!-- User Menu -->
-					<li class="nav-item dropdown has-arrow">
-						@include('site.admin.user_menu')
-					</li>
-					<!-- /User Menu -->
-					
-				</ul>
-				<!-- /Header Right Menu -->
-				
-            </div>
+            	@include('site.admin.header')
 			<!-- /Header -->
+
 			<!-- Sidebar -->
             <div class="sidebar" id="sidebar">
                 <div class="sidebar-inner slimscroll">
@@ -182,35 +68,14 @@
 						<div class="col-md-12">
 							<div class="profile-header">
 								<div class="row align-items-center">
-									<div class="col-auto profile-image">
-										<a href="#">
-											<img class="rounded-circle" alt="User Image" src="assets/img/profiles/avatar.jpg">
-										</a>
-									</div>
 									<div class="col ml-md-n2 profile-user-info">
 										<h4 class="user-name mb-0">{{Auth::user()->nome}}</h4>
 										<h6 class="text-muted">{{Auth::user()->email}}</h6>
 										<div class="user-Location"><i class="fa fa-map-marker"></i> {{Auth::user()->localidade}}, {{Auth::user()->morada}}</div>
-										{{-- <div class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div> --}}
-									</div>
-									<div class="col-auto profile-btn">
-										
-										<a href="#" class="btn btn-primary">
-											Edit
-										</a>
 									</div>
 								</div>
 							</div>
-							<div class="profile-menu">
-								<ul class="nav nav-tabs nav-tabs-solid">
-									<li class="nav-item">
-										<a class="nav-link active" data-toggle="tab" href="#per_details_tab">About</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#password_tab">Password</a>
-									</li>
-								</ul>
-							</div>	
+
 							<div class="tab-content profile-tab-cont">
 								
 								<!-- Personal Details Tab -->
@@ -223,7 +88,7 @@
 												<div class="card-body">
 													<h5 class="card-title d-flex justify-content-between">
 														<span>Detalhes Pessoal</span> 
-														<a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Edit</a>
+														<a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Editar</a>
 													</h5>
 													<div class="row">
 														<p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Nome</p>
@@ -272,73 +137,108 @@
 															</button>
 														</div>
 														<div class="modal-body">
-															<form>
+															<form >
 																<div class="row form-row">
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Nome</label>
-																			<input type="text" class="form-control" value="John" required>
+																			<input type="text" class="form-control" value="{{Auth::user()->nome}}" required>
 																		</div>
 																	</div>
-																	{{-- <div class="col-12 col-sm-6">
+
+																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>Last Name</label>
-																			<input type="text"  class="form-control" value="Doe">
-																		</div>
-																	</div> --}}
-																	<div class="col-12">
-																		<div class="form-group">
-																			<label>Data de Nascimento</label>
-																			<div class="cal-icon">
-																				<input type="text" class="form-control" value="24-07-1983" required>
-																			</div>
+																			<label>Idade</label>
+																			<input type="number" class="form-control" value="{{Auth::user()->idade}}" required>
 																		</div>
 																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+																			<label>Genero</label>
+																			<select class="form-control" name="sexo" value="{{Auth::user()->sexo}}" required>
+																				<option>Masculino</option>
+																				<option>Femenino</option>
+																			</select>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+																			<label>Data de Nascimento</label> {{-- BUG NO TIPO DE DADOS DA LABEL --}}
+																			<input type="text" class="form-control" value="{{Auth::user()->data_nascimento}}" required>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+																			<label>Localidade</label>
+																			<input type="text" class="form-control" value="{{Auth::user()->localidade}}" required>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+																			<label>Morada</label>
+																			<input type="text" class="form-control" value="{{Auth::user()->morada}}" required>
+																		</div>
+																	</div>
+
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Email</label>
-																			<input type="email" class="form-control" value="johndoe@example.com" required>
+																			<input type="email" class="form-control" value="{{Auth::user()->email}}" required>
 																		</div>
 																	</div>
+
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Telefone</label>
-																			<input type="text" value="+1 202-555-0125" class="form-control" required>
+																			<input type="text" value="{{Auth::user()->telefone}}" class="form-control" required>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+																			<label>Senha</label>
+																			<input type="text" class="form-control" value="{{Auth::user()->password}}" required>
 																		</div>
 																	</div>
 																	
-																	<div class="col-12">
-																		<h5 class="form-title"><span>Morada</span></h5>
-																	</div>
-																	<div class="col-12">
-																		<div class="form-group">
-																		<label>Morada</label>
-																			<input type="text" class="form-control" value="4663 Agriculture Lane" required>
-																		</div>
-																	</div>
-																	{{-- <div class="col-12 col-sm-6">
-																		<div class="form-group">
-																			<label>City</label>
-																			<input type="text" class="form-control" value="Miami">
-																		</div>
-																	</div>
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>State</label>
-																			<input type="text" class="form-control" value="Florida">
+																			<label>Entidade Financeira</label>
+																			<input type="text" value="{{Auth::user()->nome_entidade_fin}}" class="form-control" required>
 																		</div>
 																	</div>
+
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>Zip Code</label>
-																			<input type="text" class="form-control" value="22434">
+																			<label>Numero na Entidade Financeira</label>
+																			<input type="text" class="form-control" value="{{Auth::user()->num_user_entidade_fin}}" required>
 																		</div>
 																	</div>
+																	
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
-																			<label>Country</label>
-																			<input type="text" class="form-control" value="United States">
-																		</div> --}}
+		                   {{-- SO PARA PESSOAL CLINICO --}}				<label>Numero de Ordem</label> {{-- SO PARA PESSOAL CLINICO --}}
+																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+								{{-- SO PARA PESSOAL CLINICO --}}			<label>Especialidade</label> {{-- SO PARA PESSOAL CLINICO --}}
+																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																		</div>
+																	</div>
+
+																	<div class="col-12 col-sm-6">
+																		<div class="form-group">
+								{{-- SO PARA PESSOAL ADM --}}				<label>Cargo</label> {{-- SO PARA PESSOAL ADM --}}
+																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																		</div>
+																	</div>
 																	</div>
 																</div>
 																<button type="submit" class="btn btn-primary btn-block">Salvar Alterações</button>
