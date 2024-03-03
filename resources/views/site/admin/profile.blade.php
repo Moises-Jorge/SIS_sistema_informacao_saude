@@ -208,14 +208,14 @@
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Entidade Financeira</label>
-																			<input type="text" value="{{Auth::user()->nome_entidade_fin}}" class="form-control" required>
+																			<input type="text" value="{{Auth::user()->nome_entidade_fin}}" class="form-control">
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Numero na Entidade Financeira</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->num_user_entidade_fin}}" required>
+																			<input type="text" class="form-control" value="{{Auth::user()->num_user_entidade_fin}}">
 																		</div>
 																	</div>
 																	
