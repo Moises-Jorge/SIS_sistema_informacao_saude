@@ -6,6 +6,7 @@ use App\Models\Especialidade;
 use App\Models\Pessoal_Clinico;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PessoalClinicoController extends Controller
 {
@@ -90,9 +91,13 @@ class PessoalClinicoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $pessoa_clinica = Pessoal_Clinico::find($id);
-        $pessoa_clinica->update($request->all());
-        return $this->index();
+        Hash::make($request->input("password"));
+        $User= User::find($id);
+        $User->update($request->all());
+        $id_pessoal_clinico = $this->return_my_id($id);
+        $pessoal_clinico = Pessoal_Clinico::find($id_pessoal_clinico);
+        $pessoal_clinico->update($request->all());
+        return view("site.admin.profile"); //$this->index();
     }
 
     /**

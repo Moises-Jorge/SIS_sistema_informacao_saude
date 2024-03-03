@@ -146,8 +146,9 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        
                                                         @if (Auth::user()->tipo_utilizador == 2)
-                                                             <form action="" method="post">
+                                                             <form action="{{route('clinico.update',Auth::user()->id)}}" method="post">
 														@endif
 														@if(Auth::user()->tipo_utilizador == 3)
                                                              <form action="{{route('user.update',Auth::user()->id)}}" method="post">
