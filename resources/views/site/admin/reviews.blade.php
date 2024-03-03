@@ -221,7 +221,9 @@
 																	Ações
 																</button>
 																<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
-																	<a class="dropdown-item" href="#">Editar</a>
+																	<a class="dropdown-item"   
+                                                                    		data-toggle="modal"
+                                                                    		data-target="#editarDados{{$consulta->id}}" href="#">Editar</a>
 																	<a class="dropdown-item" class="dropdown-item"
                                                                     	data-toggle="modal"
                                                                     	data-target="#confirmModal{{ $consulta->id }}" href="#">Deletar</a>
@@ -253,6 +255,60 @@
 																		id="confirmBtn"
 																		href="{{ route('consulta.destroy',$consulta->id)}}">Sim</a>
 																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="modal fade" id="editarDados{{$consulta->id}}" tabindex="-1"
+														role="dialog" aria-labelledby="exampleModalLabel"
+														aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Editar
+																		Dados</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<!-- Seu formulário aqui -->
+																	<form action="{{route('consulta.update', $consulta->id) }}"
+																		method="POST">
+																		@csrf
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Nome</label>
+																			<div class="col-md-10">
+																				<input type="text" class="form-control" name="nome" value="{{$consulta->nome}}" required>
+																			</div>
+																		</div>
+																											
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Descrição</label>
+																			<div class="col-md-10">
+																				<input type="text" class="form-control" name="descricao" value="{{$consulta->descricao}}" required>
+																			</div>
+																		</div>
+																		
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Especialidade</label>
+																			<div class="col-md-10">
+																				<select class="form-control" name="especialidade_id" value="{{$consulta->especialidade_id}}" required>
+																					@foreach ($especialidades as $especialidade)
+																						<option value="{{$especialidade->id}}">{{$especialidade->nome}}</option>
+																					@endforeach
+																				</select>
+																			</div>
+																		</div>
+	
+																		<div class="modal-footer">
+																			<button type="button" class="btn btn-secondary"	data-dismiss="modal">Fechar</button>
+																			<button type="submit" class="btn btn-primary">Salvar</button>
+																		</div>
+																	</form>
+																</div>
+	
 															</div>
 														</div>
 													</div>

@@ -66,6 +66,7 @@ class ConsultaController extends Controller
     {
         $consulta = Consulta::find($id);
         $consulta->update($request->all());
+        return $this->index();
     }
 
     /**
