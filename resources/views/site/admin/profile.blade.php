@@ -142,14 +142,14 @@
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Nome</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->nome}}" required>
+																			<input type="text" class="form-control" name="nome" value="{{Auth::user()->nome}}" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Idade</label>
-																			<input type="number" class="form-control" value="{{Auth::user()->idade}}" required>
+																			<input type="number" class="form-control" name="idade" value="{{Auth::user()->idade}}" required>
 																		</div>
 																	</div>
 
@@ -166,77 +166,77 @@
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Data de Nascimento</label> {{-- BUG NO TIPO DE DADOS DA LABEL --}}
-																			<input type="text" class="form-control" value="{{Auth::user()->data_nascimento}}" required>
+																			<input type="text" class="form-control" name="data_nascimento" value="{{Auth::user()->data_nascimento}}" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Localidade</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->localidade}}" required>
+																			<input type="text" class="form-control" name="localidade" value="{{Auth::user()->localidade}}" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Morada</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->morada}}" required>
+																			<input type="text" class="form-control" name="morada" value="{{Auth::user()->morada}}" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Email</label>
-																			<input type="email" class="form-control" value="{{Auth::user()->email}}" required>
+																			<input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Telefone</label>
-																			<input type="text" value="{{Auth::user()->telefone}}" class="form-control" required>
+																			<input type="text" name="telefone" value="{{Auth::user()->telefone}}" class="form-control" required>
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Senha</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->password}}" required>
+																			<input type="text" class="form-control" name="password" value="{{Auth::user()->password}}" required>
 																		</div>
 																	</div>
 																	
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Entidade Financeira</label>
-																			<input type="text" value="{{Auth::user()->nome_entidade_fin}}" class="form-control">
+																			<input type="text" name="nome_entidade_fin" value="{{Auth::user()->nome_entidade_fin}}" class="form-control">
 																		</div>
 																	</div>
 
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 																			<label>Numero na Entidade Financeira</label>
-																			<input type="text" class="form-control" value="{{Auth::user()->num_user_entidade_fin}}">
+																			<input type="text" class="form-control" name="num_user_entidade_fin" value="{{Auth::user()->num_user_entidade_fin}}">
 																		</div>
 																	</div>
 																	
 																	<div class="col-12 col-sm-6">
 																		<div class="form-group">
 		                   {{-- SO PARA PESSOAL CLINICO --}}				<label>Numero de Ordem</label> {{-- SO PARA PESSOAL CLINICO --}}
-																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																			<input type="text" name="num_ordem" value="{{Auth::user()->num_ordem}}" class="form-control" required>
 																		</div>
 																	</div>
 
-																	<div class="col-12 col-sm-6">
+																	<div class="col-12 col-sm-6"> {{-- BUG --}}
 																		<div class="form-group">
 								{{-- SO PARA PESSOAL CLINICO --}}			<label>Especialidade</label> {{-- SO PARA PESSOAL CLINICO --}}
-																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																			<input type="text" value="{{Auth::user()->especialidade_id}}" class="form-control" required>
 																		</div>
 																	</div>
 
-																	<div class="col-12 col-sm-6">
+																	<div class="col-12 col-sm-6"> {{-- BUG --}}
 																		<div class="form-group">
 								{{-- SO PARA PESSOAL ADM --}}				<label>Cargo</label> {{-- SO PARA PESSOAL ADM --}}
-																			<input type="text" value="{{Auth::user()->num_ordem}}" class="form-control" required>
+																			<input type="text" value="{{Auth::user()->cargo}}" class="form-control" required>
 																		</div>
 																	</div>
 																	</div>
