@@ -26,4 +26,8 @@ class Menu extends Controller
         return Agendamento::count();
     }
 
+    public function profile(){
+        return view('site.admin.profile');
+    }
+
 }

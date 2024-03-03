@@ -53,6 +53,7 @@ Route::prefix("login")->group(function(){
 
 Route::middleware('auth:sanctum')->prefix("menu")->group(function(){
     Route::get("/index",[Menu::class, 'index'])->name("menu.index");
+    Route::get("/profile", [Menu::class, 'profile'])->name("menu.profile");
 });
 
 

@@ -51,7 +51,7 @@
                         </p>
                     </div>
                 </div>
-                <a class="dropdown-item" href="profile.html">Meu Perfil</a>
+                <a class="dropdown-item" href="{{route('menu.profile')}}">Meu Perfil</a>
                 <a class="dropdown-item" href="{{route('login.logout')}}">Sair</a>
             </div>
         </li>
