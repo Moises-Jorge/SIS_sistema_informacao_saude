@@ -102,5 +102,6 @@ class PessoalClinicoController extends Controller
     {
         $pessoa_clinica = Pessoal_Clinico::find($id);
         $pessoa_clinica->delete();
+        return $this->index();
     }
 }
