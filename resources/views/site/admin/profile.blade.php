@@ -118,8 +118,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0">Morada</p>
-                                                    <p class="col-sm-10 mb-0">{{ Auth::user()->localidade }},<br>
-                                                        {{ Auth::user()->morada }}</p>
+                                                    <p class="col-sm-10 mb-10">{{ Auth::user()->localidade }}, {{ Auth::user()->morada }}</p>
                                                 </div>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Telefone
@@ -148,14 +147,15 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         @if (Auth::user()->tipo_utilizador == 2)
-                                                            <form action="{{route('user.update',Auth::user()->id)}}" method="post">
+                                                             <form action="" method="post">
 														@endif
 														@if(Auth::user()->tipo_utilizador == 3)
-                                                                <form action="" method="post">
+                                                             <form action="{{route('user.update',Auth::user()->id)}}" method="post">
 														@endif
 														@if(Auth::user()->tipo_utilizador == 1)
                                                                 <form action="" method="post">
 														@endif
+														
                                                         @csrf
                                                         <div class="row form-row">
                                                             <div class="col-12 col-sm-6">
@@ -169,7 +169,7 @@
 
                                                             <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label>Idade</label>
+                                                                    <label>Idade</label> {{-- BUMBAR O ALGORITMO DA IDADE --}}
                                                                     <input type="number" class="form-control"
                                                                         name="idade"
                                                                         value="{{ Auth::user()->idade }}" required>
@@ -190,11 +190,7 @@
                                                             <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
                                                                     <label>Data de Nascimento</label>
-                                                                    {{-- BUG NO TIPO DE DADOS DA LABEL --}}
-                                                                    <input type="date" class="form-control"
-                                                                        name="data_nascimento"
-                                                                        value="{{ Auth::user()->data_nascimento }}"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="data_nascimento" value="{{ Auth::user()->data_nascimento }}" required>
                                                                 </div>
                                                             </div>
 
