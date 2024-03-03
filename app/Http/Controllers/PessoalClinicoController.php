@@ -92,6 +92,7 @@ class PessoalClinicoController extends Controller
     {
         $pessoa_clinica = Pessoal_Clinico::find($id);
         $pessoa_clinica->update($request->all());
+        return $this->index();
     }
 
     /**
