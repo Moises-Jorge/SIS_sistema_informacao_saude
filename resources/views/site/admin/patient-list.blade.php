@@ -223,7 +223,9 @@
 																		Ações
 																	</button>
 																	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
-																		<a class="dropdown-item" href="#">Editar</a>
+																		<a class="dropdown-item"   
+                                                                    		data-toggle="modal"
+                                                                    		data-target="#editarDados{{$usuario->id}}" href="#">Editar</a>
 																		<a class="dropdown-item" class="dropdown-item"
                                                                     	data-toggle="modal"
                                                                     	data-target="#confirmModal{{ $usuario->id }}" href="#">Deletar</a>
@@ -256,6 +258,65 @@
 																		id="confirmBtn"
 																		href="{{ route('user.destroy',$usuario->id)}}">Sim</a>
 																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="modal fade" id="editarDados{{$usuario->id}}" tabindex="-1"
+														role="dialog" aria-labelledby="exampleModalLabel"
+														aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Editar
+																		Dados</h5>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<!-- Seu formulário aqui -->
+																	<form action="{{route('user.update', $usuario->id) }}"
+																		method="POST">
+																		@csrf
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Nome</label>
+																			<div class="col-md-10">
+																				<input type="text" class="form-control" name="nome" value="{{$usuario->nome}}" required>
+																			</div>
+																		</div>
+																											
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">email</label>
+																			<div class="col-md-10">
+																				<input type="email" class="form-control" name="email" value="{{$usuario->email}}" required>
+																			</div>
+																		</div>
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">senha</label>
+																			<div class="col-md-10">
+																				<input type="password" class="form-control" name="password" value="{{$usuario->password}}" required>
+																			</div>
+																		</div>
+													
+																		<div class="form-group row">
+																			<label class="col-form-label col-md-2">Genero</label>
+																			<div class="col-md-10">
+																				<select class="form-control" name="sexo" value="{{$usuario->sexo}}" required>
+																					<option>Masculino</option>
+																					<option>Femenino</option>
+																				</select>
+																			</div>
+																		</div>													
+																			
+																		<div class="modal-footer">
+																			<button type="button" class="btn btn-secondary"	data-dismiss="modal">Fechar</button>
+																			<button type="submit" class="btn btn-primary">Salvar</button>
+																		</div>
+																	</form>
+																</div>
+	
 															</div>
 														</div>
 													</div>

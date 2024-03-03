@@ -79,6 +79,7 @@ class UserController extends Controller
         Hash::make($request->input("password"));
         $usuario = User::find($id);
         $usuario->update($request->all());
+        return $this->index();
     }
 
     /**
