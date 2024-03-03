@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use App\Models\Alergia;
 use App\Models\Diagnostico;
+use App\Models\Receita;
 use App\Models\Reg_Clinico_Utente;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -110,6 +111,13 @@ class DiagnosticoController extends Controller
         $agendamento->descricao=$request->input("descricao");
         $agendamento->estado=1;
         $agendamento->update();
+        $id_diagnostico = $UltimoDiagnostico->id;
+        Receita::create(
+            [
+                'diagnostico_id'=> $id_diagnostico,
+                'prescricao'=>$request->input("prescricao")
+            ]
+            );
 
         //return redirect("diagnostico/index");
         return redirect()->route('diagnostico.index');
