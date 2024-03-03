@@ -11,8 +11,10 @@ use App\Http\Controllers\login;
 use App\Http\Controllers\Menu;
 use App\Http\Controllers\PessoalAdminController;
 use App\Http\Controllers\PessoalClinicoController;
+use App\Http\Controllers\ReceitaController;
 use App\Http\Controllers\RegClinicoUtenteController;
 use App\Http\Controllers\UserController;
+use App\Models\Diagnostico;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,6 +31,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("index")->group(function(){
     Route::get("/home",[Controller::class, 'home'])->name("index.home");
+});
+
+Route::prefix("prescricao")->group(function(){
+    Route::get("/index",[ReceitaController::class, 'index'])->name("prescricao.index");
+    Route::get("/create",[ReceitaController::class, 'create'])->name("prescricao.create");
+    Route::post("/store",[ReceitaController::class, 'store'])->name("prescricao.store");
+    Route::get("/show/{id}",[ReceitaController::class, 'show'])->name("prescricao.show");
+    Route::get("/edit/{id}",[ReceitaController::class, 'edit'])->name("prescricao.edit");
+    Route::post("/update/{id}",[ReceitaController::class, 'update'])->name("prescricao.update");
+    Route::get("/destroy/{id}",[ReceitaController::class, 'destroy'])->name("prescricao.destroy");
 });
 
 Route::get('/', function () {

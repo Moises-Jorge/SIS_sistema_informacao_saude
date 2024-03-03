@@ -169,4 +169,8 @@ class DiagnosticoController extends Controller
         }
 
     }
+
+    public function prescricao(){
+        return view('site.admin.medical-prescription');
+    }
 }

@@ -51,3 +51,7 @@
             <a href="{{ route('rcu.index') }}"><i class="fe fe-user"></i> <span>RCU</span></a>
         </li>
     @endif
+
+    <li id="prescricao">
+        <a href="{{ route('prescricao.index') }}"><i class="fe fe-user"></i> <span>Prescrição</span></a>
+    </li>

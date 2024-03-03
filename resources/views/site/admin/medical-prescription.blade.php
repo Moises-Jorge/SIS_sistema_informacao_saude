@@ -83,20 +83,37 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Nome do Pessoal Clinico</th>
-													<th>Nome do Paciente</th>
+                                                    @if(Auth::user()->tipo_utilizador != 2)
+													    <th>Nome do Pessoal Clinico</th>
+                                                    @endif
+
+                                                    @if(Auth::user()->tipo_utilizador != 3)
+                                                        <th>Nome do Paciente</th>
+                                                    @endif
+
 													<th>Prescrição</th>
 													<th>Ações</th>
 												</tr>
 											</thead>
 											<tbody>
-												@foreach ()
-													@if()
+												@foreach ($receitas as $receita)
+													
 														<tr>
-															<td>Aqui vai o Nome do Pessoal Clinico</td>
-															<td>Aqui vai o Nome do Paciente</td>
-															<td>Aqui vai a Prescrição</td>
-															<td>
+                                                            @if(Auth::user()->tipo_utilizador == 3)
+                                                                <td>{{$receita->nome_pc}}</td>
+                                                            @endif
+
+                                                            @if(Auth::user()->tipo_utilizador == 2)
+															   <td>{{$receita->nome_user}}</td>
+                                                            @endif
+                                                            
+                                                            @if(Auth::user()->tipo_utilizador == 1)
+                                                                <td>{{$receita->nome_pc}}</td>
+															    <td>{{$receita->nome_pa}}</td>
+                                                            @endif
+
+															<td>{{$receita->prescricao}}</td>
+															{{-- <td>
 																<div class="dropdown">
 																	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{$loop->iteration}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																		Ações
@@ -110,10 +127,10 @@
                                                                     	data-target="#confirmModal{{ $->id }}" href="#">Deletar</a>
 																	</div>
 																</div>
-															</td>
+															</td> --}}
 														</tr>
-													@endif
-													<div class="modal fade" id="confirmModal{{ $->id }}"
+													
+													{{-- <div class="modal fade" id="confirmModal{{ $->id }}"
 														tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
 														aria-hidden="true">
 														<div class="modal-dialog" role="document">
@@ -189,7 +206,7 @@
 	
 															</div>
 														</div>
-													</div>
+													</div> --}}
 												@endforeach
 											</tbody>
 										</table>
@@ -224,7 +241,7 @@
 		<script  src="{{asset('admin/assets/js/script.js')}}"></script>
 
 		<script>
-			document.getElementById("paciente").classList.add("active");
+			document.getElementById("prescricao").classList.add("active");
 		</script>
 		
     </body>

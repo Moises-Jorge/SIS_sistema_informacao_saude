@@ -28,7 +28,7 @@ class PessoalClinicoController extends Controller
         return view('site.admin.doctor-list',compact('todo_pessoal_clinico','especialidades'));
     }
 
-    function return_my_id($id){
+    public function return_my_id($id){
         $query = User::join("pessoal__clinicos","users.id","=","pessoal__clinicos.user_id")
                             ->select("pessoal__clinicos.id")->where("users.id",$id)->first();
         return $query->id;
