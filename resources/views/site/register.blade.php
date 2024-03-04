@@ -56,16 +56,7 @@
 											@csrf
 											<div class="form-group form-focus">
 												<input type="text" class="form-control floating @if($errors->has('nome')) is-invalid @endif" name="nome" required>
-												
-												{{-- @error('nome') is-invalid @enderror
-												@error('nome')
-													<div class="invalid-feedback">
-														{{$message}}
-													</div>
-												@enderror --}}
-
-												
-													@if ($errors->has('nome'))
+												@if ($errors->has('nome'))
 													<div class="invalid-feedback">
 														@foreach ($errors->get('nome') as $error)
 															{{$error}}
@@ -76,7 +67,14 @@
 											</div>
 
 											<div class="form-group form-focus">
-												<input type="email" class="form-control floating" name="email" required>
+												<input type="email" class="form-control floating @if($errors->has('email')) is-invalid @endif" name="email" required>
+												@if ($errors->has('email'))
+													<div class="invalid-feedback">
+														@foreach ($errors->get('email') as $error)
+															{{$error}}
+														@endforeach
+													</div>
+												@endif
 												<label class="focus-label">Email</label>
 											</div>
 

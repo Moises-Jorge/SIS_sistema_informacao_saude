@@ -44,7 +44,7 @@ class ValidateUserRegister extends FormRequest
                     'email',
                     'max:255',
                     'unique:users',
-                    'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                    'regex:/^[a-z0-9]+@(gmail|hotmail|uan)+\.(com|org|ao)$/',
                 ],
 
                 'password' => 'required|string|min:8|confirmed',
@@ -83,6 +83,7 @@ class ValidateUserRegister extends FormRequest
             'email.email' => 'O campo email deve ser um endereço de email válido.',
             'email.unique' => 'O email já está em uso.',
             'email.max' => 'O campo email não pode ter mais de :max caracteres.',
+            'email.regex' => 'email inválido, não pode ter maiúsculas ou símbolos especiais',
             'sexo.required' => 'O campo gênero é obrigatório.',
             'sexo.in' => 'O campo gênero deve ser Masculino ou Feminino.',
             'password.required' => 'O campo senha é obrigatório.',
