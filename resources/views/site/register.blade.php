@@ -79,11 +79,18 @@
 											</div>
 
 											<div class="form-group form-focus">
-												<select class="form-control floating" name="sexo" required>
+												<select class="form-control floating @if($errors->has('sexo')) is-invalid @endif" name="sexo" required>
 													<option value=""></option>
 													<option>Masculino</option>
 													<option>Femenino</option>
 												</select>
+												@if ($errors->has('sexo'))
+													<div class="invalid-feedback">
+														@foreach ($errors->get('sexo') as $error)
+															{{$error}}
+														@endforeach
+													</div>
+												@endif
 												<label class="focus-label">Genero</label>
 											</div>
 

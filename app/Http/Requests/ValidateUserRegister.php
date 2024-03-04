@@ -47,7 +47,7 @@ class ValidateUserRegister extends FormRequest
                     'regex:/^[a-z0-9]+@(gmail|hotmail|uan)+\.(com|org|ao)$/',
                 ],
 
-                'password' => 'required|string|min:8|confirmed',
+                'password' => 'required|string|min:8',
 
                 'nome_ordem' => [
                     'required',
@@ -56,7 +56,7 @@ class ValidateUserRegister extends FormRequest
                     'regex:/^[0-9A-Z]{1,30}$/',
                 ],
 
-                'genero' => 'required|string|in:Masculino,Feminino',
+                'sexo' => 'required|string|in:Masculino,Feminino',
 
                 'especialidade_id' => 'required|exists:especialidades,id',
 
@@ -67,7 +67,7 @@ class ValidateUserRegister extends FormRequest
             // 'nome' => 'required|string|max:50|',
             // 'email' => 'required|email|unique:users|max:255',
             // 'sexo' => 'required|in:Masculino,Feminino',
-            // 'password' => 'required|string|min:8',
+            // 'password' => 'required|string|min:8|confirmed',
             // 'tipo_utilizador' => 'required|numeric',
         ];
     }
