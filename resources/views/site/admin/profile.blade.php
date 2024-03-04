@@ -168,14 +168,15 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-12 col-sm-6">
+                                                            {{-- BUMBAR O ALGORITMO DA IDADE --}}
+                                                            {{-- <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label>Idade</label> {{-- BUMBAR O ALGORITMO DA IDADE --}}
+                                                                    <label>Idade</label> 
                                                                     <input type="number" class="form-control"
                                                                         name="idade"
                                                                         value="{{ Auth::user()->idade }}" required>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
 
                                                             <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
@@ -235,9 +236,7 @@
                                                             <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
                                                                     <label>Senha</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="password"
-                                                                        value="{{ Auth::user()->password }}" required>
+                                                                    <input type="text" class="form-control" name="password" required>
                                                                 </div>
                                                             </div>
 
