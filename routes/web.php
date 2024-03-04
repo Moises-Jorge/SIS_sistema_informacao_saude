@@ -34,7 +34,7 @@ Route::middleware('throttle:50,1')->group(function () {
         Route::get("/home",[Controller::class, 'home'])->name("index.home");
     });
     
-    Route::prefix("prescricao")->group(function(){
+    Route::middleware('auth:sanctum')->prefix("prescricao")->group(function(){
         Route::get("/index",[ReceitaController::class, 'index'])->name("prescricao.index");
         Route::get("/create",[ReceitaController::class, 'create'])->name("prescricao.create");
         Route::post("/store",[ReceitaController::class, 'store'])->name("prescricao.store")->middleware('xss');
@@ -50,7 +50,7 @@ Route::middleware('throttle:50,1')->group(function () {
     
     
     
-    Route::get('/perfil', function () {
+    Route::middleware('auth:sanctum')->get('/perfil', function () {
         return view('site/admin/profile');
     });
     
@@ -58,7 +58,7 @@ Route::middleware('throttle:50,1')->group(function () {
     Route::prefix("login")->group(function(){
         Route::get("/page",[login::class, 'login'])->name("login.page");
         Route::post("/logar",[login::class, 'logar'])->name("login.logar")->middleware('xss');
-        Route::get("/logout",[login::class, 'logout'])->name("login.logout");
+        Route::middleware('auth:sanctum')->get("/logout",[login::class, 'logout'])->name("login.logout");
         Route::get("/recover_password", [login::class, 'recover_password'])->name("login.recover_password");
     });
     
