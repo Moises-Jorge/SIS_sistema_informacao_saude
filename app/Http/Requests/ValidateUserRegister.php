@@ -27,7 +27,7 @@ class ValidateUserRegister extends FormRequest
                     'required',
                     'string',
                     'min:3',
-                    'max:60',
+                    'max:50',
                     'regex:/^[a-zA-Z\s]+$/',
                     function ($attribute, $value, $fail) {
                         if (preg_match('/ {2,}/', $value)) {
@@ -72,7 +72,7 @@ class ValidateUserRegister extends FormRequest
         ];
     }
 
-    public function message(){
+    public function messages(){
         return [
             'nome.required' => 'O campo nome é obrigatório.',
             'nome.string' => 'O campo nome deve ser uma string.',
