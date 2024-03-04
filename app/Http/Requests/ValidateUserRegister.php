@@ -78,6 +78,7 @@ class ValidateUserRegister extends FormRequest
             'nome.string' => 'O campo nome deve ser uma string.',
             'nome.min' => 'O campo nome não pode ter menos de :min  caracteres.',
             'nome.max' => 'O campo nome não pode ter mais de :max caracteres.',
+            'nome.regex' => 'O campo nome não pode ter numero',
             'email.required' => 'O campo email é obrigatório.',
             'email.email' => 'O campo email deve ser um endereço de email válido.',
             'email.unique' => 'O email já está em uso.',
