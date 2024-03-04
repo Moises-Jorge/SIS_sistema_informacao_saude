@@ -43,7 +43,7 @@ class ValidateInputs extends FormRequest
 
     public function messages(){
         return [
-            'nome.required' => 'O campo nome é obrigatório.',
+            'nome.required' => 'Esse campo é obrigatório.',
             'nome.string' => 'O campo nome deve ser uma string.',
             'nome.min' => 'O campo nome não pode ter menos de :min  caracteres.',
             'nome.max' => 'O campo nome não pode ter mais de :max caracteres.',

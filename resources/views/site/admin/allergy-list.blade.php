@@ -216,7 +216,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Meu Formulário</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Alergia</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -225,19 +225,16 @@
                     <!-- Seu formulário aqui -->
                     <form action="{{ route('alergia.store') }}" method="POST">
                         @csrf
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-2">Nome</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" name="nome" required>
-                            </div>
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating @if($errors->has('nome')) is-invalid @endif" name="nome" required placeholder="Nome da Alergia">
+                            @if ($errors->has('nome'))
+                                <div class="invalid-feedback">
+                                    @foreach ($errors->get('nome') as $error)
+                                        {{$error}}
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
-
-                        {{-- <div class="form-group row">
-						<label class="col-form-label col-md-2">Descrição</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" name="descricao">
-						</div>
-					</div> --}}
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
