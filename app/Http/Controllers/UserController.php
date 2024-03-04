@@ -30,7 +30,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ValidateUserRegister $request)
+    public function store(Request $request)
     {
         Hash::make($request->input("password"));
         User::create($request->all());
@@ -75,7 +75,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ValidateUserRegister $request, string $id)
+    public function update(Request $request, string $id)
     {
         Hash::make($request->input("password"));
         $usuario = User::find($id);
