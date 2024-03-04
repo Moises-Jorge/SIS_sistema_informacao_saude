@@ -88,7 +88,14 @@
 											</div>
 
 											<div class="form-group form-focus">
-												<input type="password" class="form-control floating" name="password" required>
+												<input type="password" class="form-control floating @if($errors->has('password')) is-invalid @endif" name="password" required>
+												@if ($errors->has('password'))
+													<div class="invalid-feedback">
+														@foreach ($errors->get('password') as $error)
+															{{$error}}
+														@endforeach
+													</div>
+												@endif
 												<label class="focus-label">Senha</label>
 											</div>
 												
