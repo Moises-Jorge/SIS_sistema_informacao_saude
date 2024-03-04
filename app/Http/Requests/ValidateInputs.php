@@ -35,7 +35,9 @@ class ValidateInputs extends FormRequest
                 },
             ],
 
-            'password' => 'required|string|min:8',
+            // 'name' => ['required', 'min:3', 'max:60'],
+
+            //'password' => 'required|string|min:8',
 
             //Outro Campo
         ];
