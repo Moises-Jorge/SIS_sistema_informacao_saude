@@ -37,7 +37,7 @@ Route::middleware('throttle:5,1')->group(function () {
     Route::prefix("prescricao")->group(function(){
         Route::get("/index",[ReceitaController::class, 'index'])->name("prescricao.index");
         Route::get("/create",[ReceitaController::class, 'create'])->name("prescricao.create");
-        Route::post("/store",[ReceitaController::class, 'store'])->name("prescricao.store");
+        Route::post("/store",[ReceitaController::class, 'store'])->name("prescricao.store")->middleware('xss');
         Route::get("/show/{id}",[ReceitaController::class, 'show'])->name("prescricao.show");
         Route::get("/edit/{id}",[ReceitaController::class, 'edit'])->name("prescricao.edit");
         Route::post("/update/{id}",[ReceitaController::class, 'update'])->name("prescricao.update");
@@ -78,7 +78,7 @@ Route::middleware('throttle:5,1')->group(function () {
     Route::prefix("user")->group(function(){
         Route::get("/index",[UserController::class, 'index'])->name("user.index");
         Route::get("/create",[UserController::class, 'create'])->name("user.create");
-        Route::post("/store",[UserController::class, 'store'])->name("user.store");
+        Route::post("/store",[UserController::class, 'store'])->name("user.store")->middleware('xss');
         Route::get("/show/{id}",[UserController::class, 'show'])->name("user.show");
         Route::get("/edit/{id}",[UserController::class, 'edit'])->name("user.edit");
         Route::post("/update/{id}",[UserController::class, 'update'])->name("user.update");
