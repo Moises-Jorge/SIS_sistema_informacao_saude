@@ -55,7 +55,23 @@
 										<form action="{{route('user.store')}}" method="post">
 											@csrf
 											<div class="form-group form-focus">
-												<input type="text" class="form-control floating" name="nome" required>
+												<input type="text" class="form-control floating @if($errors->has('nome')) is-invalid @endif" name="nome" required>
+												
+												{{-- @error('nome') is-invalid @enderror
+												@error('nome')
+													<div class="invalid-feedback">
+														{{$message}}
+													</div>
+												@enderror --}}
+
+												
+													@if ($errors->has('nome'))
+													<div class="invalid-feedback">
+														@foreach ($errors->get('nome') as $error)
+															{{$error}}
+														@endforeach
+													</div>
+												@endif
 												<label class="focus-label">Nome</label>
 											</div>
 
