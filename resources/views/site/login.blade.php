@@ -123,6 +123,14 @@
 										</div>
 										<div class="form-group form-focus">
 											<input type="password" name="password" class="form-control floating" required>
+											{{-- @if($errors->has('password')) is-invalid @endif
+												@if ($errors->has('password'))
+													<div class="invalid-feedback">
+														@foreach ($errors->get('password') as $error)
+															{{$error}}
+														@endforeach
+													</div>
+											@endif --}}
 											<label class="focus-label">Password</label>
 										</div>
 										<div class="text-right">

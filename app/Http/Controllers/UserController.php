@@ -75,7 +75,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ValidateUserRegister $request, string $id)
     {
         Hash::make($request->input("password"));
         $usuario = User::find($id);
