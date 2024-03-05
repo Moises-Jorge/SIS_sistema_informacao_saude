@@ -65,7 +65,7 @@ class PessoalClinicoController extends Controller
         'users.tipo_utilizador as tipo')
         ->get();
         $especialidades = Especialidade::all();
-        return redirect()->route('clinico.index', compact('todo_pessoal_clinico', 'especialidades'))->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
+        return redirect()->route('clinico.index', compact('todo_pessoal_clinico', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');
 
         
     }
