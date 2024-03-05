@@ -74,7 +74,8 @@
                                     <h4 class="user-name mb-0">{{ Auth::user()->nome }}</h4>
                                     <h6 class="text-muted">{{ Auth::user()->email }}</h6>
                                     <div class="user-Location"><i class="fa fa-map-marker"></i>
-                                        {{ Auth::user()->localidade }}, {{ Auth::user()->morada }}</div>
+                                        {{ Auth::user()->localidade }}, {{ Auth::user()->morada }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -91,9 +92,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title d-flex justify-content-between">
                                                     <span>Detalhes Pessoal</span>
-                                                    <a class="edit-link" data-toggle="modal"
-                                                        href="#edit_personal_details"><i
-                                                            class="fa fa-edit mr-1"></i>Editar</a>
+                                                    <a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Editar</a>
                                                 </h5>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Nome</p>
@@ -134,199 +133,179 @@
                                         </div>
 
                                         <!-- Edit Details Modal -->
-                                        <div class="modal fade" id="edit_personal_details" aria-hidden="true"
-                                            role="dialog">
+                                        <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Detalhes Pessoal</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        
-                                                        @if (Auth::user()->tipo_utilizador == 2)
-                                                             <form action="{{route('clinico.update',Auth::user()->id)}}" method="post">
-														@endif
-														@if(Auth::user()->tipo_utilizador == 3)
-                                                             <form action="{{route('user.update',Auth::user()->id)}}" method="post">
-														@endif
-														@if(Auth::user()->tipo_utilizador == 1)
-                                                                <form action="" method="post">
-														@endif
-														
-                                                        @csrf
-                                                        <div class="row form-row">
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Nome</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="nome"
-                                                                        value="{{ Auth::user()->nome }}" required>
-                                                                </div>
-                                                            </div>
 
-                                                            {{-- BUMBAR O ALGORITMO DA IDADE --}}
-                                                            {{-- <div class="col-12 col-sm-6">
+                                                        @if (Auth::user()->tipo_utilizador == 2)
+                                                        <form action="{{route('clinico.update',Auth::user()->id)}}" method="post">
+                                                            @endif
+                                                            @if(Auth::user()->tipo_utilizador == 3)
+                                                            <form action="{{route('user.update',Auth::user()->id)}}" method="post">
+                                                                @endif
+                                                                @if(Auth::user()->tipo_utilizador == 1)
+                                                                <form action="" method="post">
+                                                                    @endif
+
+                                                                    @csrf
+                                                                    <div class="row form-row">
+                                                                        <div class="col-12 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Nome</label>
+                                                                                <input type="text" class="form-control" name="nome" value="{{ Auth::user()->nome }}" required title="Nome Inválido, precisamos de nome completo" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+ [A-Za-zÀ-ÖØ-öø-ÿ\s]+">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        {{-- BUMBAR O ALGORITMO DA IDADE --}}
+                                                                        {{-- <div class="col-12 col-sm-6">
                                                                 <div class="form-group">
                                                                     <label>Idade</label> 
                                                                     <input type="number" class="form-control"
                                                                         name="idade"
                                                                         value="{{ Auth::user()->idade }}" required>
-                                                                </div>
-                                                            </div> --}}
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Genero</label>
-                                                                    <select class="form-control" name="sexo"
-                                                                        value="{{ Auth::user()->sexo }}" required>
-                                                                        <option>Masculino</option>
-                                                                        <option>Femenino</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Data de Nascimento</label>
-                                                                    <input type="date" class="form-control" name="data_nascimento" value="{{ Auth::user()->data_nascimento }}" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Localidade</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="localidade"
-                                                                        value="{{ Auth::user()->localidade }}"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Morada</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="morada"
-                                                                        value="{{ Auth::user()->morada }}" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Email</label>
-                                                                    <input type="email" class="form-control"
-                                                                        name="email"
-                                                                        value="{{ Auth::user()->email }}" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Telefone</label>
-                                                                    <input type="text" name="telefone"
-                                                                        value="{{ Auth::user()->telefone }}"
-                                                                        class="form-control" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Senha</label>
-                                                                    <input type="text" class="form-control" name="password" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Entidade Financeira</label>
-                                                                    <input type="text" name="nome_entidade_fin"
-                                                                        value="{{ Auth::user()->nome_entidade_fin }}"
-                                                                        class="form-control">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Numero na Entidade Financeira</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="num_user_entidade_fin"
-                                                                        value="{{ Auth::user()->num_user_entidade_fin }}">
-                                                                </div>
-                                                            </div>
-
-                                                            @if (Auth::user()->tipo_utilizador == 2)
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        {{-- SO PARA PESSOAL CLINICO --}} <label>Numero de
-                                                                            Ordem</label> {{-- SO PARA PESSOAL CLINICO --}}
-                                                                        <input type="text" name="num_ordem"
-                                                                            value="{{ Auth::user()->num_ordem }}"
-                                                                            class="form-control" required>
                                                                     </div>
-                                                                </div>
-                                                            @endif
+                                                    </div> --}}
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Genero</label>
+                                                            <select class="form-control" name="sexo" value="{{ Auth::user()->sexo }}" required>
+                                                                <option>Masculino</option>
+                                                                <option>Femenino</option>
+                                                            </select>
                                                         </div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary btn-block">Salvar
-                                                            Alterações</button>
-                                                        </form>
                                                     </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Data de Nascimento</label>
+                                                            <input type="date" class="form-control" name="data_nascimento" value="{{ Auth::user()->data_nascimento }}" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Localidade</label>
+                                                            <input type="text" class="form-control" name="localidade" value="{{ Auth::user()->localidade }}" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" title="Localidade inválida, não pode conter numeros caso numero user simbolos romano">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Morada</label>
+                                                            <input type="text" class="form-control" name="morada" value="{{ Auth::user()->morada }}" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" title="Localidade invalida, não pode conter numeros numero user simbolos romano">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Telefone</label>
+                                                            <input type="text" name="telefone" value="{{ Auth::user()->telefone }}" class="form-control" required pattern="\d{9}" title="Por favor, insira um número de telefone válido com 9 dígitos.">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Senha</label>
+                                                            <input type="text" class="form-control" name="password" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Entidade Financeira</label>
+                                                            <input type="text" name="nome_entidade_fin" value="{{ Auth::user()->nome_entidade_fin }}" class="form-control" pattern="[A-Za-z]+" title="Por favor, insira apenas letras.">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Numero na Entidade Financeira</label>
+                                                            <input type="number" class="form-control" name="num_user_entidade_fin" value="{{ Auth::user()->num_user_entidade_fin }}">
+                                                        </div>
+                                                    </div>
+
+                                                    @if (Auth::user()->tipo_utilizador == 2)
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            {{-- SO PARA PESSOAL CLINICO --}} <label>Numero de
+                                                                Ordem</label> {{-- SO PARA PESSOAL CLINICO --}}
+                                                                <input type="text" name="num_ordem" value="{{ Auth::user()->num_ordem }}" class="form-control" required pattern="[A-Za-z]+\d+|\d+" title="Por favor, insira apenas números ou um nome seguido de números.">
+                                                        </div>
+                                                    </div>
+                                                    @endif
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Edit Details Modal -->
-
-                                    </div>
-
-
-                                </div>
-                                <!-- /Personal Details -->
-
-                            </div>
-                            <!-- /Personal Details Tab -->
-
-                            <!-- Change Password Tab -->
-                            <div id="password_tab" class="tab-pane fade">
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Alterar Palavra-passe</h5>
-                                        <div class="row">
-                                            <div class="col-md-10 col-lg-6">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label>Palavra-passe Antiga</label>
-                                                        <input type="password" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Nova Palavra-passe</label>
-                                                        <input type="password" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Confirme a Palavra-passe</label>
-                                                        <input type="password" class="form-control" required>
-                                                    </div>
-                                                    <button class="btn btn-primary" type="submit">Salvar
-                                                        Alterações</button>
+                                                <button type="submit" class="btn btn-primary btn-block">Salvar
+                                                    Alterações</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- /Edit Details Modal -->
+
                             </div>
-                            <!-- /Change Password Tab -->
+
 
                         </div>
-                    </div>
-                </div>
+                        <!-- /Personal Details -->
 
+                    </div>
+                    <!-- /Personal Details Tab -->
+
+                    <!-- Change Password Tab -->
+                    <div id="password_tab" class="tab-pane fade">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Alterar Palavra-passe</h5>
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-6">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Palavra-passe Antiga</label>
+                                                <input type="password" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nova Palavra-passe</label>
+                                                <input type="password" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Confirme a Palavra-passe</label>
+                                                <input type="password" class="form-control" required>
+                                            </div>
+                                            <button class="btn btn-primary" type="submit">Salvar
+                                                Alterações</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Change Password Tab -->
+
+                </div>
             </div>
         </div>
-        <!-- /Page Wrapper -->
+
+    </div>
+    </div>
+    <!-- /Page Wrapper -->
 
     </div>
     <!-- /Main Wrapper -->
