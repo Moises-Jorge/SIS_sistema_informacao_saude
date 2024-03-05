@@ -85,7 +85,7 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>ID do Paciente</th>
+													{{-- <th>ID do Paciente</th> --}}
 													<th>Nome do Paciente</th>
 													<th>Idade do Paciente</th>
 													<th>Endereço</th>
@@ -99,7 +99,7 @@
 												@foreach ($todos_usuarios as $usuario)
 												@if($usuario->tipo_utilizador==3)
 												<tr>
-													<td>{{ $usuario->id }}</td>
+													{{-- <td>{{ $usuario->id }}</td> --}}
 													<td>{{ $usuario->nome }}</td>
 													<td>{{ $usuario->idade }}</td>
 													<td>{{ $usuario->morada }}</td>

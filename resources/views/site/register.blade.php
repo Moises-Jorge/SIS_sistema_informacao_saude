@@ -68,7 +68,7 @@
 										</div>
 
 										<div class="form-group form-focus">
-											<input type="email" class="form-control" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+											<input type="email" class="form-control" name="email" title="Email Inválido" required pattern="[a-zA-Z0-9]+@(gmail\.com|hotmail\.com|gmail\.org|hotmail\.org|gmail\.uan|hotmail\.uan)">
 
 
 											<label class="focus-label">Email</label>
@@ -76,7 +76,7 @@
 
 										<div class="form-group form-focus">
 											<select class="form-control" name="sexo" required>
-												<option value="">Selecione o Sexo</option>
+												<option value=""></option>
 												<option>Masculino</option>
 												<option>Femenino</option>
 											</select>
