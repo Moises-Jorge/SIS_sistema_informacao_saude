@@ -129,13 +129,13 @@
 						<div class="col-lg-4">
 							<div class="section-header ">
 								<h2>	Nossos Medicos</h2>
-								<p>Lorem Ipsum is simply dummy text </p>
+								<p>Aqui você encontra a nossa equipa de Médicos</p>
 							</div>
-							<div class="about-content">
+							{{-- <div class="about-content">
 								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
 								<p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>					
 								<a href="login.html">Read More..</a>
-							</div>
+							</div> --}}
 						</div>
 						<div class="col-lg-8">
 							<div class="doctor-slider slider">
