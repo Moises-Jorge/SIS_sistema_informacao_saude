@@ -68,7 +68,7 @@
 										</div>
 
 										<div class="form-group form-focus">
-											<input type="email" class="form-control" name="email" title="Email Inválido" required pattern="[a-zA-Z0-9]+@(gmail\.com|hotmail\.com|gmail\.org|hotmail\.org|gmail\.uan|hotmail\.uan)">
+											<input type="email" class="form-control" name="email" title="Email Inválido" required pattern="[a-z0-9]+@(gmail\.com|hotmail\.com|gmail\.org|hotmail\.org|gmail\.uan|hotmail\.uan)">
 
 
 											<label class="focus-label">Email</label>
@@ -86,7 +86,7 @@
 
 										<div class="form-group form-focus" style="margin-bottom: 80px;">
 											<input type="password" class="form-control" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
-											<span class="password-info">A senha deve conter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.</span>
+											<span class="password-info">Deve conter pelo menos 8 caracteres, contendo letra maiúscula, letra minúscula, número e caractere especial.</span>
 
 											<label class="focus-label">Senha</label>
 										</div>
