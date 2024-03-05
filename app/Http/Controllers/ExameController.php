@@ -39,7 +39,8 @@ class ExameController extends Controller
         $especialidades = Especialidade::all();
 
         //return view('site.admin.exames-list', compact('todos_exames', 'especialidades'))->with('success', 'Cadastro realizado com sucesso!');
-        return redirect()->route('exame.index', compact('todos_exames', 'especialidades'));
+        return redirect()->route('exame.index', compact('todos_exames', 'especialidades'))->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
+        ;
 
     }
 

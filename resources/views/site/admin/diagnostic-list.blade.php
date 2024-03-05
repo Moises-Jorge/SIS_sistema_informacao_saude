@@ -38,7 +38,7 @@
 	<div class="main-wrapper">
 
 		<!-- Header -->
-			@include('site.admin.header')
+		@include('site.admin.header')
 		<!-- /Header -->
 
 		<!-- Sidebar -->
@@ -59,11 +59,12 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-7 col-auto">
-							@if(isset($success))
-							<div class="alert alert-success" role="alert">
-								{{$success}}
+							@if (session('success'))
+							<div class="alert alert-success">
+								{{ session('success') }}
 							</div>
 							@endif
+							
 							<h3 class="page-title">Diagnósticos</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
@@ -82,7 +83,7 @@
 							<div class="card-body">
 								<div class="table-responsive">
 									@if(Auth::user()->tipo_utilizador==2)
-										<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalInformacao">Cadastrar Diagnóstico</button>
+									<button class="btn btn-primary mb-4" style="float: right" data-toggle="modal" data-target="#modalInformacao">Cadastrar Diagnóstico</button>
 									@endif
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
@@ -105,11 +106,11 @@
 												<td>{{ $diagnostico->nomeUser }}</td>
 												<td>{{ $diagnostico->tipo_doenca }}</td>
 												<td>
-													
+
 													@if($diagnostico->nome==null)
-														{{ $diagnostico->nomeAlergia }}
+													{{ $diagnostico->nomeAlergia }}
 													@else
-														{{ $diagnostico->nome }}
+													{{ $diagnostico->nome }}
 													@endif
 												</td>
 												<td>{{ $diagnostico->grupo_sang }}</td>
@@ -164,7 +165,7 @@
 								<td>{{ $agendamento->data }}</td>
 								<td>{{ $agendamento->hora }}</td>
 								<td class="text-right">
-									<button class="btn btn-primary" name="{{$controller->temRCU($agendamento->idUser)}}" id="{{$agendamento->idUser}}" type="{{$agendamento->id}}"  onclick="chamaModal(this)">cadastroDiagnostico</button>
+									<button class="btn btn-primary" name="{{$controller->temRCU($agendamento->idUser)}}" id="{{$agendamento->idUser}}" type="{{$agendamento->id}}" onclick="chamaModal(this)">cadastroDiagnostico</button>
 								</td>
 							</tr>
 							@endforeach
@@ -198,7 +199,7 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Tipo de Doença</label>
 							<div class="col-md-10">
-								<select name="tipo_doenca" id="" class="form-control" onchange="apareca(this.value)">
+								<select name="tipo_doenca" id="" class="form-control" onchange="apareca(this.value)" require>
 									<option value="" selected disabled>Escolha uma opçao</option>
 									<option>Alergico</option>
 									<option>Não Alergico</option>
@@ -220,7 +221,7 @@
 							</div>
 						</div>
 
-						
+
 						<div class="form-group row" id="nomeAlergia" style="display: none;">
 							<label class="col-form-label col-md-2">Nome da Alergia</label>
 							<div class="col-md-10">
@@ -232,15 +233,6 @@
 								</select>
 							</div>
 						</div>
-
-
-
-						{{-- <div class="form-group row">
-							<label class="col-form-label col-md-2">Grupo sanguineo</label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="grupo_sang" >
-							</div>
-						</div> --}}
 
 
 						<div class="form-group row" style="display: none">
@@ -263,7 +255,7 @@
 							<div class="col-md-10">
 								<select name="estado" id="" class="form-control">
 									<option>Activo</option> {{-- Quando está doente --}}
-									<option >Inativo</option> {{-- Quando já não está doente --}}
+									<option>Inativo</option> {{-- Quando já não está doente --}}
 									{{-- <option value="Morto">Morto</option> --}}
 								</select>
 							</div>
@@ -275,14 +267,14 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Descrição</label>
 							<div class="col-md-10">
-								<textarea name="descricao" id="" class="form-control"></textarea>
+								<textarea name="descricao" id="" class="form-control" required></textarea>
 							</div>
 						</div>
 
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Prescrição Médica</label>
 							<div class="col-md-10">
-								<textarea name="prescricao" id="" class="form-control"></textarea>
+								<textarea name="prescricao" id="" class="form-control" required></textarea>
 							</div>
 						</div>
 
@@ -313,21 +305,32 @@
 						@csrf
 
 						<div class="form-group row">
+							<label class="col-form-label col-md-2">Grupo sanguíneo</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="grupo_sang" required list="grupos_sanguineos">
+								<datalist id="grupos_sanguineos">
+									<option value="A+">
+									<option value="A-">
+									<option value="B+">
+									<option value="B-">
+									<option value="AB+">
+									<option value="AB-">
+									<option value="O+">
+									<option value="O-">
+								</datalist>
+							</div>
+						</div>
+
+						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2">Grupo sanguineo</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" name="grupo_sang" require>
+								<input type="text" class="form-control" name="user_id" id="user_idRc">
 							</div>
 						</div>
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2">Grupo sanguineo</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" name="user_id"  id="user_idRc">
-							</div>
-						</div>
-						<div class="form-group row" style="display: none">
-							<label class="col-form-label col-md-2">Grupo sanguineo</label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="status"  value="1">
+								<input type="text" class="form-control" name="status" value="1">
 							</div>
 						</div>
 
@@ -352,17 +355,18 @@
 				document.getElementById("nomeDoenca").style.display = "block"
 			}
 		}
-		function chamaModal(btn){
-			valor=btn.name
-			if(valor==0){
-				idUser=btn.id
+
+		function chamaModal(btn) {
+			valor = btn.name
+			if (valor == 0) {
+				idUser = btn.id
 				//alert(idUser)
-				document.getElementById("user_idRc").value=idUser
+				document.getElementById("user_idRc").value = idUser
 				$("#cadastroRCU").modal("show");
-			}else{
-				informacao=valor.split(',')
-				document.getElementById("agendamentoId").value=btn.getAttribute('type')
-				document.getElementById("registroClinico").value=informacao[1];
+			} else {
+				informacao = valor.split(',')
+				document.getElementById("agendamentoId").value = btn.getAttribute('type')
+				document.getElementById("registroClinico").value = informacao[1];
 				$("#cadastroDiagnostico").modal("show");
 			}
 
@@ -398,7 +402,6 @@
 
 	<script>
 		document.getElementById("diagnostico").classList.add("active");
-		
 	</script>
 
 </body>

@@ -42,7 +42,7 @@ class UserController extends Controller
             $UltimoUser->update();
             if($request->input("tipo_utilizador")==3){
     
-                return view("site.login")->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
+                return redirect()->route("login.page")->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
             }else{
                 return User::latest()->first()->id;
             }

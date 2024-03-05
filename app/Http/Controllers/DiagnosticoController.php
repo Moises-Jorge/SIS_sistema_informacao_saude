@@ -120,7 +120,7 @@ class DiagnosticoController extends Controller
             );
 
         //return redirect("diagnostico/index");
-        return redirect()->route('diagnostico.index');
+        return redirect()->route('diagnostico.index')->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');        ;
     }
 
  

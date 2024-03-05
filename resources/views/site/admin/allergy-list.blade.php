@@ -59,9 +59,9 @@
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-7 col-auto">
-                            @if (isset($success))
-                            <div class="alert alert-success" role="alert">
-                                {{ $success }}
+                            @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
                             </div>
                             @endif
                             <h3 class="page-title">Alergias</h3>
@@ -201,7 +201,7 @@
                         @csrf
                         <div class="form-group form-focus">
                             <input type="text" class="form-control" name="nome" required placeholder="Nome da Alergia" required pattern="[A-Za-z]+" title="Por favor, insira apenas letras.">
-                           
+
                         </div>
 
                         <div class="modal-footer">

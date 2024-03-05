@@ -88,9 +88,9 @@
 
 		<!-- Page Content -->
 		<div class="content">
-			@if(isset($success))
-			<div class="alert alert-success" role="alert">
-				{{$success}}
+			@if (session('success'))
+			<div class="alert alert-success">
+				{{ session('success') }}
 			</div>
 			@endif
 
@@ -128,35 +128,35 @@
 													<div class="invalid-feedback">
 														@foreach ($errors->get('password') as $error)
 															{{$error}}
-														@endforeach
-													</div>
-											@endif --}}
-											<label class="focus-label">Password</label>
+											@endforeach
 										</div>
-										<div class="text-right">
-											<a class="forgot-link" href="{{ route('login.recover_password') }}">Esqueceu a senha ?</a>
-										</div>
-										<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Entrar</button>
-
-
-										<div class="text-left dont-have">Não tem uma conta? <a href="{{route('user.create')}}">Registar</a></div>
-									</form>
+										@endif --}}
+										<label class="focus-label">Password</label>
 								</div>
+								<div class="text-right">
+									<a class="forgot-link" href="{{ route('login.recover_password') }}">Esqueceu a senha ?</a>
+								</div>
+								<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Entrar</button>
+
+
+								<div class="text-left dont-have">Não tem uma conta? <a href="{{route('user.create')}}">Registar</a></div>
+								</form>
 							</div>
 						</div>
-						<!-- /Login Tab Content -->
-
 					</div>
-				</div>
+					<!-- /Login Tab Content -->
 
+				</div>
 			</div>
 
 		</div>
-		<!-- /Page Content -->
 
-		<!-- Footer -->
-			@include('site.main_footer')
-		<!-- /Footer -->
+	</div>
+	<!-- /Page Content -->
+
+	<!-- Footer -->
+	@include('site.main_footer')
+	<!-- /Footer -->
 
 	</div>
 	<!-- /Main Wrapper -->

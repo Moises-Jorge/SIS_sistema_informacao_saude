@@ -38,7 +38,7 @@
 	<div class="main-wrapper">
 
 		<!-- Header -->
-			@include('site.admin.header')
+		@include('site.admin.header')
 		<!-- /Header -->
 
 		<!-- Sidebar -->
@@ -59,9 +59,9 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-12">
-							@if(isset($success))
-							<div class="alert alert-success" role="alert">
-								{{$success}}
+							@if (session('success'))
+							<div class="alert alert-success">
+								{{ session('success') }}
 							</div>
 							@endif
 							<h3 class="page-title">Agendamento</h3>
@@ -150,24 +150,19 @@
 														</button>
 														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$loop->iteration}}">
 															<a class="dropdown-item" href="#">Editar</a>
-															<a class="dropdown-item" class="dropdown-item"
-                                                                    data-toggle="modal"
-                                                                    data-target="#confirmModal{{ $agendamento->id }}" href="#">Deletar</a>
+															<a class="dropdown-item" class="dropdown-item" data-toggle="modal" data-target="#confirmModal{{ $agendamento->id }}" href="#">Deletar</a>
 														</div>
 													</div>
 												</td>
 											</tr>
-											<div class="modal fade" id="confirmModal{{ $agendamento->id }}"
-												tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
-												aria-hidden="true">
+											<div class="modal fade" id="confirmModal{{ $agendamento->id }}" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
 														<div class="modal-header">
 															<h5 class="modal-title" id="confirmModalLabel">
 																Confirmação de
 																Exclusão</h5>
-															<button type="button" class="close"
-																data-dismiss="modal" aria-label="Close">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">&times;</span>
 															</button>
 														</div>
@@ -175,11 +170,8 @@
 															Você tem certeza que deseja realizar esta ação?
 														</div>
 														<div class="modal-footer">
-															<a type="button" class="btn btn-secondary"
-																data-dismiss="modal">Não</a>
-															<a type="button" class="btn btn-danger"
-																id="confirmBtn"
-																href="{{ route('agendamento.destroy',$agendamento->id)}}">Sim</a>
+															<a type="button" class="btn btn-secondary" data-dismiss="modal">Não</a>
+															<a type="button" class="btn btn-danger" id="confirmBtn" href="{{ route('agendamento.destroy',$agendamento->id)}}">Sim</a>
 														</div>
 													</div>
 												</div>
@@ -266,7 +258,7 @@
 						<div class="form-group row" style="display: none">
 							<label class="col-form-label col-md-2"></label>
 							<div class="col-md-10">
-								<input type="text" value="2" class="form-control" name="tipo_utilizador" >
+								<input type="text" value="2" class="form-control" name="tipo_utilizador">
 							</div>
 						</div>
 

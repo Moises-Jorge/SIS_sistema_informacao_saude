@@ -33,7 +33,7 @@ class EspecialidadeController extends Controller
 
         $todas_especialidades = Especialidade::all();
         //return view('site.admin.specialities', compact('todas_especialidades'))->with('success', 'Cadastro realizado com sucesso!');
-        return redirect()->route('especialidade.index', compact('todas_especialidades'));
+        return redirect()->route('especialidade.index', compact('todas_especialidades'))->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');        ;
     }
 
     /**
