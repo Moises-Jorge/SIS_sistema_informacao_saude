@@ -42,7 +42,10 @@ class UserController extends Controller
             $UltimoUser->update();
             if($request->input("tipo_utilizador")==3){
     
-                return redirect()->route("login.page")->with('success', 'Cadastro realizado com sucesso! Faça login para continuar.');
+                return redirect()->route("login.page")->with('success', 'Cadastro realizado com sucesso! verifique o seu email enviamos o seu login.');
+                $User = User::latest()->first();
+                $email = new EmailController();
+                $email->enviarEmail("<b> O seu login é</b> ".$User->numero_utilizador);
             }else{
                 return User::latest()->first()->id;
             }
