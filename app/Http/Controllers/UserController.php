@@ -99,7 +99,7 @@ class UserController extends Controller
     }
 
     public function getMe($numero_utilizador, $password){
-        $User= User::where("numero_utilizador",$numero_utilizador)->first();
+        $User = User::where("numero_utilizador",$numero_utilizador)->first();
         if($User && Hash::check($password,$User->password)){
             return $User;
         }else{

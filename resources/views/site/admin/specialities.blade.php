@@ -149,7 +149,7 @@
 																<div class="form-group row">
 																	<label class="col-form-label col-md-2">Nome</label>
 																	<div class="col-md-10">
-																		<input type="text" class="form-control" name="nome" value="{{$especialidade->nome}}" required>
+																		<input type="text" class="form-control" name="nome" value="{{$especialidade->nome}}"  required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" title="Por favor, insira apenas letras.">
 																	</div>
 																</div>
 
@@ -201,7 +201,7 @@
 						<div class="form-group row">
 							<label class="col-form-label col-md-2">Nome</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" name="nome" required>
+								<input type="text" class="form-control" name="nome"  required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" title="Por favor, insira apenas letras.">
 							</div>
 						</div>
 
