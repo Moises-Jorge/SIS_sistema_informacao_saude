@@ -139,58 +139,17 @@
 						</div>
 						<div class="col-lg-8">
 							<div class="doctor-slider slider">
-							
-								
-								<div class="profile-widget">
-									<div class="doc-img">
-										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="{{asset('assets/img/doctors/doctor.jpg')}}">
-										</a>
-										
-									</div>
-									<div class="pro-content">
-										<h3 class="title">
-											<a href="doctor-profile.html">nome_medicor</a> 
-											<i class="fas fa-check-circle verified"></i>
-										</h3>
-										<p class="speciality">especialidade_medico</p>
-									
-										<div class="row row-sm">
-											<div class="col-6">
-												<a href="login.html" class="btn view-btn">View Profile</a>
-											</div>
-											<div class="col-6">
-												<a href="login.html" class="btn book-btn">Book Now</a>
-											</div>
+								@foreach($todo_pessoal_clinico as $medicos)
+									<div class="profile-widget">
+										<div class="pro-content">
+											<h3 class="title">
+												<a href="doctor-profile.html">{{$medicos->nomeUser}}</a> 
+												<i class="fas fa-check-circle verified"></i>
+											</h3>
+											<p class="speciality">{{$medicos->nomeEspecialidade}}</p>
 										</div>
 									</div>
-								</div>
-
-								<div class="profile-widget">
-									<div class="doc-img">
-										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="{{asset('assets/img/doctors/doctor.jpg')}}">
-										</a>
-										
-									</div>
-									<div class="pro-content">
-										<h3 class="title">
-											<a href="doctor-profile.html">nome_medico</a> 
-											<i class="fas fa-check-circle verified"></i>
-										</h3>
-										<p class="speciality">especialidade_medico</p>
-									
-										<div class="row row-sm">
-											<div class="col-6">
-												<a href="login.html" class="btn view-btn">View Profile</a>
-											</div>
-											<div class="col-6">
-												<a href="login.html" class="btn book-btn">Book Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								
+								@endforeach
 							</div>
 						</div>
 				   </div>
