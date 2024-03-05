@@ -88,7 +88,7 @@
 									<table class="datatable table table-hover table-center mb-0">
 										<thead>
 											<tr>
-												<th>Id Utente</th>
+												{{-- <th>Id Utente</th> --}}
 												<th>Nome Utente</th>
 												<th>Tipo de Doença</th>
 												<th>Nome Doença</th>
@@ -102,7 +102,7 @@
 										<tbody>
 											@foreach ($todos_diagnosticos as $diagnostico)
 											<tr>
-												<td>{{ $diagnostico->idUser }}</td>
+												{{-- <td>{{ $diagnostico->idUser }}</td> --}}
 												<td>{{ $diagnostico->nomeUser }}</td>
 												<td>{{ $diagnostico->tipo_doenca }}</td>
 												<td>
@@ -159,7 +159,7 @@
 						<tbody>
 							@foreach ($todos_agendamentos as $agendamento)
 							<tr>
-								<td>{{ $agendamento->id }}</td> {{-- MODIFICAR ESSA CONTAGEM --}}
+								<td>{{ $agendamento->id }}</td> {{--MODIFICAR ESSA CONTAGEM--}}
 								<td>{{ $agendamento->nomeUser }}</td>
 								<td>{{ $agendamento->telefone }}</td>
 								<td>{{ $agendamento->data }}</td>
