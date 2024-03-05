@@ -15,6 +15,7 @@ use App\Http\Controllers\ReceitaController;
 use App\Http\Controllers\RegClinicoUtenteController;
 use App\Http\Controllers\UserController;
 use App\Models\Diagnostico;
+use App\Models\Pessoal_Clinico;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,7 +46,16 @@ Route::middleware('throttle:50,1')->group(function () {
     });
     
     Route::get('/', function () {
-        return view('site.index');
+        $todo_pessoal_clinico = Pessoal_Clinico::join('users','users.id','=','pessoal__clinicos.user_id')
+        ->join('especialidades','especialidades.id','=','pessoal__clinicos.especialidade_id')
+        ->select('users.id',
+        'users.nome as nomeUser',
+        'especialidades.nome as nomeEspecialidade',
+        'pessoal__clinicos.num_ordem',
+        'users.telefone',
+        'users.tipo_utilizador as tipo')
+        ->get();
+        return view('site.index',compact("todo_pessoal_clinico"));
     });
     
     
